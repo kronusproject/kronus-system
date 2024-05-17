@@ -13,6 +13,6 @@ export PATH=$PATH:$LIBERO_INSTALL_DIR/Synplify/bin
 export PATH=$PATH:$LIBERO_INSTALL_DIR/Model/modeltech/linuxacoem
 
 # License
-export LM_LICENSE_FILE=1702@localhost
-export SNPSLMD_LICENSE_FILE=1702@localhost
+export LM_LICENSE_FILE=1702@${LICENSE_SERVER:=localhost}
+export SNPSLMD_LICENSE_FILE=1702@${LICENSE_SERVER:=localhost}
 

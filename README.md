@@ -1,9 +1,9 @@
-# Kronus Gateware
+# Kronus System
 
 ```shell
-source scripts/setup.bash
+source scripts/env.bash
 ```
 
 ```shell
-LICENSE_SERVER=192.168.122.169 source scripts/setup.bash
+LICENSE_SERVER=192.168.122.169 source scripts/env.bash
 ```

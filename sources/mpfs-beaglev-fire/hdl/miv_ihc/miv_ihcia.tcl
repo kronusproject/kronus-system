@@ -1,0 +1,10 @@
+create_hdl_core -file $kronus::project_dir/hdl/miv_ihcia.v -module {MIV_IHCIA} -library {work} -package {}
+hdl_core_add_bif -hdl_core_name {MIV_IHCIA} -bif_definition {APB:AMBA:AMBA2:slave} -bif_name {APB_SLAVE} -signal_map {}
+hdl_core_assign_bif_signal -hdl_core_name {MIV_IHCIA} -bif_name {APB_SLAVE} -bif_signal_name {PADDR} -core_signal_name {paddr}
+hdl_core_assign_bif_signal -hdl_core_name {MIV_IHCIA} -bif_name {APB_SLAVE} -bif_signal_name {PENABLE} -core_signal_name {penable}
+hdl_core_assign_bif_signal -hdl_core_name {MIV_IHCIA} -bif_name {APB_SLAVE} -bif_signal_name {PWRITE} -core_signal_name {pwrite}
+hdl_core_assign_bif_signal -hdl_core_name {MIV_IHCIA} -bif_name {APB_SLAVE} -bif_signal_name {PRDATA} -core_signal_name {prdata}
+hdl_core_assign_bif_signal -hdl_core_name {MIV_IHCIA} -bif_name {APB_SLAVE} -bif_signal_name {PWDATA} -core_signal_name {pwdata}
+hdl_core_assign_bif_signal -hdl_core_name {MIV_IHCIA} -bif_name {APB_SLAVE} -bif_signal_name {PREADY} -core_signal_name {pready}
+hdl_core_assign_bif_signal -hdl_core_name {MIV_IHCIA} -bif_name {APB_SLAVE} -bif_signal_name {PSLVERR} -core_signal_name {pslverr}
+hdl_core_assign_bif_signal -hdl_core_name {MIV_IHCIA} -bif_name {APB_SLAVE} -bif_signal_name {PSELx} -core_signal_name {psel}

@@ -1,0 +1,17 @@
+# BANK0 voltage setting
+set_iobank -bank_name Bank0  \
+    -vcci 1.80 \
+    -fixed true \
+    -update_iostd true
+    
+# BANK1 voltage setting - J45 set to 1 & 2 (default)
+set_iobank -bank_name Bank1  \
+    -vcci 3.30 \
+    -fixed true \
+    -update_iostd true
+    
+# BANK1 voltage setting - J45 set to 2 & 3
+#set_iobank -bank_name Bank1 \
+#    -vcci 2.50 \
+#    -fixed true \
+#    -update_iostd true

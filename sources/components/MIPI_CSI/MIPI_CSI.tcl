@@ -1,1 +1,0 @@
-puts "======== MIPI CSI: NONE ========"

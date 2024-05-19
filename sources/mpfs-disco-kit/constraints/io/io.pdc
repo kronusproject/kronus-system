@@ -1,0 +1,334 @@
+# BANK0 voltage setting
+set_iobank -bank_name Bank0 \
+    -vcci 1.80 \
+    -fixed true \
+    -update_iostd true
+    
+# BANK1 voltage setting - J45 set to 1 & 2 (default)
+set_iobank -bank_name Bank1 \
+    -vcci 3.30 \
+    -fixed true \
+    -update_iostd true
+    
+# BANK1 voltage setting - J45 set to 2 & 3
+#set_iobank -bank_name Bank1 \
+#    -vcci 2.50 \
+#    -fixed true \
+#    -update_iostd true
+
+# MISC
+set_io -port_name REF_CLK_50MHz \
+    -pin_name R18 \
+    -fixed true \
+    -io_std LVCMOS18 \
+    -DIRECTION INPUT
+
+set_io -port_name SWITCH1 \
+    -pin_name T19 \
+    -fixed true \
+    -DIRECTION INPUT
+    
+set_io -port_name SWITCH2 \
+    -pin_name U18 \
+    -fixed true \
+    -DIRECTION INPUT
+
+set_io -port_name DIP1 \
+    -pin_name U17 \
+    -fixed true \
+    -DIRECTION INPUT
+    
+set_io -port_name DIP2 \
+    -pin_name Y16 \
+    -fixed true \
+    -DIRECTION INPUT
+    
+set_io -port_name DIP3 \
+    -pin_name R17 \
+    -fixed true \
+    -DIRECTION INPUT
+    
+set_io -port_name DIP4 \
+    -pin_name AA15 \
+    -fixed true \
+    -DIRECTION INPUT
+    
+set_io -port_name DIP5 \
+    -pin_name AA20 \
+    -fixed true \
+    -DIRECTION INPUT
+    
+set_io -port_name DIP6 \
+    -pin_name Y20 \
+    -fixed true \
+    -DIRECTION INPUT
+    
+set_io -port_name DIP7 \
+    -pin_name V21 \
+    -fixed true \
+    -DIRECTION INPUT
+    
+set_io -port_name DIP8 \
+    -pin_name AA19 \
+    -fixed true \
+    -DIRECTION INPUT
+
+set_io -port_name LED1 \
+    -pin_name T18 \
+    -fixed true \
+    -DIRECTION OUTPUT
+    
+set_io -port_name LED2 \
+    -pin_name V17 \
+    -fixed true \
+    -DIRECTION OUTPUT
+    
+set_io -port_name LED3 \
+    -pin_name U20 \
+    -fixed true \
+    -DIRECTION OUTPUT
+    
+set_io -port_name LED4 \
+    -pin_name U21 \
+    -fixed true \
+    -DIRECTION OUTPUT
+    
+set_io -port_name LED5 \
+    -pin_name AA18 \
+    -fixed true \
+    -DIRECTION OUTPUT
+
+set_io -port_name LED6 \
+    -pin_name V16 \
+    -fixed true \
+    -DIRECTION OUTPUT
+    
+set_io -port_name LED7 \
+    -pin_name U15 \
+    -fixed true \
+    -DIRECTION OUTPUT
+
+# MAC
+set_io -port_name MDIO_PAD \
+    -pin_name D16 \
+    -fixed true \
+    -io_std LVCMOS33 \
+    -DIRECTION INOUT
+    
+set_io -port_name MAC_0_MDC \
+    -pin_name D15 \
+    -fixed true \
+    -io_std LVCMOS33 \
+    -DIRECTION OUTPUT
+
+set_io -port_name VSC_RESETN \
+    -pin_name A14 \
+    -fixed true \
+    -io_std LVCMOS33 \
+    -DIRECTION OUTPUT
+    
+set_io -port_name VSC_TXDIS_SRESETN \
+    -pin_name E20 \
+    -fixed true \
+    -io_std LVCMOS33 \
+    -DIRECTION OUTPUT
+
+# mikroBUS
+set_io -port_name MDIO_PAD \
+    -pin_name D16 \
+    -fixed true \
+    -io_std LVCMOS33 \
+    -DIRECTION INOUT
+    
+set_io -port_name MAC_0_MDC \
+    -pin_name D15 \
+    -fixed true \
+    -io_std LVCMOS33 \
+    -DIRECTION OUTPUT
+
+set_io -port_name VSC_RESETN \
+    -pin_name A14 \
+    -fixed true \
+    -io_std LVCMOS33 \
+    -DIRECTION OUTPUT
+    
+set_io -port_name VSC_TXDIS_SRESETN \
+    -pin_name E20 \
+    -fixed true \
+    -io_std LVCMOS33 \
+    -DIRECTION OUTPUT
+
+# RPi
+set_io -port_name RPI_I2C_SDA \
+    -pin_name E18 \
+    -fixed true \
+    -io_std LVCMOS33 \
+    -CLAMP_DIODE OFF \
+    -RES_PULL None \
+    -DIRECTION INOUT
+
+set_io -port_name RPI_I2C_SCL \
+    -pin_name F18 \
+    -fixed true \
+    -io_std LVCMOS33 \
+    -CLAMP_DIODE OFF \
+    -RES_PULL None \
+    -DIRECTION INOUT
+
+set_io -port_name RPI_GPIO4 \
+    -pin_name E12 \
+    -fixed true \
+    -io_std LVCMOS33 \
+    -DIRECTION INOUT
+    
+set_io -port_name RPI_GPIO17 \
+    -pin_name G18 \
+    -fixed true \
+    -io_std LVCMOS33 \
+    -DIRECTION INOUT
+    
+set_io -port_name RPI_GPIO18 \
+    -pin_name E10 \
+    -fixed true \
+    -io_std LVCMOS33 \
+    -DIRECTION INOUT
+    
+set_io -port_name RPI_GPIO27 \
+    -pin_name F21 \
+    -fixed true \
+    -io_std LVCMOS33 \
+    -DIRECTION INOUT
+    
+set_io -port_name RPI_GPIO22 \
+    -pin_name F20 \
+    -fixed true \
+    -io_std LVCMOS33 \
+    -DIRECTION INOUT
+    
+set_io -port_name RPI_GPIO23 \
+    -pin_name E21 \
+    -fixed true \
+    -io_std LVCMOS33 \
+    -DIRECTION INOUT
+    
+set_io -port_name RPI_GPIO24 \
+    -pin_name F19 \
+    -fixed true \
+    -io_std LVCMOS33 \
+    -DIRECTION INOUT
+    
+set_io -port_name RPI_GPIO25 \
+    -pin_name A19 \
+    -fixed true \
+    -io_std LVCMOS33 \
+    -DIRECTION INOUT
+    
+set_io -port_name RPI_GPIO5 \
+    -pin_name D17 \
+    -fixed true \
+    -io_std LVCMOS33 \
+    -DIRECTION INOUT
+    
+set_io -port_name RPI_GPIO6 \
+    -pin_name D18 \
+    -fixed true \
+    -io_std LVCMOS33 \
+    -DIRECTION INOUT
+    
+set_io -port_name RPI_GPIO12 \
+    -pin_name B20 \
+    -fixed true \
+    -io_std LVCMOS33 \
+    -DIRECTION INOUT
+    
+set_io -port_name RPI_GPIO13 \
+    -pin_name A15 \
+    -fixed true \
+    -io_std LVCMOS33 \
+    -DIRECTION INOUT
+    
+set_io -port_name RPI_GPIO19 \
+    -pin_name B19 \
+    -fixed true \
+    -io_std LVCMOS33 \
+    -DIRECTION INOUT
+
+set_io -port_name RPI_GPIO16 \
+    -pin_name B15 \
+    -fixed true \
+    -io_std LVCMOS33 \
+    -DIRECTION INOUT
+    
+set_io -port_name RPI_GPIO26 \
+    -pin_name B17 \
+    -fixed true \
+    -io_std LVCMOS33 \
+    -DIRECTION INOUT
+    
+set_io -port_name RPI_GPIO20 \
+    -pin_name B14 \
+    -fixed true \
+    -io_std LVCMOS33 \
+    -DIRECTION INOUT
+    
+set_io -port_name RPI_GPIO21 \
+    -pin_name  E13 \
+    -fixed true \
+    -io_std LVCMOS33 \
+    -DIRECTION INOUT
+
+# UARTS
+set_io -port_name FTDI_UART_D_RXD \
+    -pin_name Y21 \
+    -fixed true \
+    -DIRECTION OUTPUT
+    
+set_io -port_name FTDI_UART_D_TXD \
+    -pin_name W21 \
+    -fixed true \
+    -DIRECTION OUTPUT
+
+# 7_SEG
+set_io -port_name SPISS \
+    -pin_name Y15 \
+    -fixed true \
+    -DIRECTION OUTPUT
+
+set_io -port_name SPISDO \
+    -pin_name Y19 \
+    -fixed true \
+    -DIRECTION OUTPUT
+
+set_io -port_name SPISCLKO \
+    -pin_name W16 \
+    -fixed true \
+    -DIRECTION OUTPUT
+
+# I2C_LOOPBACK
+#set_io -port_name MBUS_I2C_SCL \
+#    -pin_name D17 \
+#    -fixed true \
+#    -DIRECTION INOUT \
+#    -io_std LVCMOS33 \
+#    -RES_PULL UP
+#
+#set_io -port_name MBUS_I2C_SDA \
+#    -pin_name B19 \
+#    -fixed true \
+#    -DIRECTION INOUT \
+#    -io_std LVCMOS33 \
+#    -RES_PULL UP
+#    
+#set_io -port_name I2C1_SCL \
+#    -pin_name D18 \
+#    -fixed true \
+#    -DIRECTION INOUT \
+#    -io_std LVCMOS33 \
+#    -RES_PULL UP
+#    
+#set_io -port_name I2C1_SDA \
+#    -pin_name B17 \
+#    -fixed true \
+#    -DIRECTION INOUT \
+#    -io_std LVCMOS33 \
+#    -RES_PULL UP

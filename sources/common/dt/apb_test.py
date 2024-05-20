@@ -5,10 +5,10 @@ from typing import Tuple
 
 class APBTest:
     STATUS: int = 0x00
-    CONTROL_0: int = 0x01
-    CONTROL_1: int = 0x02
+    CONTROL_0: int = 0x10
+    CONTROL_1: int = 0x20
 
-    def __init__(self, path: str = "/dev/uio/apb_test") -> None:
+    def __init__(self, path: str = "/dev/uio/apb_test_0") -> None:
         """
         Default path requires a udev rule:
 

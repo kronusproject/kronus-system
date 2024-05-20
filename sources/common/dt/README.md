@@ -1,5 +1,5 @@
 ```shell
-dtc -O dtb -o apb-test.dtbo apb-test.dtso
+dtc -@ -O dtb -o apb-test.dtbo apb-test.dtso
 ```
 
 ```shell

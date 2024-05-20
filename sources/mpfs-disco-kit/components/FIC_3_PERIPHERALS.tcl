@@ -135,11 +135,14 @@ sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {SPI_FOR_7_SEG_0:SPIS
 sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {SPI_FOR_7_SEG_0:SPICLKI} -value {GND}
 sd_mark_pins_unused -sd_name ${sd_name} -pin_names {SPI_FOR_7_SEG_0:SPIMODE}
 
-
+# Add APB_TEST_0 instance
+sd_instantiate_hdl_core -sd_name ${sd_name} -hdl_core_name {APB_TEST} -instance_name {APB_TEST_0}
+sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {APB_TEST_0:status} -value {VCC}
+sd_mark_pins_unused -sd_name ${sd_name} -pin_names {APB_TEST_0:control}
 
 # Add scalar net connections
-sd_connect_pins -sd_name ${sd_name} -pin_names {"COREGPIO_C0:PCLK" "CORE_I2C_C0_0_WRAPPER_1:PCLK" "CoreUARTapb_C0_0:PCLK" "IHC_SUBSYSTEM_0:pclk" "PCLK" "PWM:PCLK" "RECONFIGURATION_INTERFACE_0:PCLK" "SPI_FOR_7_SEG_0:PCLK" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"COREGPIO_C0:PRESETN" "CORE_I2C_C0_0_WRAPPER_1:PRESETN" "CoreUARTapb_C0_0:PRESETN" "IHC_SUBSYSTEM_0:presetn" "PRESETN" "PWM:PRESETN" "RECONFIGURATION_INTERFACE_0:PRESETN" "SPI_FOR_7_SEG_0:PRESETN" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"COREGPIO_C0:PCLK" "CORE_I2C_C0_0_WRAPPER_1:PCLK" "CoreUARTapb_C0_0:PCLK" "IHC_SUBSYSTEM_0:pclk" "PCLK" "PWM:PCLK" "RECONFIGURATION_INTERFACE_0:PCLK" "SPI_FOR_7_SEG_0:PCLK" "APB_TEST_0:pclk" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"COREGPIO_C0:PRESETN" "CORE_I2C_C0_0_WRAPPER_1:PRESETN" "CoreUARTapb_C0_0:PRESETN" "IHC_SUBSYSTEM_0:presetn" "PRESETN" "PWM:PRESETN" "RECONFIGURATION_INTERFACE_0:PRESETN" "SPI_FOR_7_SEG_0:PRESETN" "APB_TEST_0:presetn" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"COREI2C_C0_SCL" "CORE_I2C_C0_0_WRAPPER_1:COREI2C_C0_SCL" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"COREI2C_C0_SDA" "CORE_I2C_C0_0_WRAPPER_1:COREI2C_C0_SDA" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"CORE_I2C_C0_0_WRAPPER_1:INT" "CORE_I2C_C0_INT" }
@@ -166,6 +169,7 @@ sd_connect_pins -sd_name ${sd_name} -pin_names {"CORE_I2C_C0_0_WRAPPER_1:APBslav
 sd_connect_pins -sd_name ${sd_name} -pin_names {"CoreUARTapb_C0_0:APB_bif" "FIC_3_ADDRESS_GENERATION_1:FIC_3_0x4000_03xx" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"FIC_3_ADDRESS_GENERATION_1:FIC_3_0x4000_00xx" "PWM:APBslave" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"FIC_3_ADDRESS_GENERATION_1:FIC_3_0x4000_04xx" "SPI_FOR_7_SEG_0:APB_bif" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"FIC_3_ADDRESS_GENERATION_1:FIC_3_0x4000_05xx" "APB_TEST_0:APB_TARGET" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"FIC_3_ADDRESS_GENERATION_1:FIC_3_0x43xx_xxxx_0x48xx_xxxx" "RECONFIGURATION_INTERFACE_0:APBS_SLAVE" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"FIC_3_ADDRESS_GENERATION_1:FIC_3_0x5xxx_xxxx" "IHC_SUBSYSTEM_0:APB3mmaster" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"PLL0_SW_DRI" "RECONFIGURATION_INTERFACE_0:PLL0_SW_DRI" }

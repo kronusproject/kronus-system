@@ -26,6 +26,7 @@ import_files -library work -hdl_source $script_dir/hdl/miv_ihcc_mem.v
 import_files -library work -hdl_source $script_dir/hdl/miv_ihcc_irqs.v
 import_files -library work -hdl_source $script_dir/hdl/miv_ihcc_ctrl.v
 import_files -library work -hdl_source $script_dir/hdl/miv_ihcc.v
+import_files -library work -hdl_source ${kronus::source_dir}/common/hdl/apb_test.sv
 
 build_design_hierarchy
 
@@ -33,6 +34,7 @@ source $script_dir/components/cores/APB_ARBITER.tcl
 source $script_dir/components/cores/APB_PASS_THROUGH.tcl 
 source $script_dir/components/cores/MIV_IHCIA.tcl
 source $script_dir/components/cores/MIV_IHCC.tcl
+source ${kronus::source_dir}/common/apb_test.tcl
 
 build_design_hierarchy
 

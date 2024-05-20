@@ -1,0 +1,19 @@
+/dts-v1/;
+/plugin/;
+
+&{/chosen} {
+	overlays {
+		apb-test = "1";
+	};
+};
+
+&{/} {
+	fabric-bus@40000000 {
+		apb_test_0: apb_test@40000500 {
+			compatible = "dmem-uio";
+			reg = <0x40000500 0x100>;
+			status = "okay";
+		};
+	};
+};
+

@@ -4,9 +4,9 @@ from typing import Tuple
 
 
 class APBTest:
-    STATUS: int = 0x00
-    CONTROL_0: int = 0x10
-    CONTROL_1: int = 0x20
+    CONTROL_0: int = 0x00
+    CONTROL_1: int = 0x10
+    STATUS: int = 0x20
 
     def __init__(self, path: str = "/dev/uio/apb_test_0") -> None:
         """
@@ -44,7 +44,7 @@ class APBTest:
 
     def write_control_1(self, data: bytes) -> None:
         """
-        Set the multiplexer to an external PPS
+        Write CONTROL_1
         """
         self.mm.seek(self.CONTROL_1)
         self.mm.write(data)

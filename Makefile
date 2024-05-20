@@ -1,4 +1,4 @@
-PROJECT := kronus
+PROJECT := firebox
 
 BOARD ?= mpfs-disco-kit
 

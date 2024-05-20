@@ -1,4 +1,4 @@
-# Kronus System
+# FireBox System
 
 ```shell
 source scripts/env.bash

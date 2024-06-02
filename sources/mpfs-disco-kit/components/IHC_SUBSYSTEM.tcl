@@ -1,4 +1,4 @@
-# Creating SmartDesign IHC_SUBSYSTEM
+# Creating SmartDesign "IHC_SUBSYSTEM"
 set sd_name {IHC_SUBSYSTEM}
 create_smartdesign -sd_name ${sd_name}
 
@@ -37,7 +37,7 @@ sd_create_bif_port -sd_name ${sd_name} -port_name {APB3mmaster} -port_bif_vlnv {
 "PRDATA:PRDATA" \
 "PWDATA:PWDATA" \
 "PREADY:PREADY" \
-"PSLVERR:PSLVERR" } 
+"PSLVERR:PSLVERR" }
 
 # Add APB_ARBITER_0 instance
 sd_instantiate_hdl_core -sd_name ${sd_name} -hdl_core_name {APB_ARBITER} -instance_name {APB_ARBITER_0}
@@ -307,7 +307,7 @@ sd_connect_pins -sd_name ${sd_name} -pin_names {"IHC_APB_1:APBmslave8" "U54_4_IR
 
 # Re-enable auto promotion of pins of type 'pad'
 auto_promote_pad_pins -promote_all 1
-# Save the smartDesign
+# Save the SmartDesign
 save_smartdesign -sd_name ${sd_name}
-# Generate SmartDesign IHC_SUBSYSTEM
+# Generate SmartDesign "IHC_SUBSYSTEM"
 generate_component -component_name ${sd_name}

@@ -11,6 +11,7 @@ namespace eval kronus {
         variable project_dir
         variable design_version
         variable board
+        variable mss_component "PF_SOC_MSS.cxz"
         variable hss_image_path
 
         if { $::argc > 0 } {
@@ -44,6 +45,12 @@ namespace eval kronus {
 
         if {[info exists HSS_IMAGE_PATH]} {
             set hss_image_path $HSS_IMAGE_PATH
+        }
+
+        if {[info exists MSS_COMPONENT]} {
+            set mss_component $BOARD
+        } elseif {[info exists ::env(MSS_COMPONENT)]} {
+            set mss_component $::env(MSS_COMPONENT)
         }
 
         # TODO
@@ -110,13 +117,14 @@ namespace eval kronus {
     proc create_design {} {
         variable source_dir
         variable output_dir
+        variable mss_component
         variable board
 
-        import_mss_component -file "$output_dir/mss/MPFS_MSS.cxz"
+        import_mss_component -file "$output_dir/mss/$mss_component"
 
         source "$source_dir/$board/components.tcl"
 
-        set_root -module {SYSTEM::work} 
+        set_root -module {TOP::work}
 
         source "$source_dir/$board/constraints.tcl"
 
@@ -124,8 +132,8 @@ namespace eval kronus {
 		derive_constraints_sdc
 
         save_project
-        # sd_reset_layout -sd_name {SYSTEM}
-        # save_smartdesign sd_name {SYSTEM}
+        # sd_reset_layout -sd_name {TOP}
+        # save_smartdesign sd_name {TOP}
     }
 
     proc create_envm_config {config content} {

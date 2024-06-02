@@ -34,29 +34,29 @@ set_io -port_name MBUS_SPI_MOSI \
     -io_std LVCMOS33 \
     -DIRECTION OUTPUT
     
-set_io -port_name MBUS_PWM \
-    -pin_name D13 \
-    -fixed true \
-    -io_std LVCMOS33 \
-    -DIRECTION OUTPUT
+#set_io -port_name MBUS_PWM \
+#    -pin_name D13 \
+#    -fixed true \
+#    -io_std LVCMOS33 \
+#    -DIRECTION OUTPUT
     
 set_io -port_name MBUS_INT \
     -pin_name G17 \
     -fixed true \
     -io_std LVCMOS33 \
     -DIRECTION INPUT
-    
-set_io -port_name MBUS_UART_RXD \
-    -pin_name E14 \
-    -fixed true \
-    -io_std LVCMOS33 \
-    -DIRECTION OUTPUT
-    
-set_io -port_name MBUS_UART_TXD \
-    -pin_name E15 \
-    -fixed true \
-    -io_std LVCMOS33 \
-    -DIRECTION INPUT
+
+#set_io -port_name MBUS_UART_RXD \
+#    -pin_name E14 \
+#    -fixed true \
+#    -io_std LVCMOS33 \
+#    -DIRECTION OUTPUT
+#    
+#set_io -port_name MBUS_UART_TXD \
+#    -pin_name E15 \
+#    -fixed true \
+#    -io_std LVCMOS33 \
+#    -DIRECTION INPUT
     
 set_io -port_name MBUS_I2CSCL \
     -pin_name D11 \

@@ -6,7 +6,7 @@ source $script_dir/kronus.tcl
 kronus::parse_args
 
 open_project -file $kronus::project_dir/$kronus::project_name.prjx
-open_smartdesign -sd_name {SYSTEM}
+open_smartdesign -sd_name {TOP}
 
 # TODO
 # configure_tool -name {CONFIGURE_PROG_OPTIONS} \

@@ -1,8 +1,8 @@
-# Exporting Component Description of FIC0_INITIATOR to TCL
+# Exporting Component Description of FIC_0_AXI4_INTERCONNECT to TCL
 # Family: PolarFireSoC
 # Part Number: MPFS095T-1FCSG325E
-# Create and Configure the core component FIC0_INITIATOR
-create_and_configure_core -core_vlnv {Actel:DirectCore:COREAXI4INTERCONNECT:2.8.103} -component_name {FIC0_INITIATOR} -params {\
+# Create and Configure the core component FIC_0_AXI4_INTERCONNECT
+create_and_configure_core -core_vlnv {Actel:DirectCore:COREAXI4INTERCONNECT:2.8.103} -component_name {FIC_0_AXI4_INTERCONNECT} -params {\
 "ADDR_WIDTH:38"  \
 "CROSSBAR_MODE:0"  \
 "DATA_WIDTH:64"  \
@@ -1458,4 +1458,4 @@ create_and_configure_core -core_vlnv {Actel:DirectCore:COREAXI4INTERCONNECT:2.8.
 "SLV_AXI4PRT_ADDRDEPTH:8"  \
 "SLV_AXI4PRT_DATADEPTH:9"  \
 "USER_WIDTH:1"   }
-# Exporting Component Description of FIC0_INITIATOR to TCL done
+# Exporting Component Description of FIC_0_AXI4_INTERCONNECT to TCL done

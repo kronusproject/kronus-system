@@ -7,9 +7,7 @@ import_files \
     -io_pdc "$script_dir/constraints/io/MAC.pdc" \
     -io_pdc "$script_dir/constraints/io/MBUS.pdc" \
     -io_pdc "$script_dir/constraints/io/RPI.pdc" \
-    -io_pdc "$script_dir/constraints/io/UARTS.pdc" \
-    -io_pdc "$script_dir/constraints/io/7_SEG.pdc" \
-    -io_pdc "$script_dir/constraints/io/I2C_LOOPBACK.pdc"
+    -io_pdc "$script_dir/constraints/io/UARTS.pdc"
 
 organize_tool_files \
     -tool {PLACEROUTE} \

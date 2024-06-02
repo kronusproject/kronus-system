@@ -54,7 +54,7 @@ run_tool -name {GENERATEPROGRAMMINGFILE}
 file mkdir $kronus::export_dir
 file mkdir $kronus::export_dir/fpe
 
-# FIXME ffails with with no HSS image
+# FIXME fails with with no HSS image
 set components {FABRIC SNVM ENVM}
 kronus::export_fpe_job $kronus::project_name "$kronus::export_dir/fpe" $components
 

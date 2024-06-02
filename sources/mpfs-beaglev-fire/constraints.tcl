@@ -11,7 +11,7 @@ import_files \
 organize_tool_files \
     -tool {SYNTHESIZE} \
     -file "${kronus::project_dir}/constraint/FIC_CLOCKS.sdc" \
-    -module {SYSTEM::work} \
+    -module {TOP::work} \
     -input_type {constraint}
 
 organize_tool_files \
@@ -21,11 +21,11 @@ organize_tool_files \
     -file "${kronus::project_dir}/constraint/FIC_CLOCKS.sdc" \
     -file "${kronus::project_dir}/constraint/io/CAPE.pdc" \
     -file "${kronus::project_dir}/constraint/io/M2.pdc" \
-    -module {SYSTEM::work} \
+    -module {TOP::work} \
     -input_type {constraint}
 
 organize_tool_files \
     -tool {VERIFYTIMING} \
     -file "${kronus::project_dir}/constraint/FIC_CLOCKS.sdc" \
-    -module {SYSTEM::work} \
+    -module {TOP::work} \
     -input_type {constraint}

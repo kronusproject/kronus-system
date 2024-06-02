@@ -28,16 +28,16 @@ source $script_dir/hdl/miv_ihc/miv_ihcia.tcl
 
 build_design_hierarchy
 
-source $script_dir/components/cores/CORERESET.tcl
-source $script_dir/components/cores/INIT_MONITOR.tcl
-source $script_dir/components/cores/FPGA_CCC_C0.tcl
-source $script_dir/components/cores/OSCILLATOR_160MHz.tcl
-source $script_dir/components/cores/ADC_MCLK_CCC.tcl
-source $script_dir/components/cores/IHC_APB.tcl
-source $script_dir/components/cores/FIC3_INITIATOR.tcl
+source $script_dir/components/CORERESET.tcl
+source $script_dir/components/INIT_MONITOR.tcl
+source $script_dir/components/FPGA_CCC_C0.tcl
+source $script_dir/components/OSCILLATOR_160MHz.tcl
+source $script_dir/components/ADC_MCLK_CCC.tcl
+source $script_dir/components/IHC_APB.tcl
+source $script_dir/components/FIC3_INITIATOR.tcl
 source $script_dir/components/CLOCKS_AND_RESETS.tcl
 source $script_dir/components/IHC_SUBSYSTEM.tcl
 source $script_dir/components/RISCV_SUBSYSTEM.tcl
-source $script_dir/components/SYSTEM.tcl
+source $script_dir/components/TOP.tcl
 
 build_design_hierarchy

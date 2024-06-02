@@ -1,6 +1,6 @@
 set script_dir [file dirname [file normalize [info script]]]
 
-set sd_name {SYSTEM}
+set sd_name {TOP}
 
 create_smartdesign -sd_name ${sd_name}
 

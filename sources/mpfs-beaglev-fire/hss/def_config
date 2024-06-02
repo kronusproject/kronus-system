@@ -6,7 +6,7 @@
 #
 # BeagleV-Fire Design Configuration Options
 #
-CONFIG_SOC_FPGA_DESIGN_XML="boards/mpfs-beaglev-fire/soc_fpga_design/xml/MPFS_MSS_mss_cfg.xml"
+CONFIG_SOC_FPGA_DESIGN_XML="boards/mpfs-beaglev-fire/soc_fpga_design/xml/PF_SOC_MSS_mss_cfg.xml"
 # end of BeagleV-Fire Design Configuration Options
 # end of Board/Design Configuration Options
 

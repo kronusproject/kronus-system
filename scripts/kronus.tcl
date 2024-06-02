@@ -2,7 +2,7 @@ namespace eval kronus {
     variable script_dir [file dirname [file normalize [info script]]]
     variable root_dir [file normalize "$script_dir/.."]
     variable source_dir "$root_dir/sources"
-    variable project_name "kronus"
+    variable project_name "system"
     variable design_version "0"
 
     proc parse_args {} {

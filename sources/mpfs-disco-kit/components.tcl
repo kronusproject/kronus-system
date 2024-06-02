@@ -20,20 +20,20 @@ smartdesign \
     -bus_interface_id_width_drc_change_error_to_warning 1
 
 # HDL sources
-import_files -library work -hdl_source $script_dir/hdl/apb_arbiter.v
-import_files -library work -hdl_source $script_dir/hdl/miv_ihcia.v
-import_files -library work -hdl_source $script_dir/hdl/miv_ihcc_mem.v
-import_files -library work -hdl_source $script_dir/hdl/miv_ihcc_irqs.v
-import_files -library work -hdl_source $script_dir/hdl/miv_ihcc_ctrl.v
-import_files -library work -hdl_source $script_dir/hdl/miv_ihcc.v
+import_files -library work -hdl_source ${kronus::source_dir}/common/miv_ihc//hdl/miv_ihcia.v
+import_files -library work -hdl_source ${kronus::source_dir}/common/miv_ihc//hdl/miv_ihcc_mem.v
+import_files -library work -hdl_source ${kronus::source_dir}/common/miv_ihc//hdl/miv_ihcc_irqs.v
+import_files -library work -hdl_source ${kronus::source_dir}/common/miv_ihc//hdl/miv_ihcc_ctrl.v
+import_files -library work -hdl_source ${kronus::source_dir}/common/miv_ihc//hdl/miv_ihcc.v
+import_files -library work -hdl_source ${kronus::source_dir}/common/apb_arbiter/apb_arbiter.v
 import_files -library work -hdl_source ${kronus::source_dir}/common/apb_test/hdl/apb_test.sv
 
 build_design_hierarchy
 
 # HDL+ components
-source $script_dir/components/APB_ARBITER.tcl
-source $script_dir/components/MIV_IHCIA.tcl
-source $script_dir/components/MIV_IHCC.tcl
+source ${kronus::source_dir}/common/miv_ihc/components/MIV_IHCIA.tcl
+source ${kronus::source_dir}/common/miv_ihc/components/MIV_IHCC.tcl
+source ${kronus::source_dir}/common/apb_arbiter/APB_ARBITER.tcl
 source ${kronus::source_dir}/common/apb_test/components/apb_test.tcl
 
 build_design_hierarchy

@@ -21,6 +21,10 @@ all: fpe
 .PHONY: fpe
 fpe: $(OUTPUT_DIR)/export/fpe/$(PROJECT).job
 
+.PHONY: pgm
+pgm:
+	libero SCRIPT:$(KRONUS_DIR)scripts/program.tcl "SCRIPT_ARGS: BOARD:$(BOARD) OUTPUT_DIR:$(abspath $(OUTPUT_DIR))"
+
 .PHONY: prj
 prj: $(OUTPUT_DIR)/project/$(PROJECT).prjx
 

@@ -243,6 +243,7 @@ sd_create_pin_slices -sd_name ${sd_name} -pin_name {FABRIC_PERIPHERALS_0:app_tes
 sd_mark_pins_unused -sd_name ${sd_name} -pin_names {FABRIC_PERIPHERALS_0:app_test_control[8:8]}
 sd_create_pin_slices -sd_name ${sd_name} -pin_name {FABRIC_PERIPHERALS_0:app_test_control} -pin_slices {[9:9]}
 sd_mark_pins_unused -sd_name ${sd_name} -pin_names {FABRIC_PERIPHERALS_0:app_test_control[9:9]}
+sd_mark_pins_unused -sd_name ${sd_name} -pin_names {FABRIC_PERIPHERALS_0:axi_test_control}
 
 
 
@@ -389,7 +390,6 @@ sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {RISCV_SUBSYSTEM_0:MS
 sd_create_pin_slices -sd_name ${sd_name} -pin_name {RISCV_SUBSYSTEM_0:MSS_INT_F2M_0} -pin_slices {[58:58]}
 sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {RISCV_SUBSYSTEM_0:MSS_INT_F2M_0[58:58]} -value {GND}
 sd_create_pin_slices -sd_name ${sd_name} -pin_name {RISCV_SUBSYSTEM_0:MSS_INT_F2M_0} -pin_slices {[5:5]}
-sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {RISCV_SUBSYSTEM_0:MSS_INT_F2M_0[5:5]} -value {GND}
 sd_create_pin_slices -sd_name ${sd_name} -pin_name {RISCV_SUBSYSTEM_0:MSS_INT_F2M_0} -pin_slices {[6:6]}
 sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {RISCV_SUBSYSTEM_0:MSS_INT_F2M_0[6:6]} -value {GND}
 sd_create_pin_slices -sd_name ${sd_name} -pin_name {RISCV_SUBSYSTEM_0:MSS_INT_F2M_0} -pin_slices {[7:7]}
@@ -446,7 +446,7 @@ sd_connect_pins -sd_name ${sd_name} -pin_names {"DIP6" "FABRIC_PERIPHERALS_0:apb
 sd_connect_pins -sd_name ${sd_name} -pin_names {"DIP7" "FABRIC_PERIPHERALS_0:apb_test_status[7:7]" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"DIP8" "FABRIC_PERIPHERALS_0:apb_test_status[8:8]" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"FABRIC_PERIPHERALS_0:DMA_CONTROLLER_IRQ" "RISCV_SUBSYSTEM_0:MSS_INT_F2M_0[2:2]" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"FABRIC_PERIPHERALS_0:apb_test_interrupt" "RISCV_SUBSYSTEM_0:MSS_INT_F2M_0[4:4]" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"FABRIC_PERIPHERALS_0:apb_test_irq" "RISCV_SUBSYSTEM_0:MSS_INT_F2M_0[4:4]" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"FABRIC_PERIPHERALS_0:apb_test_status[0:0]" "SWITCH1" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"FABRIC_PERIPHERALS_0:app_test_control[0:0]" "OR2_LED1:A" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"FABRIC_PERIPHERALS_0:app_test_control[1:1]" "OR2_LED2:A" }
@@ -455,6 +455,7 @@ sd_connect_pins -sd_name ${sd_name} -pin_names {"FABRIC_PERIPHERALS_0:app_test_c
 sd_connect_pins -sd_name ${sd_name} -pin_names {"FABRIC_PERIPHERALS_0:app_test_control[4:4]" "OR2_LED5:A" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"FABRIC_PERIPHERALS_0:app_test_control[5:5]" "OR2_LED6:A" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"FABRIC_PERIPHERALS_0:app_test_control[6:6]" "OR2_LED7:A" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"FABRIC_PERIPHERALS_0:axi_test_irq" "RISCV_SUBSYSTEM_0:MSS_INT_F2M_0[5:5]" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"FTDI_UART_D_RXD" "RISCV_SUBSYSTEM_0:MMUART_0_TXD_M2F" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"FTDI_UART_D_TXD" "RISCV_SUBSYSTEM_0:MMUART_0_RXD_F2M" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"GPIO_1_20_OUT" "RISCV_SUBSYSTEM_0:GPIO_1_20_OUT" }

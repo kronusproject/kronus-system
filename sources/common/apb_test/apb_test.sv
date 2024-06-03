@@ -13,13 +13,12 @@ module apb_test (
 
     input  logic [31:0] status,
     output logic [31:0] control,
-    output logic        interrupt
+    output logic        irq
 );
-  localparam [7:0] CONTROL_0 = 8'h00;
-  localparam [7:0] CONTROL_1 = 8'h10;
-  localparam [7:0] STATUS    = 8'h20;
+  localparam [7:0] CONTROL = 8'h10;
+  localparam [7:0] STATUS  = 8'h20;
 
-  logic [31:0] control_value;
+  logic [31:0] status_cdc [2];
 
   logic rd_enable;
   logic wr_enable;
@@ -29,37 +28,47 @@ module apb_test (
 
   assign pready = 1'b1;
   assign pslverr = 1'b0;
-  assign interrupt = 1'b0;
 
-  always_ff @(posedge pclk or negedge presetn) begin
+  always_ff @(posedge pclk) begin
     if (~presetn) begin
-      prdata <= 'b0;
-      control_value <= '0;
+      prdata  <= '0;
       control <= '0;
     end else begin
       unique case (paddr[7:0])
-        CONTROL_0: begin
+        CONTROL: begin
           if (rd_enable) begin
-            prdata <= 32'habbababa;
-          end
-        end
-        CONTROL_1: begin
-          if (rd_enable) begin
-            prdata  <= control_value;
-            control <= control_value;
+            prdata <= control;
           end else if (wr_enable) begin
-            control_value <= pwdata;
+            control <= pwdata;
           end
         end
         STATUS: begin
           if (rd_enable) begin
-            prdata <= status;
+            prdata <= {status_cdc[1][31:1], irq};
           end
         end
         default: begin
-          prdata <= 32'hdeaddea1;
+          prdata <= '0;
         end
       endcase
     end
   end
+
+  always_ff @(posedge pclk) begin
+      status_cdc[1] <= status_cdc[0];
+      status_cdc[0] <= status;
+  end
+
+  always_ff @(posedge pclk) begin
+    if (!presetn) begin
+      irq <= 1'b0;
+    end else if (irq) begin
+      irq <= ~control[31];
+    end else begin
+      irq <= status_cdc[1][0];
+    end
+  end
+
+  wire unused = &{pstrb, 1'b0};
+
 endmodule

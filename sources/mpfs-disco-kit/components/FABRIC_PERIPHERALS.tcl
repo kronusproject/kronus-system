@@ -258,7 +258,7 @@ sd_connect_pins -sd_name ${sd_name} -pin_names {"ARESETN" "DMA_CONTROLLER:RESETN
 sd_connect_pins -sd_name ${sd_name} -pin_names {"DMA_CONTROLLER:INTERRUPT[0:0]" "DMA_CONTROLLER_IRQ" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"PCLK" "apb_test_0:pclk" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"PRESETN" "apb_test_0:presetn" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"apb_test_0:interrupt" "apb_test_interrupt" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"apb_test_0:irq" "apb_test_interrupt" }
 
 # Add bus net connections
 sd_connect_pins -sd_name ${sd_name} -pin_names {"PSTRB" "apb_test_0:pstrb" }

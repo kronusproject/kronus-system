@@ -26,7 +26,7 @@ import_files -library work -hdl_source ${kronus::source_dir}/common/miv_ihc//hdl
 import_files -library work -hdl_source ${kronus::source_dir}/common/miv_ihc//hdl/miv_ihcc_ctrl.v
 import_files -library work -hdl_source ${kronus::source_dir}/common/miv_ihc//hdl/miv_ihcc.v
 import_files -library work -hdl_source ${kronus::source_dir}/common/apb_arbiter/apb_arbiter.v
-import_files -library work -hdl_source ${kronus::source_dir}/common/apb_test/hdl/apb_test.sv
+import_files -library work -hdl_source ${kronus::source_dir}/common/apb_test/apb_test.sv
 
 build_design_hierarchy
 
@@ -34,7 +34,7 @@ build_design_hierarchy
 source ${kronus::source_dir}/common/miv_ihc/components/MIV_IHCIA.tcl
 source ${kronus::source_dir}/common/miv_ihc/components/MIV_IHCC.tcl
 source ${kronus::source_dir}/common/apb_arbiter/APB_ARBITER.tcl
-source ${kronus::source_dir}/common/apb_test/components/apb_test.tcl
+source ${kronus::source_dir}/common/apb_test/apb_test.tcl
 
 build_design_hierarchy
 

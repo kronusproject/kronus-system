@@ -1,7 +1,7 @@
 namespace eval kronus {
-    variable script_dir [file dirname [file normalize [info script]]]
-    variable root_dir [file normalize "$script_dir/.."]
-    variable source_dir "$root_dir/sources"
+    variable script_dir [file normalize [file dirname [info script]]]
+    variable kronus_dir [file normalize [file join [file dirname [info script]] "../"]]
+    variable source_dir "$kronus_dir/sources"
     variable project_name "system"
     variable design_version "0"
 
@@ -43,8 +43,12 @@ namespace eval kronus {
             set board $::env(BOARD)
         }
 
-        if {[info exists HSS_IMAGE_PATH]} {
-            set hss_image_path $HSS_IMAGE_PATH
+        if {[info exists UPDATE_HSS]} {
+            if {[info exists ::env(MSS_COMPONENT)]} {
+                set hss_image_path $::env(HSS_IMAGE_PATH)
+            } else {
+                set hss_image_path "$output_dir//hss/build/hss-envm-wrapper.$board.hex"
+            }
         }
 
         if {[info exists MSS_COMPONENT]} {

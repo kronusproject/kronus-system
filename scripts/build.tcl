@@ -39,7 +39,10 @@ run_tool -name {SYNTHESIZE}
 run_tool -name {PLACEROUTE}
 run_tool -name {VERIFYTIMING}
 
+set components {FABRIC SNVM}
+
 if {[info exists kronus::hss_image_path]} {
+    set components "$components ENVM"
     set content [file normalize $kronus::hss_image_path]
     kronus::create_envm_config "$kronus::output_dir/mss/ENVM.cfg" $content
     run_tool -name {GENERATEPROGRAMMINGDATA}
@@ -51,11 +54,10 @@ if {[info exists kronus::hss_image_path]} {
 
 run_tool -name {GENERATEPROGRAMMINGFILE}
 
-file mkdir $kronus::export_dir
-file mkdir $kronus::export_dir/fpe
-
-# FIXME fails with with no HSS image
-set components {FABRIC SNVM ENVM}
-kronus::export_fpe_job $kronus::project_name "$kronus::export_dir/fpe" $components
+if {[info exists kronus::export_fpe]} {
+    file mkdir $kronus::export_dir
+    file mkdir $kronus::export_dir/fpe
+    kronus::export_fpe_job $kronus::project_name "$kronus::export_dir/fpe" $components
+}
 
 save_project

@@ -15,7 +15,7 @@ BUILD_DIR ?= build
 OUTPUT_DIR ?= $(BUILD_DIR)/$(BOARD)
 
 HSS_REPOSITORY ?= https://github.com/polarfire-soc/hart-software-services.git
-HSS_REVISION ?= v2024.02.1
+HSS_REVISION ?= v2024.06
 HSS_BOARD ?= $(BOARD)
 
 ifdef UPDATE_HSS

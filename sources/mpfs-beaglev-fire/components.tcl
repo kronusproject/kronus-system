@@ -11,23 +11,26 @@ download_core -vlnv {Actel:SgCore:PF_TX_PLL:*} -location {www.microchip-ip.com/r
 download_core -vlnv {Actel:DirectCore:CoreAPB3:4.2.100} -location {www.microchip-ip.com/repositories/DirectCore}
 download_core -vlnv {Actel:DirectCore:CoreGPIO:3.2.102} -location {www.microchip-ip.com/repositories/DirectCore}
 
+# HDL sources
 import_files \
     -library work \
-    -hdl_source "$script_dir/hdl/apb_arbiter/apb_arbiter.v" \
-    -hdl_source "$script_dir/hdl/miv_ihc/miv_ihcc.v" \
-    -hdl_source "$script_dir/hdl/miv_ihc/miv_ihcc_ctrl.v" \
-    -hdl_source "$script_dir/hdl/miv_ihc/miv_ihcc_irqs.v" \
-    -hdl_source "$script_dir/hdl/miv_ihc/miv_ihcc_mem.v" \
-    -hdl_source "$script_dir/hdl/miv_ihc/miv_ihcia.v"
+    -hdl_source ${kronus::source_dir}/common/apb_arbiter/apb_arbiter.v \
+    -hdl_source ${kronus::source_dir}/common/miv_ihc//hdl/miv_ihcc.v \
+    -hdl_source ${kronus::source_dir}/common/miv_ihc//hdl/miv_ihcc_ctrl.v \
+    -hdl_source ${kronus::source_dir}/common/miv_ihc//hdl/miv_ihcc_irqs.v \
+    -hdl_source ${kronus::source_dir}/common/miv_ihc//hdl/miv_ihcc_mem.v \
+    -hdl_source ${kronus::source_dir}/common/miv_ihc//hdl/miv_ihcia.v
 
 build_design_hierarchy
 
-source $script_dir/hdl/apb_arbiter/apb_arbiter.tcl 
-source $script_dir/hdl/miv_ihc/miv_ihcc.tcl
-source $script_dir/hdl/miv_ihc/miv_ihcia.tcl
+# HDL+ components
+source ${kronus::source_dir}/common/apb_arbiter/APB_ARBITER.tcl
+source ${kronus::source_dir}/common/miv_ihc/components/MIV_IHCC.tcl
+source ${kronus::source_dir}/common/miv_ihc/components/MIV_IHCIA.tcl
 
 build_design_hierarchy
 
+# Core components
 source $script_dir/components/CORERESET.tcl
 source $script_dir/components/INIT_MONITOR.tcl
 source $script_dir/components/FPGA_CCC_C0.tcl
@@ -35,6 +38,8 @@ source $script_dir/components/OSCILLATOR_160MHz.tcl
 source $script_dir/components/ADC_MCLK_CCC.tcl
 source $script_dir/components/IHC_APB.tcl
 source $script_dir/components/FIC3_INITIATOR.tcl
+
+# Hierarchical components
 source $script_dir/components/CLOCKS_AND_RESETS.tcl
 source $script_dir/components/IHC_SUBSYSTEM.tcl
 source $script_dir/components/RISCV_SUBSYSTEM.tcl

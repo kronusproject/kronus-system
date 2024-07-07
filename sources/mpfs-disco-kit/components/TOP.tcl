@@ -75,23 +75,6 @@ sd_create_scalar_port -sd_name ${sd_name} -port_name {MBUS_I2CSDA} -port_directi
 sd_create_scalar_port -sd_name ${sd_name} -port_name {MBUS_SPI_CLK} -port_direction {INOUT} -port_is_pad {1}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {MBUS_SPI_CS} -port_direction {INOUT} -port_is_pad {1}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {MDIO_PAD} -port_direction {INOUT} -port_is_pad {1}
-sd_create_scalar_port -sd_name ${sd_name} -port_name {RPI_GPIO12} -port_direction {INOUT} -port_is_pad {1}
-sd_create_scalar_port -sd_name ${sd_name} -port_name {RPI_GPIO13} -port_direction {INOUT} -port_is_pad {1}
-sd_create_scalar_port -sd_name ${sd_name} -port_name {RPI_GPIO16} -port_direction {INOUT} -port_is_pad {1}
-sd_create_scalar_port -sd_name ${sd_name} -port_name {RPI_GPIO17} -port_direction {INOUT} -port_is_pad {1}
-sd_create_scalar_port -sd_name ${sd_name} -port_name {RPI_GPIO18} -port_direction {INOUT} -port_is_pad {1}
-sd_create_scalar_port -sd_name ${sd_name} -port_name {RPI_GPIO19} -port_direction {INOUT} -port_is_pad {1}
-sd_create_scalar_port -sd_name ${sd_name} -port_name {RPI_GPIO20} -port_direction {INOUT} -port_is_pad {1}
-sd_create_scalar_port -sd_name ${sd_name} -port_name {RPI_GPIO21} -port_direction {INOUT} -port_is_pad {1}
-sd_create_scalar_port -sd_name ${sd_name} -port_name {RPI_GPIO22} -port_direction {INOUT} -port_is_pad {1}
-sd_create_scalar_port -sd_name ${sd_name} -port_name {RPI_GPIO23} -port_direction {INOUT} -port_is_pad {1}
-sd_create_scalar_port -sd_name ${sd_name} -port_name {RPI_GPIO24} -port_direction {INOUT} -port_is_pad {1}
-sd_create_scalar_port -sd_name ${sd_name} -port_name {RPI_GPIO25} -port_direction {INOUT} -port_is_pad {1}
-sd_create_scalar_port -sd_name ${sd_name} -port_name {RPI_GPIO26} -port_direction {INOUT} -port_is_pad {1}
-sd_create_scalar_port -sd_name ${sd_name} -port_name {RPI_GPIO27} -port_direction {INOUT} -port_is_pad {1}
-sd_create_scalar_port -sd_name ${sd_name} -port_name {RPI_GPIO4} -port_direction {INOUT} -port_is_pad {1}
-sd_create_scalar_port -sd_name ${sd_name} -port_name {RPI_GPIO5} -port_direction {INOUT} -port_is_pad {1}
-sd_create_scalar_port -sd_name ${sd_name} -port_name {RPI_GPIO6} -port_direction {INOUT} -port_is_pad {1}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {SD_CMD} -port_direction {INOUT} -port_is_pad {1}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {SD_DATA0} -port_direction {INOUT} -port_is_pad {1}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {SD_DATA1} -port_direction {INOUT} -port_is_pad {1}
@@ -490,23 +473,6 @@ sd_connect_pins -sd_name ${sd_name} -pin_names {"RAS_N" "RISCV_SUBSYSTEM_0:RAS_N
 sd_connect_pins -sd_name ${sd_name} -pin_names {"REFCLK" "RISCV_SUBSYSTEM_0:REFCLK" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"REFCLK_N" "RISCV_SUBSYSTEM_0:REFCLK_N" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"RESET_N" "RISCV_SUBSYSTEM_0:RESET_N" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"RISCV_SUBSYSTEM_0:GPIO_2_0_IO" "RPI_GPIO4" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"RISCV_SUBSYSTEM_0:GPIO_2_10_IO" "RPI_GPIO12" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"RISCV_SUBSYSTEM_0:GPIO_2_11_IO" "RPI_GPIO13" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"RISCV_SUBSYSTEM_0:GPIO_2_12_IO" "RPI_GPIO19" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"RISCV_SUBSYSTEM_0:GPIO_2_13_IO" "RPI_GPIO16" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"RISCV_SUBSYSTEM_0:GPIO_2_14_IO" "RPI_GPIO26" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"RISCV_SUBSYSTEM_0:GPIO_2_15_IO" "RPI_GPIO20" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"RISCV_SUBSYSTEM_0:GPIO_2_16_IO" "RPI_GPIO21" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"RISCV_SUBSYSTEM_0:GPIO_2_1_IO" "RPI_GPIO17" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"RISCV_SUBSYSTEM_0:GPIO_2_2_IO" "RPI_GPIO18" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"RISCV_SUBSYSTEM_0:GPIO_2_3_IO" "RPI_GPIO27" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"RISCV_SUBSYSTEM_0:GPIO_2_4_IO" "RPI_GPIO22" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"RISCV_SUBSYSTEM_0:GPIO_2_5_IO" "RPI_GPIO23" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"RISCV_SUBSYSTEM_0:GPIO_2_6_IO" "RPI_GPIO24" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"RISCV_SUBSYSTEM_0:GPIO_2_7_IO" "RPI_GPIO25" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"RISCV_SUBSYSTEM_0:GPIO_2_8_IO" "RPI_GPIO5" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"RISCV_SUBSYSTEM_0:GPIO_2_9_IO" "RPI_GPIO6" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"RISCV_SUBSYSTEM_0:MSS_INT_F2M_0[3:3]" "MBUS_INT" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"RISCV_SUBSYSTEM_0:SD_CD" "SD_CD" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"RISCV_SUBSYSTEM_0:SD_CLK" "SD_CLK" }

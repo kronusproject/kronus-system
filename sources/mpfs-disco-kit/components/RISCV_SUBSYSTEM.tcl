@@ -147,23 +147,6 @@ sd_create_scalar_port -sd_name ${sd_name} -port_name {SPI_0_DO} -port_direction 
 sd_create_scalar_port -sd_name ${sd_name} -port_name {SPI_1_DO} -port_direction {OUT} -port_is_pad {1}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {WE_N} -port_direction {OUT} -port_is_pad {1}
 
-sd_create_scalar_port -sd_name ${sd_name} -port_name {GPIO_2_0_IO} -port_direction {INOUT} -port_is_pad {1}
-sd_create_scalar_port -sd_name ${sd_name} -port_name {GPIO_2_10_IO} -port_direction {INOUT} -port_is_pad {1}
-sd_create_scalar_port -sd_name ${sd_name} -port_name {GPIO_2_11_IO} -port_direction {INOUT} -port_is_pad {1}
-sd_create_scalar_port -sd_name ${sd_name} -port_name {GPIO_2_12_IO} -port_direction {INOUT} -port_is_pad {1}
-sd_create_scalar_port -sd_name ${sd_name} -port_name {GPIO_2_13_IO} -port_direction {INOUT} -port_is_pad {1}
-sd_create_scalar_port -sd_name ${sd_name} -port_name {GPIO_2_14_IO} -port_direction {INOUT} -port_is_pad {1}
-sd_create_scalar_port -sd_name ${sd_name} -port_name {GPIO_2_15_IO} -port_direction {INOUT} -port_is_pad {1}
-sd_create_scalar_port -sd_name ${sd_name} -port_name {GPIO_2_16_IO} -port_direction {INOUT} -port_is_pad {1}
-sd_create_scalar_port -sd_name ${sd_name} -port_name {GPIO_2_1_IO} -port_direction {INOUT} -port_is_pad {1}
-sd_create_scalar_port -sd_name ${sd_name} -port_name {GPIO_2_2_IO} -port_direction {INOUT} -port_is_pad {1}
-sd_create_scalar_port -sd_name ${sd_name} -port_name {GPIO_2_3_IO} -port_direction {INOUT} -port_is_pad {1}
-sd_create_scalar_port -sd_name ${sd_name} -port_name {GPIO_2_4_IO} -port_direction {INOUT} -port_is_pad {1}
-sd_create_scalar_port -sd_name ${sd_name} -port_name {GPIO_2_5_IO} -port_direction {INOUT} -port_is_pad {1}
-sd_create_scalar_port -sd_name ${sd_name} -port_name {GPIO_2_6_IO} -port_direction {INOUT} -port_is_pad {1}
-sd_create_scalar_port -sd_name ${sd_name} -port_name {GPIO_2_7_IO} -port_direction {INOUT} -port_is_pad {1}
-sd_create_scalar_port -sd_name ${sd_name} -port_name {GPIO_2_8_IO} -port_direction {INOUT} -port_is_pad {1}
-sd_create_scalar_port -sd_name ${sd_name} -port_name {GPIO_2_9_IO} -port_direction {INOUT} -port_is_pad {1}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {I2C_0_SCL} -port_direction {INOUT} -port_is_pad {1}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {I2C_0_SDA} -port_direction {INOUT} -port_is_pad {1}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {MDIO_PAD} -port_direction {INOUT} -port_is_pad {1}
@@ -545,91 +528,6 @@ sd_update_instance -sd_name ${sd_name} -instance_name {APB_ARBITER_0}
 
 
 
-# Add GPIO_2_0 instance
-sd_instantiate_macro -sd_name ${sd_name} -macro_name {BIBUF} -instance_name {GPIO_2_0}
-
-
-
-# Add GPIO_2_1 instance
-sd_instantiate_macro -sd_name ${sd_name} -macro_name {BIBUF} -instance_name {GPIO_2_1}
-
-
-
-# Add GPIO_2_2 instance
-sd_instantiate_macro -sd_name ${sd_name} -macro_name {BIBUF} -instance_name {GPIO_2_2}
-
-
-
-# Add GPIO_2_3 instance
-sd_instantiate_macro -sd_name ${sd_name} -macro_name {BIBUF} -instance_name {GPIO_2_3}
-
-
-
-# Add GPIO_2_4 instance
-sd_instantiate_macro -sd_name ${sd_name} -macro_name {BIBUF} -instance_name {GPIO_2_4}
-
-
-
-# Add GPIO_2_5 instance
-sd_instantiate_macro -sd_name ${sd_name} -macro_name {BIBUF} -instance_name {GPIO_2_5}
-
-
-
-# Add GPIO_2_6 instance
-sd_instantiate_macro -sd_name ${sd_name} -macro_name {BIBUF} -instance_name {GPIO_2_6}
-
-
-
-# Add GPIO_2_7 instance
-sd_instantiate_macro -sd_name ${sd_name} -macro_name {BIBUF} -instance_name {GPIO_2_7}
-
-
-
-# Add GPIO_2_8 instance
-sd_instantiate_macro -sd_name ${sd_name} -macro_name {BIBUF} -instance_name {GPIO_2_8}
-
-
-
-# Add GPIO_2_9 instance
-sd_instantiate_macro -sd_name ${sd_name} -macro_name {BIBUF} -instance_name {GPIO_2_9}
-
-
-
-# Add GPIO_2_10 instance
-sd_instantiate_macro -sd_name ${sd_name} -macro_name {BIBUF} -instance_name {GPIO_2_10}
-
-
-
-# Add GPIO_2_11 instance
-sd_instantiate_macro -sd_name ${sd_name} -macro_name {BIBUF} -instance_name {GPIO_2_11}
-
-
-
-# Add GPIO_2_12 instance
-sd_instantiate_macro -sd_name ${sd_name} -macro_name {BIBUF} -instance_name {GPIO_2_12}
-
-
-
-# Add GPIO_2_13 instance
-sd_instantiate_macro -sd_name ${sd_name} -macro_name {BIBUF} -instance_name {GPIO_2_13}
-
-
-
-# Add GPIO_2_14 instance
-sd_instantiate_macro -sd_name ${sd_name} -macro_name {BIBUF} -instance_name {GPIO_2_14}
-
-
-
-# Add GPIO_2_15 instance
-sd_instantiate_macro -sd_name ${sd_name} -macro_name {BIBUF} -instance_name {GPIO_2_15}
-
-
-
-# Add GPIO_2_16 instance
-sd_instantiate_macro -sd_name ${sd_name} -macro_name {BIBUF} -instance_name {GPIO_2_16}
-
-
-
 # Add I2C_0_SCL_BIBUF instance
 sd_instantiate_macro -sd_name ${sd_name} -macro_name {BIBUF} -instance_name {I2C_0_SCL_BIBUF}
 sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {I2C_0_SCL_BIBUF:D} -value {GND}
@@ -718,74 +616,6 @@ sd_connect_pins -sd_name ${sd_name} -pin_names {"FIC_3_PCLK" "IHC_SUBSYSTEM_0:pc
 sd_connect_pins -sd_name ${sd_name} -pin_names {"FIC_3_PRESETN" "IHC_SUBSYSTEM_0:presetn" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"GPIO_1_20_OUT" "PF_SOC_MSS_0:GPIO_1_20_OUT" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"GPIO_1_9_OUT" "PF_SOC_MSS_0:GPIO_1_9_OUT" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"GPIO_2_0:D" "PF_SOC_MSS_0:GPIO_2_M2F_0" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"GPIO_2_0:E" "PF_SOC_MSS_0:GPIO_2_OE_M2F_0" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"GPIO_2_0:PAD" "GPIO_2_0_IO" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"GPIO_2_0:Y" "PF_SOC_MSS_0:GPIO_2_F2M_0" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"GPIO_2_10:D" "PF_SOC_MSS_0:GPIO_2_M2F_10" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"GPIO_2_10:E" "PF_SOC_MSS_0:GPIO_2_OE_M2F_10" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"GPIO_2_10:PAD" "GPIO_2_10_IO" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"GPIO_2_10:Y" "PF_SOC_MSS_0:GPIO_2_F2M_10" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"GPIO_2_11:D" "PF_SOC_MSS_0:GPIO_2_M2F_11" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"GPIO_2_11:E" "PF_SOC_MSS_0:GPIO_2_OE_M2F_11" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"GPIO_2_11:PAD" "GPIO_2_11_IO" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"GPIO_2_11:Y" "PF_SOC_MSS_0:GPIO_2_F2M_11" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"GPIO_2_12:D" "PF_SOC_MSS_0:GPIO_2_M2F_12" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"GPIO_2_12:E" "PF_SOC_MSS_0:GPIO_2_OE_M2F_12" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"GPIO_2_12:PAD" "GPIO_2_12_IO" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"GPIO_2_12:Y" "PF_SOC_MSS_0:GPIO_2_F2M_12" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"GPIO_2_13:D" "PF_SOC_MSS_0:GPIO_2_M2F_13" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"GPIO_2_13:E" "PF_SOC_MSS_0:GPIO_2_OE_M2F_13" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"GPIO_2_13:PAD" "GPIO_2_13_IO" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"GPIO_2_13:Y" "PF_SOC_MSS_0:GPIO_2_F2M_13" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"GPIO_2_14:D" "PF_SOC_MSS_0:GPIO_2_M2F_14" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"GPIO_2_14:E" "PF_SOC_MSS_0:GPIO_2_OE_M2F_14" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"GPIO_2_14:PAD" "GPIO_2_14_IO" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"GPIO_2_14:Y" "PF_SOC_MSS_0:GPIO_2_F2M_14" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"GPIO_2_15:D" "PF_SOC_MSS_0:GPIO_2_M2F_15" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"GPIO_2_15:E" "PF_SOC_MSS_0:GPIO_2_OE_M2F_15" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"GPIO_2_15:PAD" "GPIO_2_15_IO" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"GPIO_2_15:Y" "PF_SOC_MSS_0:GPIO_2_F2M_15" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"GPIO_2_16:D" "PF_SOC_MSS_0:GPIO_2_M2F_16" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"GPIO_2_16:E" "PF_SOC_MSS_0:GPIO_2_OE_M2F_16" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"GPIO_2_16:PAD" "GPIO_2_16_IO" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"GPIO_2_16:Y" "PF_SOC_MSS_0:GPIO_2_F2M_16" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"GPIO_2_1:D" "PF_SOC_MSS_0:GPIO_2_M2F_1" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"GPIO_2_1:E" "PF_SOC_MSS_0:GPIO_2_OE_M2F_1" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"GPIO_2_1:PAD" "GPIO_2_1_IO" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"GPIO_2_1:Y" "PF_SOC_MSS_0:GPIO_2_F2M_1" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"GPIO_2_2:D" "PF_SOC_MSS_0:GPIO_2_M2F_2" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"GPIO_2_2:E" "PF_SOC_MSS_0:GPIO_2_OE_M2F_2" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"GPIO_2_2:PAD" "GPIO_2_2_IO" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"GPIO_2_2:Y" "PF_SOC_MSS_0:GPIO_2_F2M_2" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"GPIO_2_3:D" "PF_SOC_MSS_0:GPIO_2_M2F_3" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"GPIO_2_3:E" "PF_SOC_MSS_0:GPIO_2_OE_M2F_3" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"GPIO_2_3:PAD" "GPIO_2_3_IO" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"GPIO_2_3:Y" "PF_SOC_MSS_0:GPIO_2_F2M_3" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"GPIO_2_4:D" "PF_SOC_MSS_0:GPIO_2_M2F_4" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"GPIO_2_4:E" "PF_SOC_MSS_0:GPIO_2_OE_M2F_4" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"GPIO_2_4:PAD" "GPIO_2_4_IO" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"GPIO_2_4:Y" "PF_SOC_MSS_0:GPIO_2_F2M_4" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"GPIO_2_5:D" "PF_SOC_MSS_0:GPIO_2_M2F_5" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"GPIO_2_5:E" "PF_SOC_MSS_0:GPIO_2_OE_M2F_5" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"GPIO_2_5:PAD" "GPIO_2_5_IO" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"GPIO_2_5:Y" "PF_SOC_MSS_0:GPIO_2_F2M_5" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"GPIO_2_6:D" "PF_SOC_MSS_0:GPIO_2_M2F_6" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"GPIO_2_6:E" "PF_SOC_MSS_0:GPIO_2_OE_M2F_6" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"GPIO_2_6:PAD" "GPIO_2_6_IO" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"GPIO_2_6:Y" "PF_SOC_MSS_0:GPIO_2_F2M_6" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"GPIO_2_7:D" "PF_SOC_MSS_0:GPIO_2_M2F_7" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"GPIO_2_7:E" "PF_SOC_MSS_0:GPIO_2_OE_M2F_7" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"GPIO_2_7:PAD" "GPIO_2_7_IO" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"GPIO_2_7:Y" "PF_SOC_MSS_0:GPIO_2_F2M_7" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"GPIO_2_8:D" "PF_SOC_MSS_0:GPIO_2_M2F_8" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"GPIO_2_8:E" "PF_SOC_MSS_0:GPIO_2_OE_M2F_8" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"GPIO_2_8:PAD" "GPIO_2_8_IO" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"GPIO_2_8:Y" "PF_SOC_MSS_0:GPIO_2_F2M_8" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"GPIO_2_9:D" "PF_SOC_MSS_0:GPIO_2_M2F_9" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"GPIO_2_9:E" "PF_SOC_MSS_0:GPIO_2_OE_M2F_9" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"GPIO_2_9:PAD" "GPIO_2_9_IO" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"GPIO_2_9:Y" "PF_SOC_MSS_0:GPIO_2_F2M_9" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"GPIO_2_F2M_24" "PF_SOC_MSS_0:GPIO_2_F2M_24" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"GPIO_2_F2M_25" "PF_SOC_MSS_0:GPIO_2_F2M_25" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"GPIO_2_F2M_26" "PF_SOC_MSS_0:GPIO_2_F2M_26" }

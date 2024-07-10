@@ -40,15 +40,15 @@ source $script_dir/components/CORERESET.tcl
 source $script_dir/components/INIT_MONITOR.tcl
 source $script_dir/components/PF_CCC_C0.tcl
 source $script_dir/components/CLOCKS_AND_RESETS.tcl
-source $script_dir/components/DMA_CONTROLLER.tcl
-source $script_dir/components/DMA_INITIATOR.tcl
-source $script_dir/components/FIC_0_AXI4_INTERCONNECT.tcl
-source $script_dir/components/FIC_3_APB_INTERCONNECT.tcl
-source $script_dir/components/IHC_APB.tcl
+source ${kronus::source_dir}/common/components/DMA_CONTROLLER.tcl
+source ${kronus::source_dir}/common/components/DMA_INITIATOR.tcl
+source ${kronus::source_dir}/common/components/FIC_0_AXI4_INTERCONNECT.tcl
+source ${kronus::source_dir}/common/components/FIC_3_APB_INTERCONNECT.tcl
+source ${kronus::source_dir}/common/components/IHC_APB.tcl
 
 # Hierarchical components
-source $script_dir/components/FABRIC_PERIPHERALS.tcl
-source $script_dir/components/IHC_SUBSYSTEM.tcl
+source ${kronus::source_dir}/common/components/FABRIC_PERIPHERALS.tcl
+source ${kronus::source_dir}/common/components/IHC_SUBSYSTEM.tcl
 source $script_dir/components/RISCV_SUBSYSTEM.tcl
 source $script_dir/components/TOP.tcl
 

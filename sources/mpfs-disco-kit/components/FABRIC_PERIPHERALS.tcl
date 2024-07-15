@@ -40,9 +40,7 @@ sd_create_scalar_port -sd_name ${sd_name} -port_name {AXI4_TARGET_SLAVE0_BREADY}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {AXI4_TARGET_SLAVE0_RREADY} -port_direction {OUT}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {AXI4_TARGET_SLAVE0_WLAST} -port_direction {OUT}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {AXI4_TARGET_SLAVE0_WVALID} -port_direction {OUT}
-sd_create_scalar_port -sd_name ${sd_name} -port_name {DMA_CONTROLLER_IRQ} -port_direction {OUT}
-sd_create_scalar_port -sd_name ${sd_name} -port_name {apb_test_irq} -port_direction {OUT}
-sd_create_scalar_port -sd_name ${sd_name} -port_name {axi_test_irq} -port_direction {OUT}
+sd_create_scalar_port -sd_name ${sd_name} -port_name {DMA_INTERRUPT} -port_direction {OUT}
 
 
 # Create top level Bus Ports
@@ -81,7 +79,7 @@ sd_create_bus_port -sd_name ${sd_name} -port_name {AXI4_TARGET_SLAVE0_RID} -port
 sd_create_bus_port -sd_name ${sd_name} -port_name {AXI4_TARGET_SLAVE0_RRESP} -port_direction {IN} -port_range {[1:0]}
 sd_create_bus_port -sd_name ${sd_name} -port_name {AXI4_TARGET_SLAVE0_RUSER} -port_direction {IN} -port_range {[0:0]}
 sd_create_bus_port -sd_name ${sd_name} -port_name {PSTRB} -port_direction {IN} -port_range {[3:0]}
-sd_create_bus_port -sd_name ${sd_name} -port_name {apb_test_status} -port_direction {IN} -port_range {[31:0]}
+sd_create_bus_port -sd_name ${sd_name} -port_name {status} -port_direction {IN} -port_range {[31:0]}
 
 sd_create_bus_port -sd_name ${sd_name} -port_name {APB3mmaster_PRDATA} -port_direction {OUT} -port_range {[31:0]}
 sd_create_bus_port -sd_name ${sd_name} -port_name {AXI4_INITIATOR_MASTER0_BID} -port_direction {OUT} -port_range {[7:0]}
@@ -116,8 +114,8 @@ sd_create_bus_port -sd_name ${sd_name} -port_name {AXI4_TARGET_SLAVE0_AWUSER} -p
 sd_create_bus_port -sd_name ${sd_name} -port_name {AXI4_TARGET_SLAVE0_WDATA} -port_direction {OUT} -port_range {[63:0]}
 sd_create_bus_port -sd_name ${sd_name} -port_name {AXI4_TARGET_SLAVE0_WSTRB} -port_direction {OUT} -port_range {[7:0]}
 sd_create_bus_port -sd_name ${sd_name} -port_name {AXI4_TARGET_SLAVE0_WUSER} -port_direction {OUT} -port_range {[0:0]}
-sd_create_bus_port -sd_name ${sd_name} -port_name {app_test_control} -port_direction {OUT} -port_range {[31:0]}
-sd_create_bus_port -sd_name ${sd_name} -port_name {axi_test_control} -port_direction {OUT} -port_range {[31:0]}
+sd_create_bus_port -sd_name ${sd_name} -port_name {control} -port_direction {OUT} -port_range {[31:0]}
+sd_create_bus_port -sd_name ${sd_name} -port_name {interrupt} -port_direction {OUT} -port_range {[1:0]}
 
 
 # Create top level Bus interface Ports
@@ -223,6 +221,8 @@ sd_create_bif_port -sd_name ${sd_name} -port_name {AXI4_TARGET} -port_bif_vlnv {
 "ARUSER:AXI4_TARGET_SLAVE0_ARUSER" \
 "RUSER:AXI4_TARGET_SLAVE0_RUSER" }
 
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {interrupt} -pin_slices {[0:0]}
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {interrupt} -pin_slices {[1:1]}
 # Add apb_test_0 instance
 sd_instantiate_hdl_core -sd_name ${sd_name} -hdl_core_name {apb_test} -instance_name {apb_test_0}
 
@@ -237,6 +237,7 @@ sd_configure_core_instance -sd_name ${sd_name} -instance_name {axi_test_0} -para
 -validate_rules 0
 sd_save_core_instance_config -sd_name ${sd_name} -instance_name {axi_test_0}
 sd_update_instance -sd_name ${sd_name} -instance_name {axi_test_0}
+sd_mark_pins_unused -sd_name ${sd_name} -pin_names {axi_test_0:control}
 
 
 
@@ -268,17 +269,16 @@ sd_mark_pins_unused -sd_name ${sd_name} -pin_names {FIC_3_APB_INTERCONNECT_0:APB
 # Add scalar net connections
 sd_connect_pins -sd_name ${sd_name} -pin_names {"ACLK" "DMA_CONTROLLER:CLOCK" "DMA_INITIATOR:ACLK" "FIC_0_AXI4_INTERCONNECT_0:ACLK" "axi_test_0:aclk" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"ARESETN" "DMA_CONTROLLER:RESETN" "DMA_INITIATOR:ARESETN" "FIC_0_AXI4_INTERCONNECT_0:ARESETN" "axi_test_0:aresetn" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"DMA_CONTROLLER:INTERRUPT[0:0]" "DMA_CONTROLLER_IRQ" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"DMA_CONTROLLER:INTERRUPT[0:0]" "DMA_INTERRUPT" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"PCLK" "apb_test_0:pclk" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"PRESETN" "apb_test_0:presetn" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"apb_test_0:irq" "apb_test_irq" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"axi_test_0:irq" "axi_test_irq" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"apb_test_0:irq" "interrupt[0:0]" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"axi_test_0:irq" "interrupt[1:1]" }
 
 # Add bus net connections
 sd_connect_pins -sd_name ${sd_name} -pin_names {"PSTRB" "apb_test_0:pstrb" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"apb_test_0:control" "app_test_control" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"apb_test_0:status" "apb_test_status" "axi_test_0:status" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"axi_test_0:control" "axi_test_control" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"apb_test_0:control" "control" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"apb_test_0:status" "axi_test_0:status" "status" }
 
 # Add bus interface net connections
 sd_connect_pins -sd_name ${sd_name} -pin_names {"APB_INITIATOR" "FIC_3_APB_INTERCONNECT_0:APB3mmaster" }

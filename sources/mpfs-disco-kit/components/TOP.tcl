@@ -115,119 +115,28 @@ sd_mark_pins_unused -sd_name ${sd_name} -pin_names {CLOCKS_AND_RESETS_0:RESETN_F
 
 # Add FABRIC_PERIPHERALS_0 instance
 sd_instantiate_component -sd_name ${sd_name} -component_name {FABRIC_PERIPHERALS} -instance_name {FABRIC_PERIPHERALS_0}
-sd_create_pin_slices -sd_name ${sd_name} -pin_name {FABRIC_PERIPHERALS_0:apb_test_status} -pin_slices {[0:0]}
-sd_create_pin_slices -sd_name ${sd_name} -pin_name {FABRIC_PERIPHERALS_0:apb_test_status} -pin_slices {[10:10]}
-sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {FABRIC_PERIPHERALS_0:apb_test_status[10:10]} -value {GND}
-sd_create_pin_slices -sd_name ${sd_name} -pin_name {FABRIC_PERIPHERALS_0:apb_test_status} -pin_slices {[11:11]}
-sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {FABRIC_PERIPHERALS_0:apb_test_status[11:11]} -value {GND}
-sd_create_pin_slices -sd_name ${sd_name} -pin_name {FABRIC_PERIPHERALS_0:apb_test_status} -pin_slices {[12:12]}
-sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {FABRIC_PERIPHERALS_0:apb_test_status[12:12]} -value {GND}
-sd_create_pin_slices -sd_name ${sd_name} -pin_name {FABRIC_PERIPHERALS_0:apb_test_status} -pin_slices {[13:13]}
-sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {FABRIC_PERIPHERALS_0:apb_test_status[13:13]} -value {GND}
-sd_create_pin_slices -sd_name ${sd_name} -pin_name {FABRIC_PERIPHERALS_0:apb_test_status} -pin_slices {[14:14]}
-sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {FABRIC_PERIPHERALS_0:apb_test_status[14:14]} -value {GND}
-sd_create_pin_slices -sd_name ${sd_name} -pin_name {FABRIC_PERIPHERALS_0:apb_test_status} -pin_slices {[15:15]}
-sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {FABRIC_PERIPHERALS_0:apb_test_status[15:15]} -value {GND}
-sd_create_pin_slices -sd_name ${sd_name} -pin_name {FABRIC_PERIPHERALS_0:apb_test_status} -pin_slices {[16:16]}
-sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {FABRIC_PERIPHERALS_0:apb_test_status[16:16]} -value {GND}
-sd_create_pin_slices -sd_name ${sd_name} -pin_name {FABRIC_PERIPHERALS_0:apb_test_status} -pin_slices {[17:17]}
-sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {FABRIC_PERIPHERALS_0:apb_test_status[17:17]} -value {GND}
-sd_create_pin_slices -sd_name ${sd_name} -pin_name {FABRIC_PERIPHERALS_0:apb_test_status} -pin_slices {[18:18]}
-sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {FABRIC_PERIPHERALS_0:apb_test_status[18:18]} -value {GND}
-sd_create_pin_slices -sd_name ${sd_name} -pin_name {FABRIC_PERIPHERALS_0:apb_test_status} -pin_slices {[19:19]}
-sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {FABRIC_PERIPHERALS_0:apb_test_status[19:19]} -value {GND}
-sd_create_pin_slices -sd_name ${sd_name} -pin_name {FABRIC_PERIPHERALS_0:apb_test_status} -pin_slices {[1:1]}
-sd_create_pin_slices -sd_name ${sd_name} -pin_name {FABRIC_PERIPHERALS_0:apb_test_status} -pin_slices {[20:20]}
-sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {FABRIC_PERIPHERALS_0:apb_test_status[20:20]} -value {GND}
-sd_create_pin_slices -sd_name ${sd_name} -pin_name {FABRIC_PERIPHERALS_0:apb_test_status} -pin_slices {[21:21]}
-sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {FABRIC_PERIPHERALS_0:apb_test_status[21:21]} -value {GND}
-sd_create_pin_slices -sd_name ${sd_name} -pin_name {FABRIC_PERIPHERALS_0:apb_test_status} -pin_slices {[22:22]}
-sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {FABRIC_PERIPHERALS_0:apb_test_status[22:22]} -value {GND}
-sd_create_pin_slices -sd_name ${sd_name} -pin_name {FABRIC_PERIPHERALS_0:apb_test_status} -pin_slices {[23:23]}
-sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {FABRIC_PERIPHERALS_0:apb_test_status[23:23]} -value {GND}
-sd_create_pin_slices -sd_name ${sd_name} -pin_name {FABRIC_PERIPHERALS_0:apb_test_status} -pin_slices {[24:24]}
-sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {FABRIC_PERIPHERALS_0:apb_test_status[24:24]} -value {GND}
-sd_create_pin_slices -sd_name ${sd_name} -pin_name {FABRIC_PERIPHERALS_0:apb_test_status} -pin_slices {[25:25]}
-sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {FABRIC_PERIPHERALS_0:apb_test_status[25:25]} -value {GND}
-sd_create_pin_slices -sd_name ${sd_name} -pin_name {FABRIC_PERIPHERALS_0:apb_test_status} -pin_slices {[26:26]}
-sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {FABRIC_PERIPHERALS_0:apb_test_status[26:26]} -value {GND}
-sd_create_pin_slices -sd_name ${sd_name} -pin_name {FABRIC_PERIPHERALS_0:apb_test_status} -pin_slices {[27:27]}
-sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {FABRIC_PERIPHERALS_0:apb_test_status[27:27]} -value {GND}
-sd_create_pin_slices -sd_name ${sd_name} -pin_name {FABRIC_PERIPHERALS_0:apb_test_status} -pin_slices {[28:28]}
-sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {FABRIC_PERIPHERALS_0:apb_test_status[28:28]} -value {GND}
-sd_create_pin_slices -sd_name ${sd_name} -pin_name {FABRIC_PERIPHERALS_0:apb_test_status} -pin_slices {[29:29]}
-sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {FABRIC_PERIPHERALS_0:apb_test_status[29:29]} -value {GND}
-sd_create_pin_slices -sd_name ${sd_name} -pin_name {FABRIC_PERIPHERALS_0:apb_test_status} -pin_slices {[2:2]}
-sd_create_pin_slices -sd_name ${sd_name} -pin_name {FABRIC_PERIPHERALS_0:apb_test_status} -pin_slices {[30:30]}
-sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {FABRIC_PERIPHERALS_0:apb_test_status[30:30]} -value {GND}
-sd_create_pin_slices -sd_name ${sd_name} -pin_name {FABRIC_PERIPHERALS_0:apb_test_status} -pin_slices {[31:31]}
-sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {FABRIC_PERIPHERALS_0:apb_test_status[31:31]} -value {GND}
-sd_create_pin_slices -sd_name ${sd_name} -pin_name {FABRIC_PERIPHERALS_0:apb_test_status} -pin_slices {[3:3]}
-sd_create_pin_slices -sd_name ${sd_name} -pin_name {FABRIC_PERIPHERALS_0:apb_test_status} -pin_slices {[4:4]}
-sd_create_pin_slices -sd_name ${sd_name} -pin_name {FABRIC_PERIPHERALS_0:apb_test_status} -pin_slices {[5:5]}
-sd_create_pin_slices -sd_name ${sd_name} -pin_name {FABRIC_PERIPHERALS_0:apb_test_status} -pin_slices {[6:6]}
-sd_create_pin_slices -sd_name ${sd_name} -pin_name {FABRIC_PERIPHERALS_0:apb_test_status} -pin_slices {[7:7]}
-sd_create_pin_slices -sd_name ${sd_name} -pin_name {FABRIC_PERIPHERALS_0:apb_test_status} -pin_slices {[8:8]}
-sd_create_pin_slices -sd_name ${sd_name} -pin_name {FABRIC_PERIPHERALS_0:apb_test_status} -pin_slices {[9:9]}
-sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {FABRIC_PERIPHERALS_0:apb_test_status[9:9]} -value {GND}
-sd_create_pin_slices -sd_name ${sd_name} -pin_name {FABRIC_PERIPHERALS_0:app_test_control} -pin_slices {[0:0]}
-sd_create_pin_slices -sd_name ${sd_name} -pin_name {FABRIC_PERIPHERALS_0:app_test_control} -pin_slices {[10:10]}
-sd_mark_pins_unused -sd_name ${sd_name} -pin_names {FABRIC_PERIPHERALS_0:app_test_control[10:10]}
-sd_create_pin_slices -sd_name ${sd_name} -pin_name {FABRIC_PERIPHERALS_0:app_test_control} -pin_slices {[11:11]}
-sd_mark_pins_unused -sd_name ${sd_name} -pin_names {FABRIC_PERIPHERALS_0:app_test_control[11:11]}
-sd_create_pin_slices -sd_name ${sd_name} -pin_name {FABRIC_PERIPHERALS_0:app_test_control} -pin_slices {[12:12]}
-sd_mark_pins_unused -sd_name ${sd_name} -pin_names {FABRIC_PERIPHERALS_0:app_test_control[12:12]}
-sd_create_pin_slices -sd_name ${sd_name} -pin_name {FABRIC_PERIPHERALS_0:app_test_control} -pin_slices {[13:13]}
-sd_mark_pins_unused -sd_name ${sd_name} -pin_names {FABRIC_PERIPHERALS_0:app_test_control[13:13]}
-sd_create_pin_slices -sd_name ${sd_name} -pin_name {FABRIC_PERIPHERALS_0:app_test_control} -pin_slices {[14:14]}
-sd_mark_pins_unused -sd_name ${sd_name} -pin_names {FABRIC_PERIPHERALS_0:app_test_control[14:14]}
-sd_create_pin_slices -sd_name ${sd_name} -pin_name {FABRIC_PERIPHERALS_0:app_test_control} -pin_slices {[15:15]}
-sd_mark_pins_unused -sd_name ${sd_name} -pin_names {FABRIC_PERIPHERALS_0:app_test_control[15:15]}
-sd_create_pin_slices -sd_name ${sd_name} -pin_name {FABRIC_PERIPHERALS_0:app_test_control} -pin_slices {[16:16]}
-sd_mark_pins_unused -sd_name ${sd_name} -pin_names {FABRIC_PERIPHERALS_0:app_test_control[16:16]}
-sd_create_pin_slices -sd_name ${sd_name} -pin_name {FABRIC_PERIPHERALS_0:app_test_control} -pin_slices {[17:17]}
-sd_mark_pins_unused -sd_name ${sd_name} -pin_names {FABRIC_PERIPHERALS_0:app_test_control[17:17]}
-sd_create_pin_slices -sd_name ${sd_name} -pin_name {FABRIC_PERIPHERALS_0:app_test_control} -pin_slices {[18:18]}
-sd_mark_pins_unused -sd_name ${sd_name} -pin_names {FABRIC_PERIPHERALS_0:app_test_control[18:18]}
-sd_create_pin_slices -sd_name ${sd_name} -pin_name {FABRIC_PERIPHERALS_0:app_test_control} -pin_slices {[19:19]}
-sd_mark_pins_unused -sd_name ${sd_name} -pin_names {FABRIC_PERIPHERALS_0:app_test_control[19:19]}
-sd_create_pin_slices -sd_name ${sd_name} -pin_name {FABRIC_PERIPHERALS_0:app_test_control} -pin_slices {[1:1]}
-sd_create_pin_slices -sd_name ${sd_name} -pin_name {FABRIC_PERIPHERALS_0:app_test_control} -pin_slices {[20:20]}
-sd_mark_pins_unused -sd_name ${sd_name} -pin_names {FABRIC_PERIPHERALS_0:app_test_control[20:20]}
-sd_create_pin_slices -sd_name ${sd_name} -pin_name {FABRIC_PERIPHERALS_0:app_test_control} -pin_slices {[21:21]}
-sd_mark_pins_unused -sd_name ${sd_name} -pin_names {FABRIC_PERIPHERALS_0:app_test_control[21:21]}
-sd_create_pin_slices -sd_name ${sd_name} -pin_name {FABRIC_PERIPHERALS_0:app_test_control} -pin_slices {[22:22]}
-sd_mark_pins_unused -sd_name ${sd_name} -pin_names {FABRIC_PERIPHERALS_0:app_test_control[22:22]}
-sd_create_pin_slices -sd_name ${sd_name} -pin_name {FABRIC_PERIPHERALS_0:app_test_control} -pin_slices {[23:23]}
-sd_mark_pins_unused -sd_name ${sd_name} -pin_names {FABRIC_PERIPHERALS_0:app_test_control[23:23]}
-sd_create_pin_slices -sd_name ${sd_name} -pin_name {FABRIC_PERIPHERALS_0:app_test_control} -pin_slices {[24:24]}
-sd_mark_pins_unused -sd_name ${sd_name} -pin_names {FABRIC_PERIPHERALS_0:app_test_control[24:24]}
-sd_create_pin_slices -sd_name ${sd_name} -pin_name {FABRIC_PERIPHERALS_0:app_test_control} -pin_slices {[25:25]}
-sd_mark_pins_unused -sd_name ${sd_name} -pin_names {FABRIC_PERIPHERALS_0:app_test_control[25:25]}
-sd_create_pin_slices -sd_name ${sd_name} -pin_name {FABRIC_PERIPHERALS_0:app_test_control} -pin_slices {[26:26]}
-sd_mark_pins_unused -sd_name ${sd_name} -pin_names {FABRIC_PERIPHERALS_0:app_test_control[26:26]}
-sd_create_pin_slices -sd_name ${sd_name} -pin_name {FABRIC_PERIPHERALS_0:app_test_control} -pin_slices {[27:27]}
-sd_mark_pins_unused -sd_name ${sd_name} -pin_names {FABRIC_PERIPHERALS_0:app_test_control[27:27]}
-sd_create_pin_slices -sd_name ${sd_name} -pin_name {FABRIC_PERIPHERALS_0:app_test_control} -pin_slices {[28:28]}
-sd_mark_pins_unused -sd_name ${sd_name} -pin_names {FABRIC_PERIPHERALS_0:app_test_control[28:28]}
-sd_create_pin_slices -sd_name ${sd_name} -pin_name {FABRIC_PERIPHERALS_0:app_test_control} -pin_slices {[29:29]}
-sd_mark_pins_unused -sd_name ${sd_name} -pin_names {FABRIC_PERIPHERALS_0:app_test_control[29:29]}
-sd_create_pin_slices -sd_name ${sd_name} -pin_name {FABRIC_PERIPHERALS_0:app_test_control} -pin_slices {[2:2]}
-sd_create_pin_slices -sd_name ${sd_name} -pin_name {FABRIC_PERIPHERALS_0:app_test_control} -pin_slices {[30:30]}
-sd_mark_pins_unused -sd_name ${sd_name} -pin_names {FABRIC_PERIPHERALS_0:app_test_control[30:30]}
-sd_create_pin_slices -sd_name ${sd_name} -pin_name {FABRIC_PERIPHERALS_0:app_test_control} -pin_slices {[31:31]}
-sd_mark_pins_unused -sd_name ${sd_name} -pin_names {FABRIC_PERIPHERALS_0:app_test_control[31:31]}
-sd_create_pin_slices -sd_name ${sd_name} -pin_name {FABRIC_PERIPHERALS_0:app_test_control} -pin_slices {[3:3]}
-sd_create_pin_slices -sd_name ${sd_name} -pin_name {FABRIC_PERIPHERALS_0:app_test_control} -pin_slices {[4:4]}
-sd_create_pin_slices -sd_name ${sd_name} -pin_name {FABRIC_PERIPHERALS_0:app_test_control} -pin_slices {[5:5]}
-sd_create_pin_slices -sd_name ${sd_name} -pin_name {FABRIC_PERIPHERALS_0:app_test_control} -pin_slices {[6:6]}
-sd_create_pin_slices -sd_name ${sd_name} -pin_name {FABRIC_PERIPHERALS_0:app_test_control} -pin_slices {[7:7]}
-sd_mark_pins_unused -sd_name ${sd_name} -pin_names {FABRIC_PERIPHERALS_0:app_test_control[7:7]}
-sd_create_pin_slices -sd_name ${sd_name} -pin_name {FABRIC_PERIPHERALS_0:app_test_control} -pin_slices {[8:8]}
-sd_mark_pins_unused -sd_name ${sd_name} -pin_names {FABRIC_PERIPHERALS_0:app_test_control[8:8]}
-sd_create_pin_slices -sd_name ${sd_name} -pin_name {FABRIC_PERIPHERALS_0:app_test_control} -pin_slices {[9:9]}
-sd_mark_pins_unused -sd_name ${sd_name} -pin_names {FABRIC_PERIPHERALS_0:app_test_control[9:9]}
-sd_mark_pins_unused -sd_name ${sd_name} -pin_names {FABRIC_PERIPHERALS_0:axi_test_control}
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {FABRIC_PERIPHERALS_0:status} -pin_slices {[0:0]}
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {FABRIC_PERIPHERALS_0:status} -pin_slices {[1:1]}
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {FABRIC_PERIPHERALS_0:status} -pin_slices {[2:2]}
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {FABRIC_PERIPHERALS_0:status} -pin_slices {[31:9]}
+sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {FABRIC_PERIPHERALS_0:status[31:9]} -value {GND}
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {FABRIC_PERIPHERALS_0:status} -pin_slices {[3:3]}
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {FABRIC_PERIPHERALS_0:status} -pin_slices {[4:4]}
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {FABRIC_PERIPHERALS_0:status} -pin_slices {[5:5]}
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {FABRIC_PERIPHERALS_0:status} -pin_slices {[6:6]}
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {FABRIC_PERIPHERALS_0:status} -pin_slices {[7:7]}
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {FABRIC_PERIPHERALS_0:status} -pin_slices {[8:8]}
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {FABRIC_PERIPHERALS_0:control} -pin_slices {[0:0]}
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {FABRIC_PERIPHERALS_0:control} -pin_slices {[1:1]}
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {FABRIC_PERIPHERALS_0:control} -pin_slices {[2:2]}
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {FABRIC_PERIPHERALS_0:control} -pin_slices {[31:7]}
+sd_mark_pins_unused -sd_name ${sd_name} -pin_names {FABRIC_PERIPHERALS_0:control[31:7]}
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {FABRIC_PERIPHERALS_0:control} -pin_slices {[3:3]}
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {FABRIC_PERIPHERALS_0:control} -pin_slices {[4:4]}
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {FABRIC_PERIPHERALS_0:control} -pin_slices {[5:5]}
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {FABRIC_PERIPHERALS_0:control} -pin_slices {[6:6]}
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {FABRIC_PERIPHERALS_0:interrupt} -pin_slices {[0:0]}
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {FABRIC_PERIPHERALS_0:interrupt} -pin_slices {[1:1]}
 
 
 
@@ -422,25 +331,25 @@ sd_connect_pins -sd_name ${sd_name} -pin_names {"CLOCKS_AND_RESETS_0:REF_CLK_50M
 sd_connect_pins -sd_name ${sd_name} -pin_names {"CLOCKS_AND_RESETS_0:RESETN_FIC_0_CLK" "FABRIC_PERIPHERALS_0:ARESETN" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"CLOCKS_AND_RESETS_0:RESETN_FIC_3_CLK" "FABRIC_PERIPHERALS_0:PRESETN" "RISCV_SUBSYSTEM_0:FIC_3_PRESETN" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"CS0_N" "RISCV_SUBSYSTEM_0:CS0_N" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"DIP1" "FABRIC_PERIPHERALS_0:apb_test_status[1:1]" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"DIP2" "FABRIC_PERIPHERALS_0:apb_test_status[2:2]" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"DIP3" "FABRIC_PERIPHERALS_0:apb_test_status[3:3]" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"DIP4" "FABRIC_PERIPHERALS_0:apb_test_status[4:4]" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"DIP5" "FABRIC_PERIPHERALS_0:apb_test_status[5:5]" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"DIP6" "FABRIC_PERIPHERALS_0:apb_test_status[6:6]" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"DIP7" "FABRIC_PERIPHERALS_0:apb_test_status[7:7]" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"DIP8" "FABRIC_PERIPHERALS_0:apb_test_status[8:8]" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"FABRIC_PERIPHERALS_0:DMA_CONTROLLER_IRQ" "RISCV_SUBSYSTEM_0:MSS_INT_F2M_0[2:2]" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"FABRIC_PERIPHERALS_0:apb_test_irq" "RISCV_SUBSYSTEM_0:MSS_INT_F2M_0[4:4]" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"FABRIC_PERIPHERALS_0:apb_test_status[0:0]" "SWITCH1" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"FABRIC_PERIPHERALS_0:app_test_control[0:0]" "OR2_LED1:A" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"FABRIC_PERIPHERALS_0:app_test_control[1:1]" "OR2_LED2:A" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"FABRIC_PERIPHERALS_0:app_test_control[2:2]" "OR2_LED3:A" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"FABRIC_PERIPHERALS_0:app_test_control[3:3]" "OR2_LED4:A" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"FABRIC_PERIPHERALS_0:app_test_control[4:4]" "OR2_LED5:A" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"FABRIC_PERIPHERALS_0:app_test_control[5:5]" "OR2_LED6:A" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"FABRIC_PERIPHERALS_0:app_test_control[6:6]" "OR2_LED7:A" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"FABRIC_PERIPHERALS_0:axi_test_irq" "RISCV_SUBSYSTEM_0:MSS_INT_F2M_0[5:5]" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"DIP1" "FABRIC_PERIPHERALS_0:status[1:1]" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"DIP2" "FABRIC_PERIPHERALS_0:status[2:2]" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"DIP3" "FABRIC_PERIPHERALS_0:status[3:3]" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"DIP4" "FABRIC_PERIPHERALS_0:status[4:4]" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"DIP5" "FABRIC_PERIPHERALS_0:status[5:5]" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"DIP6" "FABRIC_PERIPHERALS_0:status[6:6]" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"DIP7" "FABRIC_PERIPHERALS_0:status[7:7]" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"DIP8" "FABRIC_PERIPHERALS_0:status[8:8]" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"FABRIC_PERIPHERALS_0:DMA_INTERRUPT" "RISCV_SUBSYSTEM_0:MSS_INT_F2M_0[2:2]" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"FABRIC_PERIPHERALS_0:control[0:0]" "OR2_LED1:A" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"FABRIC_PERIPHERALS_0:control[1:1]" "OR2_LED2:A" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"FABRIC_PERIPHERALS_0:control[2:2]" "OR2_LED3:A" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"FABRIC_PERIPHERALS_0:control[3:3]" "OR2_LED4:A" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"FABRIC_PERIPHERALS_0:control[4:4]" "OR2_LED5:A" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"FABRIC_PERIPHERALS_0:control[5:5]" "OR2_LED6:A" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"FABRIC_PERIPHERALS_0:control[6:6]" "OR2_LED7:A" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"FABRIC_PERIPHERALS_0:interrupt[0:0]" "RISCV_SUBSYSTEM_0:MSS_INT_F2M_0[4:4]" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"FABRIC_PERIPHERALS_0:interrupt[1:1]" "RISCV_SUBSYSTEM_0:MSS_INT_F2M_0[5:5]" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"FABRIC_PERIPHERALS_0:status[0:0]" "SWITCH1" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"FTDI_UART_D_RXD" "RISCV_SUBSYSTEM_0:MMUART_0_TXD_M2F" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"FTDI_UART_D_TXD" "RISCV_SUBSYSTEM_0:MMUART_0_RXD_F2M" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"GPIO_1_20_OUT" "RISCV_SUBSYSTEM_0:GPIO_1_20_OUT" }

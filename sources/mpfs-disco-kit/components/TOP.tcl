@@ -15,20 +15,21 @@ sd_create_scalar_port -sd_name ${sd_name} -port_name {DIP6} -port_direction {IN}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {DIP7} -port_direction {IN}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {DIP8} -port_direction {IN}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {FTDI_UART_D_TXD} -port_direction {IN}
+sd_create_scalar_port -sd_name ${sd_name} -port_name {MBUS_INT} -port_direction {IN}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {MBUS_SPI_MISO} -port_direction {IN}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {MMUART_1_RXD} -port_direction {IN} -port_is_pad {1}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {MMUART_4_RXD} -port_direction {IN} -port_is_pad {1}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {REFCLK_N} -port_direction {IN} -port_is_pad {1}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {REFCLK} -port_direction {IN} -port_is_pad {1}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {REF_CLK_50MHz} -port_direction {IN}
+sd_create_scalar_port -sd_name ${sd_name} -port_name {RPI_GPIO25} -port_direction {IN}
+sd_create_scalar_port -sd_name ${sd_name} -port_name {RPI_SPI_MISO} -port_direction {IN} -port_is_pad {1}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {SD_CD} -port_direction {IN} -port_is_pad {1}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {SD_WP} -port_direction {IN} -port_is_pad {1}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {SGMII_RX0_N} -port_direction {IN} -port_is_pad {1}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {SGMII_RX0_P} -port_direction {IN} -port_is_pad {1}
-sd_create_scalar_port -sd_name ${sd_name} -port_name {SPI_1_DI} -port_direction {IN} -port_is_pad {1}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {SWITCH1} -port_direction {IN}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {SWITCH2} -port_direction {IN}
-sd_create_scalar_port -sd_name ${sd_name} -port_name {MBUS_INT} -port_direction {IN}
 
 sd_create_scalar_port -sd_name ${sd_name} -port_name {ACT_N} -port_direction {OUT} -port_is_pad {1}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {BG0} -port_direction {OUT} -port_is_pad {1}
@@ -56,6 +57,7 @@ sd_create_scalar_port -sd_name ${sd_name} -port_name {MMUART_4_TXD} -port_direct
 sd_create_scalar_port -sd_name ${sd_name} -port_name {ODT0} -port_direction {OUT} -port_is_pad {1}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {RAS_N} -port_direction {OUT} -port_is_pad {1}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {RESET_N} -port_direction {OUT} -port_is_pad {1}
+sd_create_scalar_port -sd_name ${sd_name} -port_name {RPI_SPI_MOSI} -port_direction {OUT} -port_is_pad {1}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {SD_CLK} -port_direction {OUT} -port_is_pad {1}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {SD_POW} -port_direction {OUT} -port_is_pad {1}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {SD_VOLT_CMD_DIR} -port_direction {OUT} -port_is_pad {1}
@@ -65,7 +67,6 @@ sd_create_scalar_port -sd_name ${sd_name} -port_name {SD_VOLT_EN} -port_directio
 sd_create_scalar_port -sd_name ${sd_name} -port_name {SD_VOLT_SEL} -port_direction {OUT} -port_is_pad {1}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {SGMII_TX0_N} -port_direction {OUT} -port_is_pad {1}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {SGMII_TX0_P} -port_direction {OUT} -port_is_pad {1}
-sd_create_scalar_port -sd_name ${sd_name} -port_name {SPI_1_DO} -port_direction {OUT} -port_is_pad {1}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {VSC_RESETN} -port_direction {OUT}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {VSC_TXDIS_SRESETN} -port_direction {OUT}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {WE_N} -port_direction {OUT} -port_is_pad {1}
@@ -75,13 +76,13 @@ sd_create_scalar_port -sd_name ${sd_name} -port_name {MBUS_I2CSDA} -port_directi
 sd_create_scalar_port -sd_name ${sd_name} -port_name {MBUS_SPI_CLK} -port_direction {INOUT} -port_is_pad {1}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {MBUS_SPI_CS} -port_direction {INOUT} -port_is_pad {1}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {MDIO_PAD} -port_direction {INOUT} -port_is_pad {1}
+sd_create_scalar_port -sd_name ${sd_name} -port_name {RPI_SPI_CLK} -port_direction {INOUT} -port_is_pad {1}
+sd_create_scalar_port -sd_name ${sd_name} -port_name {RPI_SPI_CS} -port_direction {INOUT} -port_is_pad {1}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {SD_CMD} -port_direction {INOUT} -port_is_pad {1}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {SD_DATA0} -port_direction {INOUT} -port_is_pad {1}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {SD_DATA1} -port_direction {INOUT} -port_is_pad {1}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {SD_DATA2} -port_direction {INOUT} -port_is_pad {1}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {SD_DATA3} -port_direction {INOUT} -port_is_pad {1}
-sd_create_scalar_port -sd_name ${sd_name} -port_name {SPI_1_CLK} -port_direction {INOUT} -port_is_pad {1}
-sd_create_scalar_port -sd_name ${sd_name} -port_name {SPI_1_SS0} -port_direction {INOUT} -port_is_pad {1}
 
 # Create top level Bus Ports
 sd_create_bus_port -sd_name ${sd_name} -port_name {A} -port_direction {OUT} -port_range {[13:0]} -port_is_pad {1}
@@ -382,7 +383,6 @@ sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {RISCV_SUBSYSTEM_0:MS
 sd_create_pin_slices -sd_name ${sd_name} -pin_name {RISCV_SUBSYSTEM_0:MSS_INT_F2M_0} -pin_slices {[9:9]}
 sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {RISCV_SUBSYSTEM_0:MSS_INT_F2M_0[9:9]} -value {GND}
 sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {RISCV_SUBSYSTEM_0:GPIO_2_F2M_24} -value {GND}
-sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {RISCV_SUBSYSTEM_0:GPIO_2_F2M_25} -value {GND}
 sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {RISCV_SUBSYSTEM_0:GPIO_2_F2M_26} -value {GND}
 sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {RISCV_SUBSYSTEM_0:GPIO_2_F2M_27} -value {GND}
 sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {RISCV_SUBSYSTEM_0:GPIO_2_F2M_28} -value {GND}
@@ -400,7 +400,9 @@ sd_mark_pins_unused -sd_name ${sd_name} -pin_names {RISCV_SUBSYSTEM_0:FIC_2_AXI4
 
 # Add scalar net connections
 sd_create_scalar_net -sd_name ${sd_name} -net_name {MSS_WRAPPER_0_GPIO_2_M2F_21}
+sd_create_scalar_net -sd_name ${sd_name} -net_name {SPI_1_CLK}
 sd_connect_net_to_pins -sd_name ${sd_name} -net_name {MSS_WRAPPER_0_GPIO_2_M2F_21} -pin_names {"OR2_LED5:B" "RISCV_SUBSYSTEM_0:GPIO_2_M2F_21" }
+sd_connect_net_to_pins -sd_name ${sd_name} -net_name {SPI_1_CLK} -pin_names {"RISCV_SUBSYSTEM_0:SPI_1_CLK" "RPI_SPI_CLK" }
 
 sd_connect_pins -sd_name ${sd_name} -pin_names {"ACT_N" "RISCV_SUBSYSTEM_0:ACT_N" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"BG0" "RISCV_SUBSYSTEM_0:BG0" }
@@ -453,6 +455,7 @@ sd_connect_pins -sd_name ${sd_name} -pin_names {"LED7" "OR2_LED7:Y" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"MAC_0_MDC" "RISCV_SUBSYSTEM_0:MAC_0_MDC" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"MBUS_I2CSCL" "RISCV_SUBSYSTEM_0:I2C_0_SCL" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"MBUS_I2CSDA" "RISCV_SUBSYSTEM_0:I2C_0_SDA" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"MBUS_INT" "RISCV_SUBSYSTEM_0:MSS_INT_F2M_0[3:3]" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"MBUS_SPI_CLK" "RISCV_SUBSYSTEM_0:SPI_0_CLK" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"MBUS_SPI_CS" "RISCV_SUBSYSTEM_0:SPI_0_SS" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"MBUS_SPI_MISO" "RISCV_SUBSYSTEM_0:SPI_0_DI_F2M" }
@@ -473,7 +476,7 @@ sd_connect_pins -sd_name ${sd_name} -pin_names {"RAS_N" "RISCV_SUBSYSTEM_0:RAS_N
 sd_connect_pins -sd_name ${sd_name} -pin_names {"REFCLK" "RISCV_SUBSYSTEM_0:REFCLK" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"REFCLK_N" "RISCV_SUBSYSTEM_0:REFCLK_N" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"RESET_N" "RISCV_SUBSYSTEM_0:RESET_N" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"RISCV_SUBSYSTEM_0:MSS_INT_F2M_0[3:3]" "MBUS_INT" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"RISCV_SUBSYSTEM_0:GPIO_2_F2M_25" "RPI_GPIO25" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"RISCV_SUBSYSTEM_0:SD_CD" "SD_CD" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"RISCV_SUBSYSTEM_0:SD_CLK" "SD_CLK" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"RISCV_SUBSYSTEM_0:SD_CMD" "SD_CMD" }
@@ -492,10 +495,9 @@ sd_connect_pins -sd_name ${sd_name} -pin_names {"RISCV_SUBSYSTEM_0:SGMII_RX0_N" 
 sd_connect_pins -sd_name ${sd_name} -pin_names {"RISCV_SUBSYSTEM_0:SGMII_RX0_P" "SGMII_RX0_P" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"RISCV_SUBSYSTEM_0:SGMII_TX0_N" "SGMII_TX0_N" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"RISCV_SUBSYSTEM_0:SGMII_TX0_P" "SGMII_TX0_P" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"RISCV_SUBSYSTEM_0:SPI_1_CLK" "SPI_1_CLK" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"RISCV_SUBSYSTEM_0:SPI_1_DI" "SPI_1_DI" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"RISCV_SUBSYSTEM_0:SPI_1_DO" "SPI_1_DO" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"RISCV_SUBSYSTEM_0:SPI_1_SS0" "SPI_1_SS0" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"RISCV_SUBSYSTEM_0:SPI_1_DI" "RPI_SPI_MISO" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"RISCV_SUBSYSTEM_0:SPI_1_DO" "RPI_SPI_MOSI" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"RISCV_SUBSYSTEM_0:SPI_1_SS0" "RPI_SPI_CS" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"RISCV_SUBSYSTEM_0:WE_N" "WE_N" }
 
 # Add bus net connections

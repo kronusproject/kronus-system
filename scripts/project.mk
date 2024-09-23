@@ -25,13 +25,19 @@ endif
 MSS_COMPONENT := PF_SOC_MSS
 
 .PHONY: all
-all: fpe
+all: bit
+
+.PHONY: bit
+bit: $(OUTPUT_DIR)/build.stamp
 
 .PHONY: fpe
-fpe: $(OUTPUT_DIR)/export/fpe/$(PROJECT).job
+fpe: $(OUTPUT_DIR)/export/$(PROJECT).job
+
+.PHONY: spi
+spi: $(OUTPUT_DIR)/export/mpfs_bitstream.spi
 
 .PHONY: pgm
-pgm:
+pgm: $(OUTPUT_DIR)/build.stamp
 	libero SCRIPT:$(ROOT_DIR)scripts/program.tcl "SCRIPT_ARGS: BOARD:$(BOARD) OUTPUT_DIR:$(abspath $(OUTPUT_DIR))"
 
 .PHONY: prj
@@ -48,11 +54,26 @@ $(OUTPUT_DIR)/project.stamp $(OUTPUT_DIR)/project/$(PROJECT).prjx: $(OUTPUT_DIR)
 	libero SCRIPT:$(SCRIPT) "SCRIPT_ARGS: BOARD:$(BOARD) OUTPUT_DIR:$(abspath $(OUTPUT_DIR))"
 	touch $(OUTPUT_DIR)/project.stamp
 
-$(OUTPUT_DIR)/export/fpe/$(PROJECT).job: $(HSS_IMAGE_PATH) $(ROOT_DIR)scripts/build.tcl $(OUTPUT_DIR)/project.stamp
+$(OUTPUT_DIR)/build.stamp: $(HSS_IMAGE_PATH) $(ROOT_DIR)scripts/build.tcl $(OUTPUT_DIR)/project.stamp
 ifdef UPDATE_HSS
 	libero SCRIPT:$(ROOT_DIR)scripts/build.tcl "SCRIPT_ARGS: BOARD:$(BOARD) OUTPUT_DIR:$(abspath $(OUTPUT_DIR)) UPDATE_HSS"
 else
 	libero SCRIPT:$(ROOT_DIR)scripts/build.tcl "SCRIPT_ARGS: BOARD:$(BOARD) OUTPUT_DIR:$(abspath $(OUTPUT_DIR))"
+endif
+	touch $@
+
+$(OUTPUT_DIR)/export/$(PROJECT).job: $(HSS_IMAGE_PATH) $(ROOT_DIR)scripts/export.tcl $(OUTPUT_DIR)/build.stamp
+ifdef UPDATE_HSS
+	libero SCRIPT:$(ROOT_DIR)scripts/export.tcl "SCRIPT_ARGS: BOARD:$(BOARD) OUTPUT_DIR:$(abspath $(OUTPUT_DIR)) EXPORT_FPE UPDATE_HSS"
+else
+	libero SCRIPT:$(ROOT_DIR)scripts/export.tcl "SCRIPT_ARGS: BOARD:$(BOARD) OUTPUT_DIR:$(abspath $(OUTPUT_DIR)) EXPORT_FPE"
+endif
+
+$(OUTPUT_DIR)/export/mpfs_bitstream.spi: $(HSS_IMAGE_PATH) $(ROOT_DIR)scripts/export.tcl $(OUTPUT_DIR)/build.stamp
+ifdef UPDATE_HSS
+	libero SCRIPT:$(ROOT_DIR)scripts/export.tcl "SCRIPT_ARGS: BOARD:$(BOARD) OUTPUT_DIR:$(abspath $(OUTPUT_DIR)) EXPORT_SPI UPDATE_HSS"
+else
+	libero SCRIPT:$(ROOT_DIR)scripts/export.tcl "SCRIPT_ARGS: BOARD:$(BOARD) OUTPUT_DIR:$(abspath $(OUTPUT_DIR)) EXPORT_SPI"
 endif
 
 $(OUTPUT_DIR)/hss/build/hss-envm-wrapper.$(BOARD).hex: $(OUTPUT_DIR)/mss/$(MSS_COMPONENT)_mss_cfg.xml $(ROOT_DIR)sources/$(BOARD)/hss/def_config

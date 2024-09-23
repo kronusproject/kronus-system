@@ -13,6 +13,8 @@ namespace eval kronus {
         variable board
         variable mss_component "PF_SOC_MSS.cxz"
         variable hss_image_path
+        variable export_fpe
+        variable export_spi
 
         if { $::argc > 0 } {
             foreach arg $::argv {
@@ -55,6 +57,14 @@ namespace eval kronus {
             set mss_component $BOARD
         } elseif {[info exists ::env(MSS_COMPONENT)]} {
             set mss_component $::env(MSS_COMPONENT)
+        }
+
+        if {[info exists EXPORT_FPE]} {
+            set export_fpe 1
+        }
+
+        if {[info exists EXPORT_SPI]} {
+            set export_spi 1
         }
 
         # TODO
@@ -178,5 +188,43 @@ namespace eval kronus {
             -skip_recommended_procedures {} \
             -sanitize_snvm 0 \
             -sanitize_envm 0
+    }
+
+    proc export_spi_file {name directory components} {
+        export_bitstream_file \
+            -file_name $name \
+            -export_dir $directory \
+            -format {SPI} \
+            -for_ihp 0 \
+            -limit_SVF_file_size 0 \
+            -limit_SVF_file_by_max_filesize_or_vectors {} \
+            -svf_max_filesize {} \
+            -svf_max_vectors {} \
+            -master_file 0 \
+            -master_file_components {} \
+            -encrypted_uek1_file 0 \
+            -encrypted_uek1_file_components {} \
+            -encrypted_uek2_file 0 \
+            -encrypted_uek2_file_components {} \
+            -trusted_facility_file 1 \
+            -trusted_facility_file_components $components \
+            -zeroization_likenew_action 0 \
+            -zeroization_unrecoverable_action 0 \
+            -master_backlevel_bypass 0 \
+            -uek1_backlevel_bypass 0 \
+            -uek2_backlevel_bypass 0 \
+            -master_include_plaintext_passkey 0 \
+            -uek1_include_plaintext_passkey 0 \
+            -uek2_include_plaintext_passkey 0 \
+            -sanitize_snvm 0 \
+            -sanitize_envm 0 \
+            -trusted_facility_keep_fabric_operational 0 \
+            -trusted_facility_skip_startup_seq 0 \
+            -uek1_keep_fabric_operational 0 \
+            -uek1_skip_startup_seq 0 \
+            -uek1_high_water_mark {} \
+            -uek2_keep_fabric_operational 0 \
+            -uek2_skip_startup_seq 0 \
+            -uek2_high_water_mark {}
     }
 }

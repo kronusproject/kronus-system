@@ -9,6 +9,7 @@ auto_promote_pad_pins -promote_all 0
 sd_create_scalar_port -sd_name ${sd_name} -port_name {ADC_IRQn} -port_direction {IN} -port_is_pad {1}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {EMMC_STRB} -port_direction {IN} -port_is_pad {1}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {P9_11} -port_direction {IN}
+sd_create_scalar_port -sd_name ${sd_name} -port_name {P9_24} -port_direction {IN}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {PHY_INTn} -port_direction {IN}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {REFCLK_N} -port_direction {IN} -port_is_pad {1}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {REFCLK} -port_direction {IN} -port_is_pad {1}
@@ -47,6 +48,8 @@ sd_create_scalar_port -sd_name ${sd_name} -port_name {P8_7_USER_LED_4} -port_dir
 sd_create_scalar_port -sd_name ${sd_name} -port_name {P8_8_USER_LED_5} -port_direction {OUT}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {P8_9_USER_LED_6} -port_direction {OUT}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {P9_13} -port_direction {OUT}
+sd_create_scalar_port -sd_name ${sd_name} -port_name {P9_25} -port_direction {OUT}
+sd_create_scalar_port -sd_name ${sd_name} -port_name {P9_26} -port_direction {OUT}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {PHY_MDC} -port_direction {OUT} -port_is_pad {1}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {PHY_RSTn} -port_direction {OUT}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {RESET_N} -port_direction {OUT} -port_is_pad {1}
@@ -243,6 +246,9 @@ sd_connect_pins -sd_name ${sd_name} -pin_names {"P9_11" "RISCV_SUBSYSTEM:MMUART_
 sd_connect_pins -sd_name ${sd_name} -pin_names {"P9_13" "RISCV_SUBSYSTEM:MMUART_4_TXD" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"P9_19" "RISCV_SUBSYSTEM:I2C0_SCL" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"P9_20" "RISCV_SUBSYSTEM:I2C0_SDA" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"P9_24" "RISCV_SUBSYSTEM:CAN_0_RXBUS_F2M" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"P9_25" "RISCV_SUBSYSTEM:CAN_0_TX_EBL_M2F" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"P9_26" "RISCV_SUBSYSTEM:CAN_0_TXBUS_M2F" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"PHY_INTn" "RISCV_SUBSYSTEM:PHY_INTn" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"PHY_MDC" "RISCV_SUBSYSTEM:PHY_MDC" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"PHY_MDIO" "RISCV_SUBSYSTEM:PHY_MDIO" }

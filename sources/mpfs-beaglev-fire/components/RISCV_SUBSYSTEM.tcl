@@ -7,6 +7,7 @@ auto_promote_pad_pins -promote_all 0
 
 # Create top level Scalar Ports
 sd_create_scalar_port -sd_name ${sd_name} -port_name {ADC_IRQn} -port_direction {IN} -port_is_pad {1}
+sd_create_scalar_port -sd_name ${sd_name} -port_name {CAN_0_RXBUS_F2M} -port_direction {IN}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {EMMC_STRB} -port_direction {IN} -port_is_pad {1}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {FIC_0_ACLK} -port_direction {IN}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {FIC_0_AXI4_INITIATOR_FIC_0_AXI4_M_ARREADY} -port_direction {IN}
@@ -77,6 +78,8 @@ sd_create_scalar_port -sd_name ${sd_name} -port_name {USER_BUTTON} -port_directi
 
 sd_create_scalar_port -sd_name ${sd_name} -port_name {ADC_CSn} -port_direction {OUT} -port_is_pad {1}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {ADC_SCK} -port_direction {OUT} -port_is_pad {1}
+sd_create_scalar_port -sd_name ${sd_name} -port_name {CAN_0_TXBUS_M2F} -port_direction {OUT}
+sd_create_scalar_port -sd_name ${sd_name} -port_name {CAN_0_TX_EBL_M2F} -port_direction {OUT}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {CKE} -port_direction {OUT} -port_is_pad {1}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {CK_N} -port_direction {OUT} -port_is_pad {1}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {CK} -port_direction {OUT} -port_is_pad {1}
@@ -687,6 +690,9 @@ sd_connect_pins -sd_name ${sd_name} -pin_names {"AND_DLL_LOCKS:B" "PF_SOC_MSS:FI
 sd_connect_pins -sd_name ${sd_name} -pin_names {"AND_DLL_LOCKS:C" "PF_SOC_MSS:FIC_2_DLL_LOCK_M2F" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"AND_DLL_LOCKS:D" "PF_SOC_MSS:FIC_3_DLL_LOCK_M2F" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"AND_DLL_LOCKS:Y" "MSS_DLL_LOCKS" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CAN_0_RXBUS_F2M" "PF_SOC_MSS:CAN_0_RXBUS_F2M" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CAN_0_TXBUS_M2F" "PF_SOC_MSS:CAN_0_TXBUS_M2F" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CAN_0_TX_EBL_M2F" "PF_SOC_MSS:CAN_0_TX_EBL_M2F" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"CK" "PF_SOC_MSS:CK" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"CKE" "PF_SOC_MSS:CKE" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"CK_N" "PF_SOC_MSS:CK_N" }

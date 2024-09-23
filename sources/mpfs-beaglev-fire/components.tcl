@@ -7,9 +7,7 @@ download_core -vlnv {Microsemi:SgCore:PFSOC_INIT_MONITOR:*} -location {www.micro
 download_core -vlnv {Actel:DirectCore:COREAXI4INTERCONNECT:2.8.103} -location {www.microchip-ip.com/repositories/DirectCore}
 download_core -vlnv {Actel:SgCore:PF_CLK_DIV:*} -location {www.microchip-ip.com/repositories/SgCore}
 download_core -vlnv {Actel:SgCore:PF_NGMUX:*} -location {www.microchip-ip.com/repositories/SgCore}
-download_core -vlnv {Actel:SgCore:PF_TX_PLL:*} -location {www.microchip-ip.com/repositories/SgCore}
 download_core -vlnv {Actel:DirectCore:CoreAPB3:4.2.100} -location {www.microchip-ip.com/repositories/DirectCore}
-download_core -vlnv {Actel:DirectCore:COREAXI4DMACONTROLLER:2.1.102} -location {www.microchip-ip.com/repositories/DirectCore}
 
 smartdesign \
     -memory_map_drc_change_error_to_warning 1 \
@@ -46,8 +44,6 @@ source $script_dir/components/INIT_MONITOR.tcl
 source $script_dir/components/FPGA_CCC_C0.tcl
 source $script_dir/components/OSCILLATOR_160MHz.tcl
 source $script_dir/components/ADC_MCLK_CCC.tcl
-source ${kronus::source_dir}/common/components/DMA_CONTROLLER.tcl
-source ${kronus::source_dir}/common/components/DMA_INITIATOR.tcl
 source ${kronus::source_dir}/common/components/FIC_0_AXI4_INTERCONNECT.tcl
 source ${kronus::source_dir}/common/components/FIC_3_APB_INTERCONNECT.tcl
 source ${kronus::source_dir}/common/components/IHC_APB.tcl

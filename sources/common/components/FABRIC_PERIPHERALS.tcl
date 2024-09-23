@@ -17,12 +17,6 @@ sd_create_scalar_port -sd_name ${sd_name} -port_name {AXI4_INITIATOR_MASTER0_BRE
 sd_create_scalar_port -sd_name ${sd_name} -port_name {AXI4_INITIATOR_MASTER0_RREADY} -port_direction {IN}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {AXI4_INITIATOR_MASTER0_WLAST} -port_direction {IN}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {AXI4_INITIATOR_MASTER0_WVALID} -port_direction {IN}
-sd_create_scalar_port -sd_name ${sd_name} -port_name {AXI4_TARGET_SLAVE0_ARREADY} -port_direction {IN}
-sd_create_scalar_port -sd_name ${sd_name} -port_name {AXI4_TARGET_SLAVE0_AWREADY} -port_direction {IN}
-sd_create_scalar_port -sd_name ${sd_name} -port_name {AXI4_TARGET_SLAVE0_BVALID} -port_direction {IN}
-sd_create_scalar_port -sd_name ${sd_name} -port_name {AXI4_TARGET_SLAVE0_RLAST} -port_direction {IN}
-sd_create_scalar_port -sd_name ${sd_name} -port_name {AXI4_TARGET_SLAVE0_RVALID} -port_direction {IN}
-sd_create_scalar_port -sd_name ${sd_name} -port_name {AXI4_TARGET_SLAVE0_WREADY} -port_direction {IN}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {PCLK} -port_direction {IN}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {PRESETN} -port_direction {IN}
 
@@ -34,13 +28,6 @@ sd_create_scalar_port -sd_name ${sd_name} -port_name {AXI4_INITIATOR_MASTER0_BVA
 sd_create_scalar_port -sd_name ${sd_name} -port_name {AXI4_INITIATOR_MASTER0_RLAST} -port_direction {OUT}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {AXI4_INITIATOR_MASTER0_RVALID} -port_direction {OUT}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {AXI4_INITIATOR_MASTER0_WREADY} -port_direction {OUT}
-sd_create_scalar_port -sd_name ${sd_name} -port_name {AXI4_TARGET_SLAVE0_ARVALID} -port_direction {OUT}
-sd_create_scalar_port -sd_name ${sd_name} -port_name {AXI4_TARGET_SLAVE0_AWVALID} -port_direction {OUT}
-sd_create_scalar_port -sd_name ${sd_name} -port_name {AXI4_TARGET_SLAVE0_BREADY} -port_direction {OUT}
-sd_create_scalar_port -sd_name ${sd_name} -port_name {AXI4_TARGET_SLAVE0_RREADY} -port_direction {OUT}
-sd_create_scalar_port -sd_name ${sd_name} -port_name {AXI4_TARGET_SLAVE0_WLAST} -port_direction {OUT}
-sd_create_scalar_port -sd_name ${sd_name} -port_name {AXI4_TARGET_SLAVE0_WVALID} -port_direction {OUT}
-sd_create_scalar_port -sd_name ${sd_name} -port_name {DMA_INTERRUPT} -port_direction {OUT}
 
 
 # Create top level Bus Ports
@@ -71,13 +58,6 @@ sd_create_bus_port -sd_name ${sd_name} -port_name {AXI4_INITIATOR_MASTER0_AWUSER
 sd_create_bus_port -sd_name ${sd_name} -port_name {AXI4_INITIATOR_MASTER0_WDATA} -port_direction {IN} -port_range {[63:0]}
 sd_create_bus_port -sd_name ${sd_name} -port_name {AXI4_INITIATOR_MASTER0_WSTRB} -port_direction {IN} -port_range {[7:0]}
 sd_create_bus_port -sd_name ${sd_name} -port_name {AXI4_INITIATOR_MASTER0_WUSER} -port_direction {IN} -port_range {[0:0]}
-sd_create_bus_port -sd_name ${sd_name} -port_name {AXI4_TARGET_SLAVE0_BID} -port_direction {IN} -port_range {[8:0]}
-sd_create_bus_port -sd_name ${sd_name} -port_name {AXI4_TARGET_SLAVE0_BRESP} -port_direction {IN} -port_range {[1:0]}
-sd_create_bus_port -sd_name ${sd_name} -port_name {AXI4_TARGET_SLAVE0_BUSER} -port_direction {IN} -port_range {[0:0]}
-sd_create_bus_port -sd_name ${sd_name} -port_name {AXI4_TARGET_SLAVE0_RDATA} -port_direction {IN} -port_range {[63:0]}
-sd_create_bus_port -sd_name ${sd_name} -port_name {AXI4_TARGET_SLAVE0_RID} -port_direction {IN} -port_range {[8:0]}
-sd_create_bus_port -sd_name ${sd_name} -port_name {AXI4_TARGET_SLAVE0_RRESP} -port_direction {IN} -port_range {[1:0]}
-sd_create_bus_port -sd_name ${sd_name} -port_name {AXI4_TARGET_SLAVE0_RUSER} -port_direction {IN} -port_range {[0:0]}
 sd_create_bus_port -sd_name ${sd_name} -port_name {PSTRB} -port_direction {IN} -port_range {[3:0]}
 sd_create_bus_port -sd_name ${sd_name} -port_name {status} -port_direction {IN} -port_range {[31:0]}
 
@@ -89,33 +69,8 @@ sd_create_bus_port -sd_name ${sd_name} -port_name {AXI4_INITIATOR_MASTER0_RDATA}
 sd_create_bus_port -sd_name ${sd_name} -port_name {AXI4_INITIATOR_MASTER0_RID} -port_direction {OUT} -port_range {[7:0]}
 sd_create_bus_port -sd_name ${sd_name} -port_name {AXI4_INITIATOR_MASTER0_RRESP} -port_direction {OUT} -port_range {[1:0]}
 sd_create_bus_port -sd_name ${sd_name} -port_name {AXI4_INITIATOR_MASTER0_RUSER} -port_direction {OUT} -port_range {[0:0]}
-sd_create_bus_port -sd_name ${sd_name} -port_name {AXI4_TARGET_SLAVE0_ARADDR} -port_direction {OUT} -port_range {[31:0]}
-sd_create_bus_port -sd_name ${sd_name} -port_name {AXI4_TARGET_SLAVE0_ARBURST} -port_direction {OUT} -port_range {[1:0]}
-sd_create_bus_port -sd_name ${sd_name} -port_name {AXI4_TARGET_SLAVE0_ARCACHE} -port_direction {OUT} -port_range {[3:0]}
-sd_create_bus_port -sd_name ${sd_name} -port_name {AXI4_TARGET_SLAVE0_ARID} -port_direction {OUT} -port_range {[8:0]}
-sd_create_bus_port -sd_name ${sd_name} -port_name {AXI4_TARGET_SLAVE0_ARLEN} -port_direction {OUT} -port_range {[7:0]}
-sd_create_bus_port -sd_name ${sd_name} -port_name {AXI4_TARGET_SLAVE0_ARLOCK} -port_direction {OUT} -port_range {[1:0]}
-sd_create_bus_port -sd_name ${sd_name} -port_name {AXI4_TARGET_SLAVE0_ARPROT} -port_direction {OUT} -port_range {[2:0]}
-sd_create_bus_port -sd_name ${sd_name} -port_name {AXI4_TARGET_SLAVE0_ARQOS} -port_direction {OUT} -port_range {[3:0]}
-sd_create_bus_port -sd_name ${sd_name} -port_name {AXI4_TARGET_SLAVE0_ARREGION} -port_direction {OUT} -port_range {[3:0]}
-sd_create_bus_port -sd_name ${sd_name} -port_name {AXI4_TARGET_SLAVE0_ARSIZE} -port_direction {OUT} -port_range {[2:0]}
-sd_create_bus_port -sd_name ${sd_name} -port_name {AXI4_TARGET_SLAVE0_ARUSER} -port_direction {OUT} -port_range {[0:0]}
-sd_create_bus_port -sd_name ${sd_name} -port_name {AXI4_TARGET_SLAVE0_AWADDR} -port_direction {OUT} -port_range {[31:0]}
-sd_create_bus_port -sd_name ${sd_name} -port_name {AXI4_TARGET_SLAVE0_AWBURST} -port_direction {OUT} -port_range {[1:0]}
-sd_create_bus_port -sd_name ${sd_name} -port_name {AXI4_TARGET_SLAVE0_AWCACHE} -port_direction {OUT} -port_range {[3:0]}
-sd_create_bus_port -sd_name ${sd_name} -port_name {AXI4_TARGET_SLAVE0_AWID} -port_direction {OUT} -port_range {[8:0]}
-sd_create_bus_port -sd_name ${sd_name} -port_name {AXI4_TARGET_SLAVE0_AWLEN} -port_direction {OUT} -port_range {[7:0]}
-sd_create_bus_port -sd_name ${sd_name} -port_name {AXI4_TARGET_SLAVE0_AWLOCK} -port_direction {OUT} -port_range {[1:0]}
-sd_create_bus_port -sd_name ${sd_name} -port_name {AXI4_TARGET_SLAVE0_AWPROT} -port_direction {OUT} -port_range {[2:0]}
-sd_create_bus_port -sd_name ${sd_name} -port_name {AXI4_TARGET_SLAVE0_AWQOS} -port_direction {OUT} -port_range {[3:0]}
-sd_create_bus_port -sd_name ${sd_name} -port_name {AXI4_TARGET_SLAVE0_AWREGION} -port_direction {OUT} -port_range {[3:0]}
-sd_create_bus_port -sd_name ${sd_name} -port_name {AXI4_TARGET_SLAVE0_AWSIZE} -port_direction {OUT} -port_range {[2:0]}
-sd_create_bus_port -sd_name ${sd_name} -port_name {AXI4_TARGET_SLAVE0_AWUSER} -port_direction {OUT} -port_range {[0:0]}
-sd_create_bus_port -sd_name ${sd_name} -port_name {AXI4_TARGET_SLAVE0_WDATA} -port_direction {OUT} -port_range {[63:0]}
-sd_create_bus_port -sd_name ${sd_name} -port_name {AXI4_TARGET_SLAVE0_WSTRB} -port_direction {OUT} -port_range {[7:0]}
-sd_create_bus_port -sd_name ${sd_name} -port_name {AXI4_TARGET_SLAVE0_WUSER} -port_direction {OUT} -port_range {[0:0]}
 sd_create_bus_port -sd_name ${sd_name} -port_name {control} -port_direction {OUT} -port_range {[31:0]}
-sd_create_bus_port -sd_name ${sd_name} -port_name {interrupt} -port_direction {OUT} -port_range {[1:0]}
+sd_create_bus_port -sd_name ${sd_name} -port_name {interrupt} -port_direction {OUT} -port_range {[31:0]}
 
 
 # Create top level Bus interface Ports
@@ -175,54 +130,10 @@ sd_create_bif_port -sd_name ${sd_name} -port_name {AXI4_INITIATOR} -port_bif_vln
 "ARUSER:AXI4_INITIATOR_MASTER0_ARUSER" \
 "RUSER:AXI4_INITIATOR_MASTER0_RUSER" }
 
-sd_create_bif_port -sd_name ${sd_name} -port_name {AXI4_TARGET} -port_bif_vlnv {AMBA:AMBA4:AXI4:r0p0_0} -port_bif_role {mirroredSlave} -port_bif_mapping {\
-"AWID:AXI4_TARGET_SLAVE0_AWID" \
-"AWADDR:AXI4_TARGET_SLAVE0_AWADDR" \
-"AWLEN:AXI4_TARGET_SLAVE0_AWLEN" \
-"AWSIZE:AXI4_TARGET_SLAVE0_AWSIZE" \
-"AWBURST:AXI4_TARGET_SLAVE0_AWBURST" \
-"AWLOCK:AXI4_TARGET_SLAVE0_AWLOCK" \
-"AWCACHE:AXI4_TARGET_SLAVE0_AWCACHE" \
-"AWPROT:AXI4_TARGET_SLAVE0_AWPROT" \
-"AWQOS:AXI4_TARGET_SLAVE0_AWQOS" \
-"AWREGION:AXI4_TARGET_SLAVE0_AWREGION" \
-"AWVALID:AXI4_TARGET_SLAVE0_AWVALID" \
-"AWREADY:AXI4_TARGET_SLAVE0_AWREADY" \
-"WDATA:AXI4_TARGET_SLAVE0_WDATA" \
-"WSTRB:AXI4_TARGET_SLAVE0_WSTRB" \
-"WLAST:AXI4_TARGET_SLAVE0_WLAST" \
-"WVALID:AXI4_TARGET_SLAVE0_WVALID" \
-"WREADY:AXI4_TARGET_SLAVE0_WREADY" \
-"BID:AXI4_TARGET_SLAVE0_BID" \
-"BRESP:AXI4_TARGET_SLAVE0_BRESP" \
-"BVALID:AXI4_TARGET_SLAVE0_BVALID" \
-"BREADY:AXI4_TARGET_SLAVE0_BREADY" \
-"ARID:AXI4_TARGET_SLAVE0_ARID" \
-"ARADDR:AXI4_TARGET_SLAVE0_ARADDR" \
-"ARLEN:AXI4_TARGET_SLAVE0_ARLEN" \
-"ARSIZE:AXI4_TARGET_SLAVE0_ARSIZE" \
-"ARBURST:AXI4_TARGET_SLAVE0_ARBURST" \
-"ARLOCK:AXI4_TARGET_SLAVE0_ARLOCK" \
-"ARCACHE:AXI4_TARGET_SLAVE0_ARCACHE" \
-"ARPROT:AXI4_TARGET_SLAVE0_ARPROT" \
-"ARQOS:AXI4_TARGET_SLAVE0_ARQOS" \
-"ARREGION:AXI4_TARGET_SLAVE0_ARREGION" \
-"ARVALID:AXI4_TARGET_SLAVE0_ARVALID" \
-"ARREADY:AXI4_TARGET_SLAVE0_ARREADY" \
-"RID:AXI4_TARGET_SLAVE0_RID" \
-"RDATA:AXI4_TARGET_SLAVE0_RDATA" \
-"RRESP:AXI4_TARGET_SLAVE0_RRESP" \
-"RLAST:AXI4_TARGET_SLAVE0_RLAST" \
-"RVALID:AXI4_TARGET_SLAVE0_RVALID" \
-"RREADY:AXI4_TARGET_SLAVE0_RREADY" \
-"AWUSER:AXI4_TARGET_SLAVE0_AWUSER" \
-"WUSER:AXI4_TARGET_SLAVE0_WUSER" \
-"BUSER:AXI4_TARGET_SLAVE0_BUSER" \
-"ARUSER:AXI4_TARGET_SLAVE0_ARUSER" \
-"RUSER:AXI4_TARGET_SLAVE0_RUSER" }
-
 sd_create_pin_slices -sd_name ${sd_name} -pin_name {interrupt} -pin_slices {[0:0]}
 sd_create_pin_slices -sd_name ${sd_name} -pin_name {interrupt} -pin_slices {[1:1]}
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {interrupt} -pin_slices {[2:31]}
+sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {interrupt[2:31]} -value {GND}
 # Add apb_test_0 instance
 sd_instantiate_hdl_core -sd_name ${sd_name} -hdl_core_name {apb_test} -instance_name {apb_test_0}
 
@@ -241,20 +152,9 @@ sd_mark_pins_unused -sd_name ${sd_name} -pin_names {axi_test_0:control}
 
 
 
-# Add DMA_CONTROLLER instance
-sd_instantiate_component -sd_name ${sd_name} -component_name {DMA_CONTROLLER} -instance_name {DMA_CONTROLLER}
-sd_create_pin_slices -sd_name ${sd_name} -pin_name {DMA_CONTROLLER:INTERRUPT} -pin_slices {[0:0]}
-sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {DMA_CONTROLLER:STRTDMAOP} -value {GND}
-
-
-
-# Add DMA_INITIATOR instance
-sd_instantiate_component -sd_name ${sd_name} -component_name {DMA_INITIATOR} -instance_name {DMA_INITIATOR}
-
-
-
 # Add FIC_0_AXI4_INTERCONNECT_0 instance
 sd_instantiate_component -sd_name ${sd_name} -component_name {FIC_0_AXI4_INTERCONNECT} -instance_name {FIC_0_AXI4_INTERCONNECT_0}
+sd_mark_pins_unused -sd_name ${sd_name} -pin_names {FIC_0_AXI4_INTERCONNECT_0:AXI4mslave1}
 
 
 
@@ -267,9 +167,8 @@ sd_mark_pins_unused -sd_name ${sd_name} -pin_names {FIC_3_APB_INTERCONNECT_0:APB
 
 
 # Add scalar net connections
-sd_connect_pins -sd_name ${sd_name} -pin_names {"ACLK" "DMA_CONTROLLER:CLOCK" "DMA_INITIATOR:ACLK" "FIC_0_AXI4_INTERCONNECT_0:ACLK" "axi_test_0:aclk" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"ARESETN" "DMA_CONTROLLER:RESETN" "DMA_INITIATOR:ARESETN" "FIC_0_AXI4_INTERCONNECT_0:ARESETN" "axi_test_0:aresetn" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"DMA_CONTROLLER:INTERRUPT[0:0]" "DMA_INTERRUPT" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"ACLK" "FIC_0_AXI4_INTERCONNECT_0:ACLK" "axi_test_0:aclk" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"ARESETN" "FIC_0_AXI4_INTERCONNECT_0:ARESETN" "axi_test_0:aresetn" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"PCLK" "apb_test_0:pclk" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"PRESETN" "apb_test_0:presetn" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"apb_test_0:irq" "interrupt[0:0]" }
@@ -283,10 +182,7 @@ sd_connect_pins -sd_name ${sd_name} -pin_names {"apb_test_0:status" "axi_test_0:
 # Add bus interface net connections
 sd_connect_pins -sd_name ${sd_name} -pin_names {"APB_INITIATOR" "FIC_3_APB_INTERCONNECT_0:APB3mmaster" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"AXI4_INITIATOR" "FIC_0_AXI4_INTERCONNECT_0:AXI4mmaster0" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"AXI4_TARGET" "DMA_INITIATOR:AXI4mslave0" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"DMA_CONTROLLER:AXI4MasterDMA_IF" "DMA_INITIATOR:AXI4mmaster0" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"DMA_CONTROLLER:AXI4SlaveCtrl_IF" "FIC_0_AXI4_INTERCONNECT_0:AXI4mslave0" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"FIC_0_AXI4_INTERCONNECT_0:AXI4mslave1" "axi_test_0:axi4_target" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"FIC_0_AXI4_INTERCONNECT_0:AXI4mslave0" "axi_test_0:axi4_target" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"FIC_3_APB_INTERCONNECT_0:APBmslave0" "apb_test_0:apb_target" }
 
 # Re-enable auto promotion of pins of type 'pad'

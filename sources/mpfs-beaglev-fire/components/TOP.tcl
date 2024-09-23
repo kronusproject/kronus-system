@@ -294,7 +294,6 @@ sd_connect_pins -sd_name ${sd_name} -pin_names {"FABRIC_PERIPHERALS_0:PSTRB" "RI
 # Add bus interface net connections
 sd_connect_pins -sd_name ${sd_name} -pin_names {"FABRIC_PERIPHERALS_0:APB_INITIATOR" "RISCV_SUBSYSTEM:FIC_3_APB_INITIATOR" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"FABRIC_PERIPHERALS_0:AXI4_INITIATOR" "RISCV_SUBSYSTEM:FIC_0_AXI4_INITIATOR" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"FABRIC_PERIPHERALS_0:AXI4_TARGET" "RISCV_SUBSYSTEM:FIC_0_AXI4_TARGET" }
 
 # Re-enable auto promotion of pins of type 'pad'
 auto_promote_pad_pins -promote_all 1

@@ -222,6 +222,7 @@ sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {RISCV_SUBSYSTEM_0:MS
 sd_create_pin_slices -sd_name ${sd_name} -pin_name {RISCV_SUBSYSTEM_0:MSS_INT_F2M_0} -pin_slices {[29:29]}
 sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {RISCV_SUBSYSTEM_0:MSS_INT_F2M_0[29:29]} -value {GND}
 sd_create_pin_slices -sd_name ${sd_name} -pin_name {RISCV_SUBSYSTEM_0:MSS_INT_F2M_0} -pin_slices {[2:2]}
+sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {RISCV_SUBSYSTEM_0:MSS_INT_F2M_0[2:2]} -value {GND}
 sd_create_pin_slices -sd_name ${sd_name} -pin_name {RISCV_SUBSYSTEM_0:MSS_INT_F2M_0} -pin_slices {[30:30]}
 sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {RISCV_SUBSYSTEM_0:MSS_INT_F2M_0[30:30]} -value {GND}
 sd_create_pin_slices -sd_name ${sd_name} -pin_name {RISCV_SUBSYSTEM_0:MSS_INT_F2M_0} -pin_slices {[31:31]}
@@ -302,6 +303,7 @@ sd_mark_pins_unused -sd_name ${sd_name} -pin_names {RISCV_SUBSYSTEM_0:GPIO_2_27_
 sd_mark_pins_unused -sd_name ${sd_name} -pin_names {RISCV_SUBSYSTEM_0:GPIO_2_28_OUT}
 sd_mark_pins_unused -sd_name ${sd_name} -pin_names {RISCV_SUBSYSTEM_0:MSS_INT_M2F}
 sd_mark_pins_unused -sd_name ${sd_name} -pin_names {RISCV_SUBSYSTEM_0:FIC_1_AXI4_INITIATOR}
+sd_mark_pins_unused -sd_name ${sd_name} -pin_names {RISCV_SUBSYSTEM_0:FIC_0_AXI4_TARGET}
 sd_mark_pins_unused -sd_name ${sd_name} -pin_names {RISCV_SUBSYSTEM_0:FIC_1_AXI4_TARGET}
 sd_mark_pins_unused -sd_name ${sd_name} -pin_names {RISCV_SUBSYSTEM_0:FIC_2_AXI4_TARGET}
 
@@ -339,7 +341,6 @@ sd_connect_pins -sd_name ${sd_name} -pin_names {"DIP5" "FABRIC_PERIPHERALS_0:sta
 sd_connect_pins -sd_name ${sd_name} -pin_names {"DIP6" "FABRIC_PERIPHERALS_0:status[6:6]" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"DIP7" "FABRIC_PERIPHERALS_0:status[7:7]" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"DIP8" "FABRIC_PERIPHERALS_0:status[8:8]" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"FABRIC_PERIPHERALS_0:DMA_INTERRUPT" "RISCV_SUBSYSTEM_0:MSS_INT_F2M_0[2:2]" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"FABRIC_PERIPHERALS_0:control[0:0]" "OR2_LED1:A" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"FABRIC_PERIPHERALS_0:control[1:1]" "OR2_LED2:A" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"FABRIC_PERIPHERALS_0:control[2:2]" "OR2_LED3:A" }
@@ -421,7 +422,6 @@ sd_connect_pins -sd_name ${sd_name} -pin_names {"FABRIC_PERIPHERALS_0:PSTRB" "RI
 # Add bus interface net connections
 sd_connect_pins -sd_name ${sd_name} -pin_names {"FABRIC_PERIPHERALS_0:APB_INITIATOR" "RISCV_SUBSYSTEM_0:FIC_3_APB_INITIATOR" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"FABRIC_PERIPHERALS_0:AXI4_INITIATOR" "RISCV_SUBSYSTEM_0:FIC_0_AXI4_INITIATOR" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"FABRIC_PERIPHERALS_0:AXI4_TARGET" "RISCV_SUBSYSTEM_0:FIC_0_AXI4_TARGET" }
 
 # Re-enable auto promotion of pins of type 'pad'
 auto_promote_pad_pins -promote_all 1

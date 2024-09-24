@@ -57,10 +57,10 @@ $(OUTPUT_DIR)/.build.stamp: $(HSS_IMAGE_PATH) $(ROOT_DIR)scripts/build.tcl $(OUT
 	libero SCRIPT:$(ROOT_DIR)scripts/build.tcl "SCRIPT_ARGS: $(SCRIPT_ARGS)"
 	touch $@
 
-$(OUTPUT_DIR)/export/$(PROJECT).job: $(HSS_IMAGE_PATH) $(ROOT_DIR)scripts/export.tcl $(OUTPUT_DIR)/build.stamp
+$(OUTPUT_DIR)/export/$(PROJECT).job: $(HSS_IMAGE_PATH) $(ROOT_DIR)scripts/export.tcl $(OUTPUT_DIR)/.build.stamp
 	libero SCRIPT:$(ROOT_DIR)scripts/export.tcl "SCRIPT_ARGS: $(SCRIPT_ARGS) EXPORT_FPE"
 
-$(OUTPUT_DIR)/export/$(PROJECT).spi: $(HSS_IMAGE_PATH) $(ROOT_DIR)scripts/export.tcl $(OUTPUT_DIR)/build.stamp
+$(OUTPUT_DIR)/export/$(PROJECT).spi: $(HSS_IMAGE_PATH) $(ROOT_DIR)scripts/export.tcl $(OUTPUT_DIR)/.build.stamp
 	libero SCRIPT:$(ROOT_DIR)scripts/export.tcl "SCRIPT_ARGS: $(SCRIPT_ARGS) EXPORT_SPI"
 
 $(OUTPUT_DIR)/hss/build/hss-envm-wrapper.$(BOARD).hex: $(OUTPUT_DIR)/mss/$(MSS_COMPONENT)_mss_cfg.xml $(ROOT_DIR)sources/$(BOARD)/hss/def_config

@@ -19,7 +19,7 @@ HSS_REVISION ?= v2024.06
 HSS_BOARD ?= $(BOARD)
 
 ifdef UPDATE_HSS
-HSS_IMAGE_PATH ?= $(OUTPUT_DIR)/hss/build/hss-envm-wrapper.$(HSS_BOARD).hex
+HSS_IMAGE_PATH := $(OUTPUT_DIR)/hss/build/hss-envm-wrapper.$(HSS_BOARD).hex
 endif
 
 MSS_COMPONENT := PF_SOC_MSS

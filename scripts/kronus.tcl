@@ -46,11 +46,7 @@ namespace eval kronus {
         }
 
         if {[info exists UPDATE_HSS]} {
-            if {[info exists ::env(HSS_IMAGE_PATH)]} {
-                set hss_image_path $::env(HSS_IMAGE_PATH)
-            } else {
-                set hss_image_path "$output_dir//hss/build/hss-envm-wrapper.$board.hex"
-            }
+            set hss_image_path "$output_dir/hss/build/hss-envm-wrapper.$board_name.hex"
         }
 
         if {[info exists MSS_COMPONENT]} {

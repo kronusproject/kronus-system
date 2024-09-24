@@ -54,7 +54,7 @@ namespace eval kronus {
         }
 
         if {[info exists MSS_COMPONENT]} {
-            set mss_component $BOARD
+            set mss_component $MSS_COMPONENT
         } elseif {[info exists ::env(MSS_COMPONENT)]} {
             set mss_component $::env(MSS_COMPONENT)
         }

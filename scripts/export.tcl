@@ -30,7 +30,7 @@ if {[info exists kronus::export_fpe]} {
 
 if {[info exists kronus::export_spi]} {
     file mkdir $kronus::export_dir
-    kronus::export_spi_file {mpfs_bitstream} $kronus::export_dir $components
+    kronus::export_spi_file $kronus::project_name $kronus::export_dir $components
 }
 
 

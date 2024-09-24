@@ -34,7 +34,7 @@ bit: $(OUTPUT_DIR)/build.stamp
 fpe: $(OUTPUT_DIR)/export/$(PROJECT).job
 
 .PHONY: spi
-spi: $(OUTPUT_DIR)/export/mpfs_bitstream.spi
+spi: $(OUTPUT_DIR)/export/$(PROJECT).spi
 
 .PHONY: pgm
 pgm: $(OUTPUT_DIR)/build.stamp
@@ -69,7 +69,7 @@ else
 	libero SCRIPT:$(ROOT_DIR)scripts/export.tcl "SCRIPT_ARGS: BOARD:$(BOARD) OUTPUT_DIR:$(abspath $(OUTPUT_DIR)) EXPORT_FPE"
 endif
 
-$(OUTPUT_DIR)/export/mpfs_bitstream.spi: $(HSS_IMAGE_PATH) $(ROOT_DIR)scripts/export.tcl $(OUTPUT_DIR)/build.stamp
+$(OUTPUT_DIR)/export/$(PROJECT).spi: $(HSS_IMAGE_PATH) $(ROOT_DIR)scripts/export.tcl $(OUTPUT_DIR)/build.stamp
 ifdef UPDATE_HSS
 	libero SCRIPT:$(ROOT_DIR)scripts/export.tcl "SCRIPT_ARGS: BOARD:$(BOARD) OUTPUT_DIR:$(abspath $(OUTPUT_DIR)) EXPORT_SPI UPDATE_HSS"
 else

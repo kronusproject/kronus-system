@@ -10,7 +10,7 @@ namespace eval kronus {
         variable export_dir
         variable project_dir
         variable design_version
-        variable board
+        variable board_name
         variable mss_component "PF_SOC_MSS.cxz"
         variable hss_image_path
         variable export_fpe
@@ -40,9 +40,9 @@ namespace eval kronus {
         set project_dir "$output_dir/project"
 
         if {[info exists BOARD]} {
-            set board $BOARD
+            set board_name $BOARD
         } elseif {[info exists ::env(BOARD)]} {
-            set board $::env(BOARD)
+            set board_name $::env(BOARD)
         }
 
         if {[info exists UPDATE_HSS]} {
@@ -84,18 +84,18 @@ namespace eval kronus {
     proc create_project {} {
         variable project_name
         variable project_dir
-        variable board
+        variable board_name
 
-        if {[string equal $board "mpfs-beaglev-fire"]} {
+        if {[string equal $board_name "mpfs-beaglev-fire"]} {
             set die {MPFS025T}
             set package {FCVG484}
             set speed {STD}
-        } elseif {[string equal $board "mpfs-disco-kit"]} {
+        } elseif {[string equal $board_name "mpfs-disco-kit"]} {
             set die {MPFS095T}
             set package {FCSG325}
             set speed {-1}
         } else {
-            error "Invalid board: $board"
+            error "Invalid board: $board_name"
         }
 
         new_project \
@@ -132,15 +132,15 @@ namespace eval kronus {
         variable source_dir
         variable output_dir
         variable mss_component
-        variable board
+        variable board_name
 
         import_mss_component -file "$output_dir/mss/$mss_component"
 
-        source "$source_dir/$board/components.tcl"
+        source "$source_dir/$board_name/components.tcl"
 
         set_root -module {TOP::work}
 
-        source "$source_dir/$board/constraints.tcl"
+        source "$source_dir/$board_name/constraints.tcl"
 
         build_design_hierarchy
 		derive_constraints_sdc

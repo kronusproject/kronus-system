@@ -41,7 +41,7 @@ pgm: $(OUTPUT_DIR)/build.stamp
 	libero SCRIPT:$(ROOT_DIR)scripts/program.tcl "SCRIPT_ARGS: BOARD:$(BOARD) OUTPUT_DIR:$(abspath $(OUTPUT_DIR))"
 
 .PHONY: prj
-prj: $(OUTPUT_DIR)/project/$(PROJECT).prjx
+prj: $(OUTPUT_DIR)/project.stamp
 
 .PHONY: mss
 mss: $(OUTPUT_DIR)/mss/$(MSS_COMPONENT)_mss_cfg.xml
@@ -49,10 +49,10 @@ mss: $(OUTPUT_DIR)/mss/$(MSS_COMPONENT)_mss_cfg.xml
 .PHONY: hss
 hss: $(OUTPUT_DIR)/hss/build/hss-envm-wrapper.$(HSS_BOARD).hex
 
-$(OUTPUT_DIR)/project.stamp $(OUTPUT_DIR)/project/$(PROJECT).prjx: $(OUTPUT_DIR)/mss/$(MSS_COMPONENT).cxz $(ROOT_DIR)scripts/project.tcl $(SOURCES)
+$(OUTPUT_DIR)/project.stamp: $(OUTPUT_DIR)/mss/$(MSS_COMPONENT).cxz $(ROOT_DIR)scripts/project.tcl $(SOURCES)
 	-$(RM) -r $(OUTPUT_DIR)/project
 	libero SCRIPT:$(SCRIPT) "SCRIPT_ARGS: BOARD:$(BOARD) OUTPUT_DIR:$(abspath $(OUTPUT_DIR))"
-	touch $(OUTPUT_DIR)/project.stamp
+	touch $@
 
 $(OUTPUT_DIR)/build.stamp: $(HSS_IMAGE_PATH) $(ROOT_DIR)scripts/build.tcl $(OUTPUT_DIR)/project.stamp
 ifdef UPDATE_HSS

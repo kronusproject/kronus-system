@@ -40,7 +40,7 @@ spi: $(OUTPUT_DIR)/export/$(PROJECT).spi
 
 .PHONY: pgm
 pgm: $(OUTPUT_DIR)/.build.stamp
-	libero SCRIPT:$(ROOT_DIR)scripts/program.tcl "SCRIPT_ARGS: $(SCRIPT_ARGS)"
+	libero SCRIPT:$(ROOT_DIR)scripts/export.tcl "SCRIPT_ARGS: $(SCRIPT_ARGS) PROGRAM"
 
 .PHONY: prj
 prj: $(OUTPUT_DIR)/.project.stamp

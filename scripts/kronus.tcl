@@ -15,6 +15,7 @@ namespace eval kronus {
         variable hss_image_path
         variable export_fpe
         variable export_spi
+        variable program_device
 
         if { $::argc > 0 } {
             foreach arg $::argv {
@@ -59,6 +60,10 @@ namespace eval kronus {
 
         if {[info exists EXPORT_SPI]} {
             set export_spi 1
+        }
+
+        if {[info exists PROGRAM]} {
+            set program_device 1
         }
 
         # TODO

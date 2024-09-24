@@ -33,5 +33,8 @@ if {[info exists kronus::export_spi]} {
     kronus::export_spi_file $kronus::design_name $kronus::export_dir $components
 }
 
+if {[info exists kronus::program_device]} {
+    run_tool -name {PROGRAMDEVICE}
+}
 
 save_project

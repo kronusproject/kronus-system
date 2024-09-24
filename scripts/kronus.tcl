@@ -2,14 +2,13 @@ namespace eval kronus {
     variable script_dir [file normalize [file dirname [info script]]]
     variable kronus_dir [file normalize [file join [file dirname [info script]] "../"]]
     variable source_dir "$kronus_dir/sources"
-    variable design_name "system"
-    variable design_version "0"
     variable mss_component "PF_SOC_MSS.cxz"
 
     proc parse_args {} {
         variable output_dir
         variable export_dir
         variable project_dir
+        variable design_name
         variable design_version
         variable board_name
         variable hss_image_path
@@ -42,6 +41,14 @@ namespace eval kronus {
 
         if {[info exists DESIGN]} {
             set design_name $DESIGN
+        } else {
+            set design_name "system"
+        }
+
+        if {[info exists DESIGN_VERSION]} {
+            set design_version $DESIGN_VERSION
+        } else {
+            set design_version "0"
         }
 
         if {[info exists BOARD]} {
@@ -65,11 +72,6 @@ namespace eval kronus {
         if {[info exists PROGRAM]} {
             set program_device 1
         }
-
-        # TODO
-        # if {[info exists DESIGN_VERSION]} {
-        #     set design_version $DESIGN_VERSION
-        # }
 
         # TODO
         # if {[info exists SILICON_SIGNATURE]} {

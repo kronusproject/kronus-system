@@ -139,7 +139,7 @@ namespace eval kronus {
 
         source "$source_dir/$board_name/components.tcl"
 
-        set_root -module {TOP::work}
+        set_root -module "${kronus::design_name}::work"
 
         source "$source_dir/$board_name/constraints.tcl"
 
@@ -147,8 +147,8 @@ namespace eval kronus {
 		derive_constraints_sdc
 
         save_project
-        # sd_reset_layout -sd_name {TOP}
-        # save_smartdesign sd_name {TOP}
+        # sd_reset_layout -sd_name $kronus::design_name
+        # save_smartdesign sd_name $kronus::design_name
     }
 
     proc create_envm_config {config content} {

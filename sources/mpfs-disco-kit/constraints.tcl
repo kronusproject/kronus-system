@@ -17,5 +17,5 @@ organize_tool_files \
     -file "${kronus::project_dir}/constraint/io/MBUS.pdc" \
     -file "${kronus::project_dir}/constraint/io/RPI.pdc" \
     -file "${kronus::project_dir}/constraint/io/UART.pdc" \
-    -module {TOP::work} \
+    -module "${kronus::design_name}::work" \
     -input_type {constraint}

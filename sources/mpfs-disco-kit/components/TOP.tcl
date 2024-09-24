@@ -1,5 +1,5 @@
 # Creating SmartDesign "TOP"
-set sd_name {TOP}
+set sd_name $kronus::design_name
 create_smartdesign -sd_name ${sd_name}
 
 # Disable auto promotion of pins of type 'pad'

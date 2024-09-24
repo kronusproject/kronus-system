@@ -1,4 +1,4 @@
-set sd_name {TOP}
+set sd_name $kronus::design_name
 
 #-------------------------------------------------------------------------------
 # Cape pins

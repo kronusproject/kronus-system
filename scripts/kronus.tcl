@@ -4,6 +4,7 @@ namespace eval kronus {
     variable source_dir "$kronus_dir/sources"
     variable design_name "system"
     variable design_version "0"
+    variable mss_component "PF_SOC_MSS.cxz"
 
     proc parse_args {} {
         variable output_dir
@@ -11,7 +12,6 @@ namespace eval kronus {
         variable project_dir
         variable design_version
         variable board_name
-        variable mss_component "PF_SOC_MSS.cxz"
         variable hss_image_path
         variable export_fpe
         variable export_spi
@@ -51,12 +51,6 @@ namespace eval kronus {
 
         if {[info exists UPDATE_HSS]} {
             set hss_image_path "$output_dir/hss/build/hss-envm-wrapper.$board_name.hex"
-        }
-
-        if {[info exists MSS_COMPONENT]} {
-            set mss_component $MSS_COMPONENT
-        } elseif {[info exists ::env(MSS_COMPONENT)]} {
-            set mss_component $::env(MSS_COMPONENT)
         }
 
         if {[info exists EXPORT_FPE]} {

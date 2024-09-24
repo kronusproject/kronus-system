@@ -42,7 +42,7 @@ namespace eval kronus {
         if {[info exists DESIGN]} {
             set design_name $DESIGN
         } else {
-            set design_name "system"
+            set design_name "kronus"
         }
 
         if {[info exists DESIGN_VERSION]} {

@@ -5,7 +5,7 @@ source $script_dir/kronus.tcl
 
 kronus::parse_args
 
-open_project -file $kronus::project_dir/$kronus::project_name.prjx
+open_project -file $kronus::project_dir/$kronus::design_name.prjx
 open_smartdesign -sd_name {TOP}
 
 # TODO

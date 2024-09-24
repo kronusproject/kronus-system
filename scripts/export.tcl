@@ -5,7 +5,7 @@ source $script_dir/kronus.tcl
 
 kronus::parse_args
 
-open_project -file $kronus::project_dir/$kronus::project_name.prjx
+open_project -file $kronus::project_dir/$kronus::design_name.prjx
 open_smartdesign -sd_name {TOP}
 
 set components {FABRIC SNVM}
@@ -25,12 +25,12 @@ run_tool -name {GENERATEPROGRAMMINGFILE}
 
 if {[info exists kronus::export_fpe]} {
     file mkdir $kronus::export_dir
-    kronus::export_fpe_job $kronus::project_name $kronus::export_dir $components
+    kronus::export_fpe_job $kronus::design_name $kronus::export_dir $components
 }
 
 if {[info exists kronus::export_spi]} {
     file mkdir $kronus::export_dir
-    kronus::export_spi_file $kronus::project_name $kronus::export_dir $components
+    kronus::export_spi_file $kronus::design_name $kronus::export_dir $components
 }
 
 

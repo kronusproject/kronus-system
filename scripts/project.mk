@@ -13,7 +13,7 @@ BUILD_DIR ?= build
 OUTPUT_DIR ?= $(BUILD_DIR)/$(BOARD)
 
 SCRIPT ?= $(ROOT_DIR)scripts/project.tcl
-SCRIPT_ARGS = BOARD:$(BOARD) PROJECT:$(PROJECT) OUTPUT_DIR:$(abspath $(OUTPUT_DIR))
+SCRIPT_ARGS = DESIGN:$(PROJECT) BOARD:$(BOARD) OUTPUT_DIR:$(abspath $(OUTPUT_DIR))
 
 HSS_REPOSITORY ?= https://github.com/polarfire-soc/hart-software-services.git
 HSS_REVISION ?= v2024.06

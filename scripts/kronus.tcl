@@ -2,7 +2,7 @@ namespace eval kronus {
     variable script_dir [file normalize [file dirname [info script]]]
     variable kronus_dir [file normalize [file join [file dirname [info script]] "../"]]
     variable source_dir "$kronus_dir/sources"
-    variable project_name "system"
+    variable design_name "system"
     variable design_version "0"
 
     proc parse_args {} {
@@ -38,6 +38,10 @@ namespace eval kronus {
 
         set export_dir "$output_dir/export"
         set project_dir "$output_dir/project"
+
+        if {[info exists DESIGN]} {
+            set design_name $DESIGN
+        }
 
         if {[info exists BOARD]} {
             set board_name $BOARD
@@ -78,9 +82,9 @@ namespace eval kronus {
     }
 
     proc create_project {} {
-        variable project_name
-        variable project_dir
+        variable design_name
         variable board_name
+        variable project_dir
 
         if {[string equal $board_name "mpfs-beaglev-fire"]} {
             set die {MPFS025T}
@@ -96,7 +100,7 @@ namespace eval kronus {
 
         new_project \
             -location $project_dir \
-            -name $project_name \
+            -name $design_name \
             -project_description {} \
             -block_mode 0 \
             -standalone_peripheral_initialization 0 \

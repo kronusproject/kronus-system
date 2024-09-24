@@ -27,7 +27,7 @@ endif
 MSS_COMPONENT := PF_SOC_MSS
 
 .PHONY: all
-all: bit
+all: $(OUTPUT_DIR)/.build.stamp
 
 .PHONY: mss
 mss: $(OUTPUT_DIR)/mss/$(MSS_COMPONENT)_mss_cfg.xml
@@ -37,9 +37,6 @@ hss: $(OUTPUT_DIR)/hss/build/hss-envm-wrapper.$(HSS_BOARD).hex
 
 .PHONY: prj
 prj: $(OUTPUT_DIR)/.project.stamp
-
-.PHONY: bit
-bit: $(OUTPUT_DIR)/.build.stamp
 
 .PHONY: fpe
 fpe: $(OUTPUT_DIR)/export/$(PROJECT).job

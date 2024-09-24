@@ -9,10 +9,11 @@ SOURCES += \
 	$(shell find $(ROOT_DIR)sources/common -type f -name "*.tcl" -o -name "*.sdc" -o -name "*.pdc" -o -name "*.v" -o -name "*.sv") \
 	$(shell find $(ROOT_DIR)sources/$(BOARD) -type f -name "*.tcl" -o -name "*.sdc" -o -name "*.pdc" -o -name "*.v" -o -name "*.sv")
 
-SCRIPT ?= $(ROOT_DIR)scripts/project.tcl
-
 BUILD_DIR ?= build
 OUTPUT_DIR ?= $(BUILD_DIR)/$(BOARD)
+
+SCRIPT ?= $(ROOT_DIR)scripts/project.tcl
+SCRIPT_ARGS = BOARD:$(BOARD) PROJECT:$(PROJECT) OUTPUT_DIR:$(abspath $(OUTPUT_DIR))
 
 HSS_REPOSITORY ?= https://github.com/polarfire-soc/hart-software-services.git
 HSS_REVISION ?= v2024.06
@@ -20,6 +21,7 @@ HSS_BOARD ?= $(BOARD)
 
 ifdef UPDATE_HSS
 HSS_IMAGE_PATH := $(OUTPUT_DIR)/hss/build/hss-envm-wrapper.$(HSS_BOARD).hex
+SCRIPT_ARGS += UPDATE_HSS
 endif
 
 MSS_COMPONENT := PF_SOC_MSS
@@ -38,7 +40,7 @@ spi: $(OUTPUT_DIR)/export/$(PROJECT).spi
 
 .PHONY: pgm
 pgm: $(OUTPUT_DIR)/build.stamp
-	libero SCRIPT:$(ROOT_DIR)scripts/program.tcl "SCRIPT_ARGS: BOARD:$(BOARD) OUTPUT_DIR:$(abspath $(OUTPUT_DIR))"
+	libero SCRIPT:$(ROOT_DIR)scripts/program.tcl "SCRIPT_ARGS: $(SCRIPT_ARGS)"
 
 .PHONY: prj
 prj: $(OUTPUT_DIR)/project.stamp
@@ -51,30 +53,18 @@ hss: $(OUTPUT_DIR)/hss/build/hss-envm-wrapper.$(HSS_BOARD).hex
 
 $(OUTPUT_DIR)/project.stamp: $(OUTPUT_DIR)/mss/$(MSS_COMPONENT).cxz $(ROOT_DIR)scripts/project.tcl $(SOURCES)
 	-$(RM) -r $(OUTPUT_DIR)/project
-	libero SCRIPT:$(SCRIPT) "SCRIPT_ARGS: BOARD:$(BOARD) OUTPUT_DIR:$(abspath $(OUTPUT_DIR))"
+	libero SCRIPT:$(SCRIPT) "SCRIPT_ARGS: $(SCRIPT_ARGS)"
 	touch $@
 
 $(OUTPUT_DIR)/build.stamp: $(HSS_IMAGE_PATH) $(ROOT_DIR)scripts/build.tcl $(OUTPUT_DIR)/project.stamp
-ifdef UPDATE_HSS
-	libero SCRIPT:$(ROOT_DIR)scripts/build.tcl "SCRIPT_ARGS: BOARD:$(BOARD) OUTPUT_DIR:$(abspath $(OUTPUT_DIR)) UPDATE_HSS"
-else
-	libero SCRIPT:$(ROOT_DIR)scripts/build.tcl "SCRIPT_ARGS: BOARD:$(BOARD) OUTPUT_DIR:$(abspath $(OUTPUT_DIR))"
-endif
+	libero SCRIPT:$(ROOT_DIR)scripts/build.tcl "SCRIPT_ARGS: $(SCRIPT_ARGS)"
 	touch $@
 
 $(OUTPUT_DIR)/export/$(PROJECT).job: $(HSS_IMAGE_PATH) $(ROOT_DIR)scripts/export.tcl $(OUTPUT_DIR)/build.stamp
-ifdef UPDATE_HSS
-	libero SCRIPT:$(ROOT_DIR)scripts/export.tcl "SCRIPT_ARGS: BOARD:$(BOARD) OUTPUT_DIR:$(abspath $(OUTPUT_DIR)) EXPORT_FPE UPDATE_HSS"
-else
-	libero SCRIPT:$(ROOT_DIR)scripts/export.tcl "SCRIPT_ARGS: BOARD:$(BOARD) OUTPUT_DIR:$(abspath $(OUTPUT_DIR)) EXPORT_FPE"
-endif
+	libero SCRIPT:$(ROOT_DIR)scripts/export.tcl "SCRIPT_ARGS: $(SCRIPT_ARGS) EXPORT_FPE"
 
 $(OUTPUT_DIR)/export/$(PROJECT).spi: $(HSS_IMAGE_PATH) $(ROOT_DIR)scripts/export.tcl $(OUTPUT_DIR)/build.stamp
-ifdef UPDATE_HSS
-	libero SCRIPT:$(ROOT_DIR)scripts/export.tcl "SCRIPT_ARGS: BOARD:$(BOARD) OUTPUT_DIR:$(abspath $(OUTPUT_DIR)) EXPORT_SPI UPDATE_HSS"
-else
-	libero SCRIPT:$(ROOT_DIR)scripts/export.tcl "SCRIPT_ARGS: BOARD:$(BOARD) OUTPUT_DIR:$(abspath $(OUTPUT_DIR)) EXPORT_SPI"
-endif
+	libero SCRIPT:$(ROOT_DIR)scripts/export.tcl "SCRIPT_ARGS: $(SCRIPT_ARGS) EXPORT_SPI"
 
 $(OUTPUT_DIR)/hss/build/hss-envm-wrapper.$(BOARD).hex: $(OUTPUT_DIR)/mss/$(MSS_COMPONENT)_mss_cfg.xml $(ROOT_DIR)sources/$(BOARD)/hss/def_config
 	[ -d $(OUTPUT_DIR)/hss ] || git clone -b $(HSS_REVISION) --depth 1 $(HSS_REPOSITORY) $(OUTPUT_DIR)/hss

@@ -30,7 +30,7 @@ MSS_COMPONENT := PF_SOC_MSS
 all: bit
 
 .PHONY: bit
-bit: $(OUTPUT_DIR)/build.stamp
+bit: $(OUTPUT_DIR)/.build.stamp
 
 .PHONY: fpe
 fpe: $(OUTPUT_DIR)/export/$(PROJECT).job
@@ -39,11 +39,11 @@ fpe: $(OUTPUT_DIR)/export/$(PROJECT).job
 spi: $(OUTPUT_DIR)/export/$(PROJECT).spi
 
 .PHONY: pgm
-pgm: $(OUTPUT_DIR)/build.stamp
+pgm: $(OUTPUT_DIR)/.build.stamp
 	libero SCRIPT:$(ROOT_DIR)scripts/program.tcl "SCRIPT_ARGS: $(SCRIPT_ARGS)"
 
 .PHONY: prj
-prj: $(OUTPUT_DIR)/project.stamp
+prj: $(OUTPUT_DIR)/.project.stamp
 
 .PHONY: mss
 mss: $(OUTPUT_DIR)/mss/$(MSS_COMPONENT)_mss_cfg.xml
@@ -51,12 +51,12 @@ mss: $(OUTPUT_DIR)/mss/$(MSS_COMPONENT)_mss_cfg.xml
 .PHONY: hss
 hss: $(OUTPUT_DIR)/hss/build/hss-envm-wrapper.$(HSS_BOARD).hex
 
-$(OUTPUT_DIR)/project.stamp: $(OUTPUT_DIR)/mss/$(MSS_COMPONENT).cxz $(ROOT_DIR)scripts/project.tcl $(SOURCES)
+$(OUTPUT_DIR)/.project.stamp: $(OUTPUT_DIR)/mss/$(MSS_COMPONENT).cxz $(ROOT_DIR)scripts/project.tcl $(SOURCES)
 	-$(RM) -r $(OUTPUT_DIR)/project
 	libero SCRIPT:$(SCRIPT) "SCRIPT_ARGS: $(SCRIPT_ARGS)"
 	touch $@
 
-$(OUTPUT_DIR)/build.stamp: $(HSS_IMAGE_PATH) $(ROOT_DIR)scripts/build.tcl $(OUTPUT_DIR)/project.stamp
+$(OUTPUT_DIR)/.build.stamp: $(HSS_IMAGE_PATH) $(ROOT_DIR)scripts/build.tcl $(OUTPUT_DIR)/.project.stamp
 	libero SCRIPT:$(ROOT_DIR)scripts/build.tcl "SCRIPT_ARGS: $(SCRIPT_ARGS)"
 	touch $@
 

@@ -107,14 +107,25 @@ sd_mark_pins_unused -sd_name ${sd_name} -pin_names {CLOCKS_AND_RESETS:XCVR_INIT_
 
 # Add FABRIC_PERIPHERALS_0 instance
 sd_instantiate_component -sd_name ${sd_name} -component_name {FABRIC_PERIPHERALS} -instance_name {FABRIC_PERIPHERALS_0}
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {FABRIC_PERIPHERALS_0:interrupt} -pin_slices {[0:0]}
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {FABRIC_PERIPHERALS_0:interrupt} -pin_slices {[31:1]}
+sd_mark_pins_unused -sd_name ${sd_name} -pin_names {FABRIC_PERIPHERALS_0:interrupt[31:1]}
 sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {FABRIC_PERIPHERALS_0:status} -value {VCC}
-sd_mark_pins_unused -sd_name ${sd_name} -pin_names {FABRIC_PERIPHERALS_0:interrupt}
 sd_mark_pins_unused -sd_name ${sd_name} -pin_names {FABRIC_PERIPHERALS_0:control}
 
 
 
 # Add RISCV_SUBSYSTEM instance
 sd_instantiate_component -sd_name ${sd_name} -component_name {RISCV_SUBSYSTEM} -instance_name {RISCV_SUBSYSTEM}
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {RISCV_SUBSYSTEM:MSS_INT_F2M_3_7} -pin_slices {[3:3]}
+sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {RISCV_SUBSYSTEM:MSS_INT_F2M_3_7[3:3]} -value {GND}
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {RISCV_SUBSYSTEM:MSS_INT_F2M_3_7} -pin_slices {[4:4]}
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {RISCV_SUBSYSTEM:MSS_INT_F2M_3_7} -pin_slices {[5:5]}
+sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {RISCV_SUBSYSTEM:MSS_INT_F2M_3_7[5:5]} -value {GND}
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {RISCV_SUBSYSTEM:MSS_INT_F2M_3_7} -pin_slices {[6:6]}
+sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {RISCV_SUBSYSTEM:MSS_INT_F2M_3_7[6:6]} -value {GND}
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {RISCV_SUBSYSTEM:MSS_INT_F2M_3_7} -pin_slices {[7:7]}
+sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {RISCV_SUBSYSTEM:MSS_INT_F2M_3_7[7:7]} -value {GND}
 sd_create_pin_slices -sd_name ${sd_name} -pin_name {RISCV_SUBSYSTEM:GPIO_2_M2F} -pin_slices {[0:0]}
 sd_create_pin_slices -sd_name ${sd_name} -pin_name {RISCV_SUBSYSTEM:GPIO_2_M2F} -pin_slices {[10:10]}
 sd_create_pin_slices -sd_name ${sd_name} -pin_name {RISCV_SUBSYSTEM:GPIO_2_M2F} -pin_slices {[11:11]}
@@ -181,7 +192,6 @@ sd_mark_pins_unused -sd_name ${sd_name} -pin_names {RISCV_SUBSYSTEM:SPI_1_CLK}
 sd_mark_pins_unused -sd_name ${sd_name} -pin_names {RISCV_SUBSYSTEM:SPI_1_DO}
 sd_mark_pins_unused -sd_name ${sd_name} -pin_names {RISCV_SUBSYSTEM:SPI_1_SS1}
 sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {RISCV_SUBSYSTEM:GPIO_2_F2M} -value {GND}
-sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {RISCV_SUBSYSTEM:MSS_INT_F2M_3_7} -value {GND}
 sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {RISCV_SUBSYSTEM:MSS_INT_F2M_56_58} -value {GND}
 sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {RISCV_SUBSYSTEM:MSS_INT_F2M_A} -value {GND}
 sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {RISCV_SUBSYSTEM:MSS_INT_F2M_B} -value {GND}
@@ -227,6 +237,7 @@ sd_connect_pins -sd_name ${sd_name} -pin_names {"EMMC_DATA6" "RISCV_SUBSYSTEM:EM
 sd_connect_pins -sd_name ${sd_name} -pin_names {"EMMC_DATA7" "RISCV_SUBSYSTEM:EMMC_DATA7" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"EMMC_RSTN" "RISCV_SUBSYSTEM:EMMC_RSTN" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"EMMC_STRB" "RISCV_SUBSYSTEM:EMMC_STRB" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"FABRIC_PERIPHERALS_0:interrupt[0:0]" "RISCV_SUBSYSTEM:MSS_INT_F2M_3_7[4:4]" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"I2C_1_SCL" "RISCV_SUBSYSTEM:I2C_1_SCL" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"I2C_1_SDA" "RISCV_SUBSYSTEM:I2C_1_SDA" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"ODT" "RISCV_SUBSYSTEM:ODT" }

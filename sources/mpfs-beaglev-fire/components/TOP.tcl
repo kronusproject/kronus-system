@@ -180,6 +180,8 @@ sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {RISCV_SUBSYSTEM:SPI_
 sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {RISCV_SUBSYSTEM:SPI_1_DI} -value {GND}
 sd_mark_pins_unused -sd_name ${sd_name} -pin_names {RISCV_SUBSYSTEM:M2_UART_RTS}
 sd_mark_pins_unused -sd_name ${sd_name} -pin_names {RISCV_SUBSYSTEM:M2_UART_TXD}
+sd_mark_pins_unused -sd_name ${sd_name} -pin_names {RISCV_SUBSYSTEM:M2_W_DISABLE1}
+sd_mark_pins_unused -sd_name ${sd_name} -pin_names {RISCV_SUBSYSTEM:M2_W_DISABLE2}
 sd_mark_pins_unused -sd_name ${sd_name} -pin_names {RISCV_SUBSYSTEM:MAC_1_MDC_M2F}
 sd_mark_pins_unused -sd_name ${sd_name} -pin_names {RISCV_SUBSYSTEM:MAC_1_MDO_M2F}
 sd_mark_pins_unused -sd_name ${sd_name} -pin_names {RISCV_SUBSYSTEM:MAC_1_MDO_OE_M2F}
@@ -202,6 +204,7 @@ sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {RISCV_SUBSYSTEM:MSS_
 sd_mark_pins_unused -sd_name ${sd_name} -pin_names {RISCV_SUBSYSTEM:GPIO_2_OE_M2F}
 sd_mark_pins_unused -sd_name ${sd_name} -pin_names {RISCV_SUBSYSTEM:FIC_2_AXI4_TARGET}
 sd_mark_pins_unused -sd_name ${sd_name} -pin_names {RISCV_SUBSYSTEM:FIC_1_AXI4_TARGET}
+sd_mark_pins_unused -sd_name ${sd_name} -pin_names {RISCV_SUBSYSTEM:FIC_0_AXI4_TARGET}
 sd_mark_pins_unused -sd_name ${sd_name} -pin_names {RISCV_SUBSYSTEM:FIC_1_AXI4_INITIATOR}
 
 

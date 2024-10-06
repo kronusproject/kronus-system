@@ -132,6 +132,7 @@ sd_create_bif_port -sd_name ${sd_name} -port_name {AXI4_INITIATOR} -port_bif_vln
 
 sd_create_pin_slices -sd_name ${sd_name} -pin_name {interrupt} -pin_slices {[0:0]}
 sd_create_pin_slices -sd_name ${sd_name} -pin_name {interrupt} -pin_slices {[1:1]}
+sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {interrupt[1:1]} -value {GND}
 sd_create_pin_slices -sd_name ${sd_name} -pin_name {interrupt} -pin_slices {[2:31]}
 sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {interrupt[2:31]} -value {GND}
 # Add apb_test_0 instance
@@ -139,21 +140,9 @@ sd_instantiate_hdl_core -sd_name ${sd_name} -hdl_core_name {apb_test} -instance_
 
 
 
-# Add axi_test_0 instance
-sd_instantiate_hdl_core -sd_name ${sd_name} -hdl_core_name {axi_test} -instance_name {axi_test_0}
-# Exporting Parameters of instance axi_test_0
-sd_configure_core_instance -sd_name ${sd_name} -instance_name {axi_test_0} -params {\
-"ADDR_WIDTH:32" \
-"DATA_WIDTH:32" }\
--validate_rules 0
-sd_save_core_instance_config -sd_name ${sd_name} -instance_name {axi_test_0}
-sd_update_instance -sd_name ${sd_name} -instance_name {axi_test_0}
-sd_mark_pins_unused -sd_name ${sd_name} -pin_names {axi_test_0:control}
-
-
-
 # Add FIC_0_AXI4_INTERCONNECT_0 instance
 sd_instantiate_component -sd_name ${sd_name} -component_name {FIC_0_AXI4_INTERCONNECT} -instance_name {FIC_0_AXI4_INTERCONNECT_0}
+sd_mark_pins_unused -sd_name ${sd_name} -pin_names {FIC_0_AXI4_INTERCONNECT_0:AXI4mslave0}
 sd_mark_pins_unused -sd_name ${sd_name} -pin_names {FIC_0_AXI4_INTERCONNECT_0:AXI4mslave1}
 
 
@@ -167,22 +156,20 @@ sd_mark_pins_unused -sd_name ${sd_name} -pin_names {FIC_3_APB_INTERCONNECT_0:APB
 
 
 # Add scalar net connections
-sd_connect_pins -sd_name ${sd_name} -pin_names {"ACLK" "FIC_0_AXI4_INTERCONNECT_0:ACLK" "axi_test_0:aclk" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"ARESETN" "FIC_0_AXI4_INTERCONNECT_0:ARESETN" "axi_test_0:aresetn" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"ACLK" "FIC_0_AXI4_INTERCONNECT_0:ACLK" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"ARESETN" "FIC_0_AXI4_INTERCONNECT_0:ARESETN" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"PCLK" "apb_test_0:pclk" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"PRESETN" "apb_test_0:presetn" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"apb_test_0:irq" "interrupt[0:0]" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"axi_test_0:irq" "interrupt[1:1]" }
 
 # Add bus net connections
 sd_connect_pins -sd_name ${sd_name} -pin_names {"PSTRB" "apb_test_0:pstrb" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"apb_test_0:control" "control" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"apb_test_0:status" "axi_test_0:status" "status" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"apb_test_0:status" "status" }
 
 # Add bus interface net connections
 sd_connect_pins -sd_name ${sd_name} -pin_names {"APB_INITIATOR" "FIC_3_APB_INTERCONNECT_0:APB3mmaster" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"AXI4_INITIATOR" "FIC_0_AXI4_INTERCONNECT_0:AXI4mmaster0" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"FIC_0_AXI4_INTERCONNECT_0:AXI4mslave0" "axi_test_0:axi4_target" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"FIC_3_APB_INTERCONNECT_0:APBmslave0" "apb_test_0:apb_target" }
 
 # Re-enable auto promotion of pins of type 'pad'

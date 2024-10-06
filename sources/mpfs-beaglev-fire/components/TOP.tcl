@@ -108,8 +108,9 @@ sd_mark_pins_unused -sd_name ${sd_name} -pin_names {CLOCKS_AND_RESETS:XCVR_INIT_
 # Add FABRIC_PERIPHERALS_0 instance
 sd_instantiate_component -sd_name ${sd_name} -component_name {FABRIC_PERIPHERALS} -instance_name {FABRIC_PERIPHERALS_0}
 sd_create_pin_slices -sd_name ${sd_name} -pin_name {FABRIC_PERIPHERALS_0:interrupt} -pin_slices {[0:0]}
-sd_create_pin_slices -sd_name ${sd_name} -pin_name {FABRIC_PERIPHERALS_0:interrupt} -pin_slices {[31:1]}
-sd_mark_pins_unused -sd_name ${sd_name} -pin_names {FABRIC_PERIPHERALS_0:interrupt[31:1]}
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {FABRIC_PERIPHERALS_0:interrupt} -pin_slices {[1:1]}
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {FABRIC_PERIPHERALS_0:interrupt} -pin_slices {[31:2]}
+sd_mark_pins_unused -sd_name ${sd_name} -pin_names {FABRIC_PERIPHERALS_0:interrupt[31:2]}
 sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {FABRIC_PERIPHERALS_0:status} -value {VCC}
 sd_mark_pins_unused -sd_name ${sd_name} -pin_names {FABRIC_PERIPHERALS_0:control}
 
@@ -241,6 +242,7 @@ sd_connect_pins -sd_name ${sd_name} -pin_names {"EMMC_DATA7" "RISCV_SUBSYSTEM:EM
 sd_connect_pins -sd_name ${sd_name} -pin_names {"EMMC_RSTN" "RISCV_SUBSYSTEM:EMMC_RSTN" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"EMMC_STRB" "RISCV_SUBSYSTEM:EMMC_STRB" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"FABRIC_PERIPHERALS_0:interrupt[0:0]" "RISCV_SUBSYSTEM:MSS_INT_F2M_3_7[4:4]" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"FABRIC_PERIPHERALS_0:interrupt[1:1]" "RISCV_SUBSYSTEM:MSS_INT_F2M_3_7[5:5]" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"I2C_1_SCL" "RISCV_SUBSYSTEM:I2C_1_SCL" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"I2C_1_SDA" "RISCV_SUBSYSTEM:I2C_1_SDA" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"ODT" "RISCV_SUBSYSTEM:ODT" }

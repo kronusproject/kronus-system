@@ -135,8 +135,8 @@ sd_create_pin_slices -sd_name ${sd_name} -pin_name {interrupt} -pin_slices {[1:1
 sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {interrupt[1:1]} -value {GND}
 sd_create_pin_slices -sd_name ${sd_name} -pin_name {interrupt} -pin_slices {[2:31]}
 sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {interrupt[2:31]} -value {GND}
-# Add apb_test_0 instance
-sd_instantiate_hdl_core -sd_name ${sd_name} -hdl_core_name {apb_test} -instance_name {apb_test_0}
+# Add apb_kronus_0 instance
+sd_instantiate_hdl_core -sd_name ${sd_name} -hdl_core_name {apb_kronus} -instance_name {apb_kronus_0}
 
 
 
@@ -158,19 +158,19 @@ sd_mark_pins_unused -sd_name ${sd_name} -pin_names {FIC_3_APB_INTERCONNECT_0:APB
 # Add scalar net connections
 sd_connect_pins -sd_name ${sd_name} -pin_names {"ACLK" "FIC_0_AXI4_INTERCONNECT_0:ACLK" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"ARESETN" "FIC_0_AXI4_INTERCONNECT_0:ARESETN" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"PCLK" "apb_test_0:pclk" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"PRESETN" "apb_test_0:presetn" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"apb_test_0:irq" "interrupt[0:0]" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"PCLK" "apb_kronus_0:pclk" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"PRESETN" "apb_kronus_0:presetn" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"apb_kronus_0:irq" "interrupt[0:0]" }
 
 # Add bus net connections
-sd_connect_pins -sd_name ${sd_name} -pin_names {"PSTRB" "apb_test_0:pstrb" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"apb_test_0:control" "control" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"apb_test_0:status" "status" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"PSTRB" "apb_kronus_0:pstrb" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"apb_kronus_0:control" "control" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"apb_kronus_0:status" "status" }
 
 # Add bus interface net connections
 sd_connect_pins -sd_name ${sd_name} -pin_names {"APB_INITIATOR" "FIC_3_APB_INTERCONNECT_0:APB3mmaster" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"AXI4_INITIATOR" "FIC_0_AXI4_INTERCONNECT_0:AXI4mmaster0" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"FIC_3_APB_INTERCONNECT_0:APBmslave0" "apb_test_0:apb_target" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"FIC_3_APB_INTERCONNECT_0:APBmslave0" "apb_kronus_0:apb_target" }
 
 # Re-enable auto promotion of pins of type 'pad'
 auto_promote_pad_pins -promote_all 1

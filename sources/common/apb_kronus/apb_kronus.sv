@@ -1,4 +1,4 @@
-module apb_test (
+module apb_kronus (
     input  logic        pclk,
     input  logic        presetn,
     input  logic        penable,

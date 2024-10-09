@@ -23,8 +23,7 @@ import_files \
     -hdl_source ${kronus::source_dir}/common/miv_ihc//hdl/miv_ihcc_irqs.v \
     -hdl_source ${kronus::source_dir}/common/miv_ihc//hdl/miv_ihcc_mem.v \
     -hdl_source ${kronus::source_dir}/common/miv_ihc//hdl/miv_ihcia.v \
-    -hdl_source ${kronus::source_dir}/common/apb_kronus/apb_kronus.sv \
-    -hdl_source ${kronus::source_dir}/common/axi_test/axi_test.sv
+    -hdl_source ${kronus::source_dir}/common/apb_kronus/apb_kronus.sv
 
 
 build_design_hierarchy
@@ -34,7 +33,6 @@ source ${kronus::source_dir}/common/apb_arbiter/APB_ARBITER.tcl
 source ${kronus::source_dir}/common/miv_ihc/components/MIV_IHCC.tcl
 source ${kronus::source_dir}/common/miv_ihc/components/MIV_IHCIA.tcl
 source ${kronus::source_dir}/common/apb_kronus/apb_kronus.tcl
-source ${kronus::source_dir}/common/axi_test/axi_test.tcl
 
 build_design_hierarchy
 

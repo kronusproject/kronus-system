@@ -144,6 +144,8 @@ sd_instantiate_hdl_core -sd_name ${sd_name} -hdl_core_name {apb_kronus} -instanc
 sd_instantiate_component -sd_name ${sd_name} -component_name {FIC_0_AXI4_INTERCONNECT} -instance_name {FIC_0_AXI4_INTERCONNECT_0}
 sd_mark_pins_unused -sd_name ${sd_name} -pin_names {FIC_0_AXI4_INTERCONNECT_0:AXI4mslave0}
 sd_mark_pins_unused -sd_name ${sd_name} -pin_names {FIC_0_AXI4_INTERCONNECT_0:AXI4mslave1}
+sd_mark_pins_unused -sd_name ${sd_name} -pin_names {FIC_0_AXI4_INTERCONNECT_0:AXI4mslave2}
+sd_mark_pins_unused -sd_name ${sd_name} -pin_names {FIC_0_AXI4_INTERCONNECT_0:AXI4mslave3}
 
 
 

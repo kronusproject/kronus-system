@@ -139,6 +139,9 @@ sd_create_pin_slices -sd_name ${sd_name} -pin_name {FABRIC_PERIPHERALS_0:control
 sd_create_pin_slices -sd_name ${sd_name} -pin_name {FABRIC_PERIPHERALS_0:control} -pin_slices {[6:6]}
 sd_create_pin_slices -sd_name ${sd_name} -pin_name {FABRIC_PERIPHERALS_0:interrupt} -pin_slices {[0:0]}
 sd_create_pin_slices -sd_name ${sd_name} -pin_name {FABRIC_PERIPHERALS_0:interrupt} -pin_slices {[1:1]}
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {FABRIC_PERIPHERALS_0:interrupt} -pin_slices {[2:2]}
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {FABRIC_PERIPHERALS_0:interrupt} -pin_slices {[3:3]}
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {FABRIC_PERIPHERALS_0:interrupt} -pin_slices {[4:4]}
 
 
 
@@ -350,8 +353,11 @@ sd_connect_pins -sd_name ${sd_name} -pin_names {"FABRIC_PERIPHERALS_0:control[3:
 sd_connect_pins -sd_name ${sd_name} -pin_names {"FABRIC_PERIPHERALS_0:control[4:4]" "OR2_LED5:A" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"FABRIC_PERIPHERALS_0:control[5:5]" "OR2_LED6:A" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"FABRIC_PERIPHERALS_0:control[6:6]" "OR2_LED7:A" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"FABRIC_PERIPHERALS_0:interrupt[0:0]" "RISCV_SUBSYSTEM_0:MSS_INT_F2M_0[4:4]" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"FABRIC_PERIPHERALS_0:interrupt[1:1]" "RISCV_SUBSYSTEM_0:MSS_INT_F2M_0[5:5]" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"FABRIC_PERIPHERALS_0:interrupt[0:0]" "RISCV_SUBSYSTEM_0:MSS_INT_F2M_0[3:3]" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"FABRIC_PERIPHERALS_0:interrupt[1:1]" "RISCV_SUBSYSTEM_0:MSS_INT_F2M_0[4:4]" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"FABRIC_PERIPHERALS_0:interrupt[2:2]" "RISCV_SUBSYSTEM_0:MSS_INT_F2M_0[5:5]" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"FABRIC_PERIPHERALS_0:interrupt[3:3]" "RISCV_SUBSYSTEM_0:MSS_INT_F2M_0[6:6]" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"FABRIC_PERIPHERALS_0:interrupt[4:4]" "RISCV_SUBSYSTEM_0:MSS_INT_F2M_0[7:7]" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"FABRIC_PERIPHERALS_0:status[0:0]" "SWITCH1" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"FTDI_UART_D_RXD" "RISCV_SUBSYSTEM_0:MMUART_0_TXD_M2F" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"FTDI_UART_D_TXD" "RISCV_SUBSYSTEM_0:MMUART_0_RXD_F2M" }

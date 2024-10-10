@@ -132,9 +132,15 @@ sd_create_bif_port -sd_name ${sd_name} -port_name {AXI4_INITIATOR} -port_bif_vln
 
 sd_create_pin_slices -sd_name ${sd_name} -pin_name {interrupt} -pin_slices {[0:0]}
 sd_create_pin_slices -sd_name ${sd_name} -pin_name {interrupt} -pin_slices {[1:1]}
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {interrupt} -pin_slices {[2:2]}
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {interrupt} -pin_slices {[3:3]}
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {interrupt} -pin_slices {[4:4]}
 sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {interrupt[1:1]} -value {GND}
-sd_create_pin_slices -sd_name ${sd_name} -pin_name {interrupt} -pin_slices {[2:31]}
-sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {interrupt[2:31]} -value {GND}
+sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {interrupt[2:2]} -value {GND}
+sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {interrupt[3:3]} -value {GND}
+sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {interrupt[4:4]} -value {GND}
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {interrupt} -pin_slices {[5:31]}
+sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {interrupt[5:31]} -value {GND}
 # Add apb_kronus_0 instance
 sd_instantiate_hdl_core -sd_name ${sd_name} -hdl_core_name {apb_kronus} -instance_name {apb_kronus_0}
 

@@ -6,6 +6,7 @@ create_smartdesign -sd_name ${sd_name}
 auto_promote_pad_pins -promote_all 0
 
 # Create top level Scalar Ports
+sd_create_scalar_port -sd_name ${sd_name} -port_name {CAN_1_RXBUS_F2M} -port_direction {IN}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {FIC_0_ACLK} -port_direction {IN}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {FIC_0_AXI4_INITIATOR_FIC_0_AXI4_M_ARREADY} -port_direction {IN}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {FIC_0_AXI4_INITIATOR_FIC_0_AXI4_M_AWREADY} -port_direction {IN}
@@ -71,6 +72,7 @@ sd_create_scalar_port -sd_name ${sd_name} -port_name {SPI_1_DI} -port_direction 
 
 sd_create_scalar_port -sd_name ${sd_name} -port_name {ACT_N} -port_direction {OUT} -port_is_pad {1}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {BG0} -port_direction {OUT} -port_is_pad {1}
+sd_create_scalar_port -sd_name ${sd_name} -port_name {CAN_1_TXBUS_M2F} -port_direction {OUT}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {CAS_N} -port_direction {OUT} -port_is_pad {1}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {CK0_N} -port_direction {OUT} -port_is_pad {1}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {CK0} -port_direction {OUT} -port_is_pad {1}
@@ -603,6 +605,8 @@ sd_connect_pins -sd_name ${sd_name} -pin_names {"AND4_MSS_DLL_LOCKS:B" "PF_SOC_M
 sd_connect_pins -sd_name ${sd_name} -pin_names {"AND4_MSS_DLL_LOCKS:C" "PF_SOC_MSS_0:FIC_2_DLL_LOCK_M2F" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"AND4_MSS_DLL_LOCKS:D" "PF_SOC_MSS_0:FIC_3_DLL_LOCK_M2F" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"AND4_MSS_DLL_LOCKS:Y" "MSS_DLL_LOCKS" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CAN_1_RXBUS_F2M" "PF_SOC_MSS_0:CAN_1_RXBUS_F2M" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CAN_1_TXBUS_M2F" "PF_SOC_MSS_0:CAN_1_TXBUS_M2F" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"BG0" "PF_SOC_MSS_0:BG0" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"CAS_N" "PF_SOC_MSS_0:CAS_N" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"CK0" "PF_SOC_MSS_0:CK0" }

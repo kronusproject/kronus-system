@@ -6,6 +6,7 @@ create_smartdesign -sd_name ${sd_name}
 auto_promote_pad_pins -promote_all 0
 
 # Create top level Scalar Ports
+sd_create_scalar_port -sd_name ${sd_name} -port_name {MBUS_CAN_RXBUS} -port_direction {IN}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {DIP1} -port_direction {IN}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {DIP2} -port_direction {IN}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {DIP3} -port_direction {IN}
@@ -52,6 +53,7 @@ sd_create_scalar_port -sd_name ${sd_name} -port_name {MAC_0_MDC} -port_direction
 sd_create_scalar_port -sd_name ${sd_name} -port_name {MBUS_AN} -port_direction {OUT}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {MBUS_RST} -port_direction {OUT}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {MBUS_SPI_MOSI} -port_direction {OUT}
+sd_create_scalar_port -sd_name ${sd_name} -port_name {MBUS_CAN_TXBUS} -port_direction {OUT}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {MMUART_1_TXD} -port_direction {OUT} -port_is_pad {1}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {MMUART_4_TXD} -port_direction {OUT} -port_is_pad {1}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {ODT0} -port_direction {OUT} -port_is_pad {1}
@@ -370,6 +372,8 @@ sd_connect_pins -sd_name ${sd_name} -pin_names {"MBUS_SPI_CLK" "RISCV_SUBSYSTEM_
 sd_connect_pins -sd_name ${sd_name} -pin_names {"MBUS_SPI_CS" "RISCV_SUBSYSTEM_0:SPI_0_SS" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"MBUS_SPI_MISO" "RISCV_SUBSYSTEM_0:SPI_0_DI_F2M" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"MBUS_SPI_MOSI" "RISCV_SUBSYSTEM_0:SPI_0_DO" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"MBUS_CAN_RXBUS" "RISCV_SUBSYSTEM_0:CAN_1_RXBUS_F2M" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"MBUS_CAN_TXBUS" "RISCV_SUBSYSTEM_0:CAN_1_TXBUS_M2F" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"MDIO_PAD" "RISCV_SUBSYSTEM_0:MDIO_PAD" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"MMUART_1_RXD" "RISCV_SUBSYSTEM_0:MMUART_1_RXD" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"MMUART_1_TXD" "RISCV_SUBSYSTEM_0:MMUART_1_TXD" }

@@ -18,9 +18,11 @@ if [[ "${BASH_SOURCE[0]}" == "${0}" ]]; then
     exit 1
 fi
 
+if [[ ! -v MICROCHIP_INSTALL_DIR ]]; then
+    MICROCHIP_INSTALL_DIR=$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")
+fi
+
 # Install paths
-SCRIPT_DIR=$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")
-MICROCHIP_INSTALL_DIR=${SCRIPT_DIR}
 LIBERO_INSTALL_DIR=$MICROCHIP_INSTALL_DIR/Libero_SoC_v2024.1
 SC_INSTALL_DIR=$MICROCHIP_INSTALL_DIR/SoftConsole-v2022.2-RISC-V-747
 

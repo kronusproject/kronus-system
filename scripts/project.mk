@@ -15,8 +15,8 @@ OUTPUT_DIR ?= $(BUILD_DIR)/$(BOARD)
 SCRIPT ?= $(ROOT_DIR)scripts/project.tcl
 SCRIPT_ARGS = DESIGN:$(PROJECT) BOARD:$(BOARD) OUTPUT_DIR:$(abspath $(OUTPUT_DIR))
 
-HSS_REPOSITORY ?= https://github.com/polarfire-soc/hart-software-services.git
-HSS_REVISION ?= v2025.03
+HSS_REPOSITORY ?= https://github.com/kronusproject/hart-software-services.git
+HSS_REVISION ?= master
 HSS_BOARD ?= $(BOARD)
 
 ifdef UPDATE_HSS

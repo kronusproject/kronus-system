@@ -7,7 +7,8 @@ import_files \
     -io_pdc "$script_dir/constraints/io/MAC.pdc" \
     -io_pdc "$script_dir/constraints/io/MBUS.pdc" \
     -io_pdc "$script_dir/constraints/io/RPI.pdc" \
-    -io_pdc "$script_dir/constraints/io/UART.pdc"
+    -io_pdc "$script_dir/constraints/io/UART.pdc" \
+    -fp_pdc "$script_dir/constraints/fp/SW_PLL.pdc"
 
 organize_tool_files \
     -tool {PLACEROUTE} \
@@ -17,5 +18,6 @@ organize_tool_files \
     -file "${kronus::project_dir}/constraint/io/MBUS.pdc" \
     -file "${kronus::project_dir}/constraint/io/RPI.pdc" \
     -file "${kronus::project_dir}/constraint/io/UART.pdc" \
+    -file "${kronus::project_dir}/constraint/fp/SW_PLL.pdc" \
     -module "${kronus::design_name}::work" \
     -input_type {constraint}

@@ -542,9 +542,8 @@ sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {I2C_0_SDA_BIBUF:D} -
 
 
 
-# Add IHC_SUBSYSTEM_0 instance
-sd_instantiate_component -sd_name ${sd_name} -component_name {IHC_SUBSYSTEM} -instance_name {IHC_SUBSYSTEM_0}
-
+# Add MIV_IHC_0 instance
+sd_instantiate_component -sd_name ${sd_name} -component_name {MIV_IHC_C0} -instance_name {MIV_IHC_0}
 
 
 # Add MDIO instance
@@ -616,8 +615,8 @@ sd_connect_pins -sd_name ${sd_name} -pin_names {"CS0_N" "PF_SOC_MSS_0:CS0_N" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"FIC_0_ACLK" "PF_SOC_MSS_0:FIC_0_ACLK" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"FIC_1_ACLK" "PF_SOC_MSS_0:FIC_1_ACLK" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"FIC_2_ACLK" "PF_SOC_MSS_0:FIC_2_ACLK" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"FIC_3_PCLK" "IHC_SUBSYSTEM_0:pclk" "PF_SOC_MSS_0:FIC_3_PCLK" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"FIC_3_PRESETN" "IHC_SUBSYSTEM_0:presetn" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"FIC_3_PCLK" "MIV_IHC_0:APB_0_PCLK" "MIV_IHC_0:CORE_CLK" "PF_SOC_MSS_0:FIC_3_PCLK" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"FIC_3_PRESETN" "MIV_IHC_0:APB_0_PRESETN" "MIV_IHC_0:CORE_RESETN" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"GPIO_1_20_OUT" "PF_SOC_MSS_0:GPIO_1_20_OUT" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"GPIO_1_9_OUT" "PF_SOC_MSS_0:GPIO_1_9_OUT" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"GPIO_2_F2M_24" "PF_SOC_MSS_0:GPIO_2_F2M_24" }
@@ -640,11 +639,11 @@ sd_connect_pins -sd_name ${sd_name} -pin_names {"I2C_0_SCL_BIBUF:Y" "PF_SOC_MSS_
 sd_connect_pins -sd_name ${sd_name} -pin_names {"I2C_0_SDA" "I2C_0_SDA_BIBUF:PAD" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"I2C_0_SDA_BIBUF:E" "PF_SOC_MSS_0:I2C_0_SDA_OE_M2F" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"I2C_0_SDA_BIBUF:Y" "PF_SOC_MSS_0:I2C_0_SDA_F2M" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"IHC_SUBSYSTEM_0:E51_IRQ" "PF_SOC_MSS_0:MSS_INT_F2M[63:63]" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"IHC_SUBSYSTEM_0:U54_1_IRQ" "PF_SOC_MSS_0:MSS_INT_F2M[62:62]" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"IHC_SUBSYSTEM_0:U54_2_IRQ" "PF_SOC_MSS_0:MSS_INT_F2M[61:61]" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"IHC_SUBSYSTEM_0:U54_3_IRQ" "PF_SOC_MSS_0:MSS_INT_F2M[60:60]" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"IHC_SUBSYSTEM_0:U54_4_IRQ" "PF_SOC_MSS_0:MSS_INT_F2M[59:59]" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"MIV_IHC_0:APP_IRQ_H0" "PF_SOC_MSS_0:MSS_INT_F2M[63:63]" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"MIV_IHC_0:APP_IRQ_H1" "PF_SOC_MSS_0:MSS_INT_F2M[62:62]" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"MIV_IHC_0:APP_IRQ_H2" "PF_SOC_MSS_0:MSS_INT_F2M[61:61]" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"MIV_IHC_0:APP_IRQ_H3" "PF_SOC_MSS_0:MSS_INT_F2M[60:60]" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"MIV_IHC_0:APP_IRQ_H4" "PF_SOC_MSS_0:MSS_INT_F2M[59:59]" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"MAC_0_MDC" "PF_SOC_MSS_0:MAC_0_MDC_M2F" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"MDIO:D" "PF_SOC_MSS_0:MAC_0_MDO_M2F" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"MDIO:E" "PF_SOC_MSS_0:MAC_0_MDO_OE_M2F" }
@@ -709,7 +708,7 @@ sd_connect_pins -sd_name ${sd_name} -pin_names {"MSS_INT_F2M_0" "PF_SOC_MSS_0:MS
 sd_connect_pins -sd_name ${sd_name} -pin_names {"MSS_INT_M2F" "PF_SOC_MSS_0:MSS_INT_M2F" }
 
 # Add bus interface net connections
-sd_connect_pins -sd_name ${sd_name} -pin_names {"APB_ARBITER_0:APB_MASTER_high" "IHC_SUBSYSTEM_0:APB3mmaster" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"APB_ARBITER_0:APB_MASTER_high" "MIV_IHC_0:APB_0_M_INITIATOR" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"APB_ARBITER_0:APB_MASTER_low" "FIC_3_APB_INITIATOR" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"APB_ARBITER_0:APB_MMASTER" "PF_SOC_MSS_0:FIC_3_APB_INITIATOR" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"FIC_0_AXI4_INITIATOR" "PF_SOC_MSS_0:FIC_0_AXI4_INITIATOR" }

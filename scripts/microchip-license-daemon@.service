@@ -1,0 +1,9 @@
+# Copy to ~/.config/systemd/user/ and run `systemctl --user daemon-reload`
+# systemctl --user start microchip-licensing-daemon@-opt-microchip
+
+[Unit]
+Description=Microchip License Daemon
+
+[Service]
+Environment=PATH=%I/Libero_SoC_2025.1/LicenseDaemons/
+ExecStart=%I/Libero_SoC_2025.1/LicenseDaemons/lmgrd -z -c %I/License.dat

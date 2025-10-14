@@ -23,7 +23,7 @@ if [[ ! -v MICROCHIP_INSTALL_DIR ]]; then
 fi
 
 # Install paths
-LIBERO_INSTALL_DIR=$MICROCHIP_INSTALL_DIR/Libero_SoC_v2024.2
+LIBERO_INSTALL_DIR=$MICROCHIP_INSTALL_DIR/Libero_SoC_2025.1
 SC_INSTALL_DIR=$MICROCHIP_INSTALL_DIR/SoftConsole-v2022.2-RISC-V-747
 
 if [[ ! -d ${MICROCHIP_INSTALL_DIR} ]]; then
@@ -46,20 +46,20 @@ fi
 
 echo "Libero install: ${LIBERO_INSTALL_DIR}"
 echo "SoftConsole install: ${SC_INSTALL_DIR}"
+echo "License server: ${LICENSE_SERVER:=localhost}"
 
 export SC_INSTALL_DIR
 export LIBERO_INSTALL_DIR
 
 # SoftConsole
 export PATH=$PATH:$SC_INSTALL_DIR/riscv-unknown-elf-gcc/bin
-export FPGENPROG=$LIBERO_INSTALL_DIR/Libero/bin64/fpgenprog
+export FPGENPROG=$LIBERO_INSTALL_DIR/Libero_SoC/Designer/bin64/fpgenprog
 
 # Libero
-export PATH=$PATH:$LIBERO_INSTALL_DIR/Libero/bin:$LIBERO_INSTALL_DIR/Libero/bin64
-export PATH=$PATH:$LIBERO_INSTALL_DIR/Synplify/bin
-export PATH=$PATH:$LIBERO_INSTALL_DIR/QuestaSim/bin
+export PATH=$PATH:$LIBERO_INSTALL_DIR/Libero_SoC/Designer/bin64
+export PATH=$PATH:$LIBERO_INSTALL_DIR/Synplify_Pro/bin
+export PATH=$PATH:$LIBERO_INSTALL_DIR/QuestaSim_Pro/bin
 
 # License
 export LM_LICENSE_FILE=1702@${LICENSE_SERVER:=localhost}
-export SNPSLMD_LICENSE_FILE=1702@${LICENSE_SERVER:=localhost}
-
+# export SNPSLMD_LICENSE_FILE=1702@${LICENSE_SERVER:=localhost}

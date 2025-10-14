@@ -1,11 +1,15 @@
 # Kronus System
 
 ```shell
-source scripts/env.bash
+systemctl --user start microchip-license-daemon@-opt-microchip.service
 ```
 
 ```shell
-LICENSE_SERVER=192.168.122.169 source scripts/env.bash
+MICROCHIP_INSTALL_DIR=/opt/microchip source scripts/env.bash
+```
+
+```shell
+MICROCHIP_INSTALL_DIR=/opt/microchip LICENSE_SERVER=localhost source scripts/env.bash
 ```
 
 ```shell

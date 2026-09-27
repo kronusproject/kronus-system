@@ -16,7 +16,8 @@ SCRIPT ?= $(ROOT_DIR)scripts/project.tcl
 SCRIPT_ARGS = DESIGN:$(PROJECT) BOARD:$(BOARD) OUTPUT_DIR:$(abspath $(OUTPUT_DIR))
 
 HSS_REPOSITORY ?= https://github.com/kronusproject/hart-software-services.git
-HSS_REVISION ?= master
+# Pinned commit of the HSS fork (master as of 2025-04-30)
+HSS_REVISION ?= 0d3696dd241ea3c81a807d4ce4832df54b1a9262
 HSS_BOARD ?= $(BOARD)
 
 ifdef UPDATE_HSS
@@ -64,7 +65,9 @@ $(OUTPUT_DIR)/export/$(PROJECT).spi: $(HSS_IMAGE_PATH) $(ROOT_DIR)scripts/export
 	libero SCRIPT:$(ROOT_DIR)scripts/export.tcl "SCRIPT_ARGS: $(SCRIPT_ARGS) EXPORT_SPI"
 
 $(OUTPUT_DIR)/hss/build/hss-envm-wrapper.$(BOARD).hex: $(OUTPUT_DIR)/mss/$(MSS_COMPONENT)_mss_cfg.xml $(ROOT_DIR)sources/$(BOARD)/hss/def_config
-	[ -d $(OUTPUT_DIR)/hss ] || git clone -b $(HSS_REVISION) --depth 1 $(HSS_REPOSITORY) $(OUTPUT_DIR)/hss
+	[ -d $(OUTPUT_DIR)/hss ] || (git init -q $(OUTPUT_DIR)/hss && git -C $(OUTPUT_DIR)/hss remote add origin $(HSS_REPOSITORY))
+	git -C $(OUTPUT_DIR)/hss fetch -q --depth 1 origin $(HSS_REVISION)
+	git -C $(OUTPUT_DIR)/hss checkout -q -f --detach FETCH_HEAD
 	cp $(OUTPUT_DIR)/mss/$(MSS_COMPONENT)_mss_cfg.xml $(OUTPUT_DIR)/hss/boards/$(HSS_BOARD)/soc_fpga_design/xml/
 	cp $(ROOT_DIR)sources/$(BOARD)/hss/def_config $(OUTPUT_DIR)/hss/.config
 	$(MAKE) -C $(OUTPUT_DIR)/hss BOARD=$(HSS_BOARD)

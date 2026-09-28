@@ -710,8 +710,9 @@ sd_connect_pins -sd_name ${sd_name} -pin_names {"EMMC_RSTN" "PF_SOC_MSS:EMMC_RST
 sd_connect_pins -sd_name ${sd_name} -pin_names {"EMMC_STRB" "PF_SOC_MSS:EMMC_STRB" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"FIC_0_ACLK" "PF_SOC_MSS:FIC_0_ACLK" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"FIC_1_ACLK" "PF_SOC_MSS:FIC_1_ACLK" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"FIC_3_PCLK" "MIV_IHC_0:APB_0_PCLK" "MIV_IHC_0:CORE_CLK" "PF_SOC_MSS_0:FIC_3_PCLK" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"FIC_3_PRESETN" "MIV_IHC_0:APB_0_PRESETN" "MIV_IHC_0:CORE_RESETN" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"FIC_2_ACLK" "PF_SOC_MSS:FIC_2_ACLK" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"FIC_3_PCLK" "MIV_IHC_0:APB_0_PCLK" "MIV_IHC_0:CORE_CLK" "PF_SOC_MSS:FIC_3_PCLK" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"PRESETN" "MIV_IHC_0:APB_0_PRESETN" "MIV_IHC_0:CORE_RESETN" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"GPIO_2_F2M[0:0]" "PF_SOC_MSS:GPIO_2_F2M_0" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"GPIO_2_F2M[10:10]" "PF_SOC_MSS:GPIO_2_F2M_10" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"GPIO_2_F2M[11:11]" "PF_SOC_MSS:GPIO_2_F2M_11" }
@@ -804,11 +805,11 @@ sd_connect_pins -sd_name ${sd_name} -pin_names {"I2C0_SDA_BIBUF:E" "PF_SOC_MSS:I
 sd_connect_pins -sd_name ${sd_name} -pin_names {"I2C0_SDA_BIBUF:Y" "PF_SOC_MSS:I2C_0_SDA_F2M" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"I2C_1_SCL" "PF_SOC_MSS:I2C_1_SCL" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"I2C_1_SDA" "PF_SOC_MSS:I2C_1_SDA" }
-+sd_connect_pins -sd_name ${sd_name} -pin_names {"MIV_IHC_0:APP_IRQ_H0" "PF_SOC_MSS_0:MSS_INT_F2M[63:63]" }
-+sd_connect_pins -sd_name ${sd_name} -pin_names {"MIV_IHC_0:APP_IRQ_H1" "PF_SOC_MSS_0:MSS_INT_F2M[62:62]" }
-+sd_connect_pins -sd_name ${sd_name} -pin_names {"MIV_IHC_0:APP_IRQ_H2" "PF_SOC_MSS_0:MSS_INT_F2M[61:61]" }
-+sd_connect_pins -sd_name ${sd_name} -pin_names {"MIV_IHC_0:APP_IRQ_H3" "PF_SOC_MSS_0:MSS_INT_F2M[60:60]" }
-+sd_connect_pins -sd_name ${sd_name} -pin_names {"MIV_IHC_0:APP_IRQ_H4" "PF_SOC_MSS_0:MSS_INT_F2M[59:59]" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"MIV_IHC_0:APP_IRQ_H0" "PF_SOC_MSS:MSS_INT_F2M[63:63]" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"MIV_IHC_0:APP_IRQ_H1" "PF_SOC_MSS:MSS_INT_F2M[62:62]" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"MIV_IHC_0:APP_IRQ_H2" "PF_SOC_MSS:MSS_INT_F2M[61:61]" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"MIV_IHC_0:APP_IRQ_H3" "PF_SOC_MSS:MSS_INT_F2M[60:60]" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"MIV_IHC_0:APP_IRQ_H4" "PF_SOC_MSS:MSS_INT_F2M[59:59]" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"M2_UART_CTS" "PF_SOC_MSS:MMUART_1_CTS_F2M" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"M2_UART_RTS" "PF_SOC_MSS:MMUART_1_RTS_M2F" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"M2_UART_RXD" "PF_SOC_MSS:MMUART_1_RXD_F2M" }

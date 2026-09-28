@@ -19,6 +19,12 @@ HSS_REPOSITORY ?= https://github.com/polarfire-soc/hart-software-services.git
 HSS_REVISION ?= v2026.04.1
 HSS_BOARD ?= $(BOARD)
 
+# HSS still calls mpfsBootmodeProgrammer.jar (shipped with SoftConsole) to
+# produce the eNVM hex. Run the standalone jar with the system java instead.
+# SC_INSTALL_DIR only has to name an existing directory for the HSS check.
+HSS_MAKE_ARGS = MPFS_BOOTMODE_PROGRAMMER="java -jar $(MPFS_BOOTMODE_PROGRAMMER_JAR)" \
+                SC_INSTALL_DIR=$(dir $(MPFS_BOOTMODE_PROGRAMMER_JAR))
+
 ifdef UPDATE_HSS
 HSS_IMAGE_PATH := $(OUTPUT_DIR)/hss/build/hss-envm-wrapper.$(HSS_BOARD).hex
 SCRIPT_ARGS += UPDATE_HSS
@@ -67,7 +73,7 @@ $(OUTPUT_DIR)/hss/build/hss-envm-wrapper.$(BOARD).hex: $(OUTPUT_DIR)/mss/$(MSS_C
 	[ -d $(OUTPUT_DIR)/hss ] || git clone -b $(HSS_REVISION) --depth 1 $(HSS_REPOSITORY) $(OUTPUT_DIR)/hss
 	cp $(OUTPUT_DIR)/mss/$(MSS_COMPONENT)_mss_cfg.xml $(OUTPUT_DIR)/hss/boards/$(HSS_BOARD)/soc_fpga_design/xml/
 	cp $(ROOT_DIR)sources/$(BOARD)/hss/def_config $(OUTPUT_DIR)/hss/.config
-	$(MAKE) -C $(OUTPUT_DIR)/hss BOARD=$(HSS_BOARD)
+	$(MAKE) -C $(OUTPUT_DIR)/hss BOARD=$(HSS_BOARD) $(HSS_MAKE_ARGS)
 
 $(OUTPUT_DIR)/mss/$(MSS_COMPONENT)_mss_cfg.xml $(OUTPUT_DIR)/mss/$(MSS_COMPONENT).cxz: $(ROOT_DIR)sources/$(BOARD)/mss/$(MSS_COMPONENT).cfg
 	mkdir -p $(OUTPUT_DIR)/mss

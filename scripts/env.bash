@@ -24,7 +24,8 @@ fi
 
 # Install paths
 LIBERO_INSTALL_DIR=$MICROCHIP_INSTALL_DIR/Libero_SoC_2025.1
-SC_INSTALL_DIR=$MICROCHIP_INSTALL_DIR/SoftConsole-v2022.2-RISC-V-747
+XPACK_INSTALL_DIR=${XPACK_INSTALL_DIR:-$MICROCHIP_INSTALL_DIR/xpack-riscv-none-elf-gcc-15.2.0-1}
+MPFS_BOOTMODE_PROGRAMMER_JAR=${MPFS_BOOTMODE_PROGRAMMER_JAR:-$MICROCHIP_INSTALL_DIR/mpfsBootmodeProgrammer/mpfsBootmodeProgrammer.jar}
 
 if [[ ! -d ${MICROCHIP_INSTALL_DIR} ]]; then
   echo -e "${RED}Libero install directory does not exist: ${MICROCHIP_INSTALL_DIR}${NC}" 1>&2
@@ -38,21 +39,33 @@ if [[ ! -d ${LIBERO_INSTALL_DIR} ]]; then
   return 1
 fi
 
-if [[ ! -d ${SC_INSTALL_DIR} ]]; then
-  echo -e "${RED}Libero install directory does not exist: ${SC_INSTALL_DIR}${NC}" 1>&2
+if [[ ! -d ${XPACK_INSTALL_DIR} ]]; then
+  echo -e "${RED}xPack RISC-V GCC install directory does not exist: ${XPACK_INSTALL_DIR}${NC}" 1>&2
   usage
   return 1
 fi
 
+if [[ ! -f ${MPFS_BOOTMODE_PROGRAMMER_JAR} ]]; then
+  echo -e "${RED}mpfsBootmodeProgrammer.jar does not exist: ${MPFS_BOOTMODE_PROGRAMMER_JAR}${NC}" 1>&2
+  return 1
+fi
+
+if ! command -v java >/dev/null; then
+  echo -e "${RED}java is required to run mpfsBootmodeProgrammer.jar${NC}" 1>&2
+  return 1
+fi
+
 echo "Libero install: ${LIBERO_INSTALL_DIR}"
-echo "SoftConsole install: ${SC_INSTALL_DIR}"
+echo "xPack RISC-V GCC install: ${XPACK_INSTALL_DIR}"
+echo "HSS bootmode programmer: ${MPFS_BOOTMODE_PROGRAMMER_JAR}"
 echo "License server: ${LICENSE_SERVER:=localhost}"
 
-export SC_INSTALL_DIR
+export XPACK_INSTALL_DIR
+export MPFS_BOOTMODE_PROGRAMMER_JAR
 export LIBERO_INSTALL_DIR
 
-# SoftConsole
-export PATH=$PATH:$SC_INSTALL_DIR/riscv-unknown-elf-gcc/bin
+# xPack RISC-V GCC (HSS toolchain)
+export PATH=$PATH:$XPACK_INSTALL_DIR/bin
 export FPGENPROG=$LIBERO_INSTALL_DIR/Libero_SoC/Designer/bin64/fpgenprog
 
 # Libero

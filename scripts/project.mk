@@ -16,8 +16,7 @@ SCRIPT ?= $(ROOT_DIR)scripts/project.tcl
 SCRIPT_ARGS = DESIGN:$(PROJECT) BOARD:$(BOARD) OUTPUT_DIR:$(abspath $(OUTPUT_DIR))
 
 HSS_REPOSITORY ?= https://github.com/polarfire-soc/hart-software-services.git
-# HSS_REVISION ?= 39f7a507f14c1155bf06234d29ce75ac2a76ffe1
-HSS_REVISION ?= master
+HSS_REVISION ?= v2026.04.1
 HSS_BOARD ?= $(BOARD)
 
 ifdef UPDATE_HSS
